@@ -1590,32 +1590,27 @@ redips.init = function () {
 
     //currentCell.style.removeProperty("box-shadow");
 
+    if (currentCell.classList.contains("b2")) {
+      if (currentCellRank.charAt(0) == 'J') {
+        juRik.innerHTML--;
+      } else {
+        makRik.innerHTML--;
+      }
+    }
+    if (targetCell.classList.contains("b2")) {
+      if (targetCellRank.charAt(0) == 'J') {
+        juRik.innerHTML++;
+      } else {
+        makRik.innerHTML++;
+      }
+    }
     if (!currentCell.classList.contains("b2") && 
         targetCell.classList.contains("b2")) {
       currentCell.children[0].style.display = "block";
-      if (targetCellRank.charAt(0) != 'J') 
-        makRik.innerHTML++;
-      else 
-        juRik.innerHTML++;
     }
     else if (currentCell.classList.contains("b2") && 
              !targetCell.classList.contains("b2")) {
       targetCell.children[0].style.display = "none";
-      if (currentCellRank.charAt(0) != 'J') 
-        makRik.innerHTML--;
-      else 
-        juRik.innerHTML--;
-    }
-    else if (currentCell.classList.contains("b2") && 
-             targetCell.classList.contains("b2")) {
-      if (currentCellRank.charAt(0) == 'J' && targetCellRank.charAt(0) != 'J') {
-        makRik.innerHTML++;
-        juRik.innerHTML--;
-      }
-      else if (currentCellRank.charAt(0) != 'J' && targetCellRank.charAt(0) == 'J') {
-        makRik.innerHTML--;
-        juRik.innerHTML++;
-      }
     }
 
     if (dropRadio[1].checked && targetCell !== currentCell && 
