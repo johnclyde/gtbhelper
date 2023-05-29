@@ -1596,6 +1596,9 @@ redips.init = function () {
       } else {
         makRik.innerHTML--;
       }
+      if (!targetCell.classList.contains("b2")) {
+        targetCell.children[0].style.display = "none";
+      }
     }
     if (targetCell.classList.contains("b2")) {
       if (targetCellRank.charAt(0) == 'J') {
@@ -1603,14 +1606,9 @@ redips.init = function () {
       } else {
         makRik.innerHTML++;
       }
-    }
-    if (!currentCell.classList.contains("b2") && 
-        targetCell.classList.contains("b2")) {
-      currentCell.children[0].style.display = "block";
-    }
-    else if (currentCell.classList.contains("b2") && 
-             !targetCell.classList.contains("b2")) {
-      targetCell.children[0].style.display = "none";
+      if (!currentCell.classList.contains("b2")) {
+        currentCell.children[0].style.display = "block";
+      }
     }
 
     if (dropRadio[1].checked && targetCell !== currentCell && 
