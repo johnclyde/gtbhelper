@@ -117,7 +117,7 @@ var theSekitori = [
 /* Add here the shikona of retired sekitori, who will not appear in the 
  * following banzuke. If nobody retired then leave this array empty
  */
-var retiredRikishi = ["Ichinojo", "Tochinoshin"];
+var retiredRikishi = [];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the 
  * browser's inspector (F12). Find the table and copy & paste the <tbody> node. 
