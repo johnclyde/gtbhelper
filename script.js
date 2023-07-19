@@ -26,7 +26,7 @@ var theSekitori = [
   "M2w Mitakeumi 2-9",
   "M3e Midorifuji 3-8",
   "M3w Meisei 4-7",
-  "M4e Asanoyama 4-4-7",
+  "M4e Asanoyama 4-4-3",
   "M4w Ura 5-6",
   "M5e Hiradoumi 3-8",
   "M5w Onosho 6-5",
