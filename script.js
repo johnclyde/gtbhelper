@@ -2358,6 +2358,7 @@ redips.init = function () {
   rd.event.droppedBefore = function (targetCell) {
     var makuCounter = document.getElementById("makRik"),
       juCounter = document.getElementById("juRik"),
+      msCounter = document.getElementById("msRik"),
       thisCard = rd.obj,
       currentCell = rd.findParent("TD", thisCard),
       currentChgCell,
@@ -2372,6 +2373,7 @@ redips.init = function () {
     if (curCellIsOfBanzuke2) {
       currentCellRank = currentCell.dataset.r.charAt(0);
       if (currentCellRank == "J") juCounter.innerHTML--;
+      else if (currentCell.dataset.r.charAt(1) == "s") msCounter.innerHTML--;
       else makuCounter.innerHTML--;
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
@@ -2386,6 +2388,7 @@ redips.init = function () {
     if (tarCellIsOfBanzuke2) {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == "J") juCounter.innerHTML++;
+      else if (targetCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
       else makuCounter.innerHTML++;
     } else targetCell.children[0].remove();
 
@@ -2631,13 +2634,13 @@ function getChange(thisRank, targetCellRank) {
   if (thisRank == targetCellRank) chg = "─";
   else {
     const change = [
-      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!"],
-      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"],
-      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!"],
-      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"],
-      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ "],
-      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
-      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ "],
+      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
     ];
     var r1, r2;
 
@@ -2675,7 +2678,8 @@ function getChange(thisRank, targetCellRank) {
         r2 = 3;
         break;
       case "M":
-        r2 = 4;
+        if (!targetCellRank.startsWith("Ms")) r2 = 4;
+        else r2 = 6;
         break;
       default:
         r2 = 5;
