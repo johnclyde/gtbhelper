@@ -12,105 +12,105 @@ for (var i = 0; i < 100; i++) {
  * as plain text and then turn them into array like this.
  */ 
 var theSekitori = [
-  "Y1e Terunofuji 1-3-11",
-  "O1e Takakeisho 0-0-15",
-  "O1w Kirishima 6-7-2",
-  "S1e Hoshoryu 12-3 Y",
-  "S1w Daieisho 9-6",
-  "S2w Wakamotoharu 9-6",
-  "K1e Kotonowaka 11-4",
-  "K1w Abi 6-9",
-  "M1e Nishikigi 10-5",
-  "M1w Tobizaru 9-6",
-  "M2e Shodai 6-9",
-  "M2w Mitakeumi 3-12",
-  "M3e Midorifuji 4-11",
-  "M3w Meisei 8-7",
-  "M4e Asanoyama 8-4-3",
-  "M4w Ura 7-8",
-  "M5e Hiradoumi 5-10",
-  "M5w Onosho 6-9",
-  "M6e Hokuseiho 5-10",
-  "M6w Oho 6-9",
-  "M7e Takayasu 7-8",
-  "M7w Tamawashi 8-7",
-  "M8e Sadanoumi 5-10",
-  "M8w Nishikifuji 5-10",
-  "M9e Takanosho 8-7",
-  "M9w Hokutofuji 12-3 J",
-  "M10e Kinbozan 7-8",
-  "M10w Myogiryu 6-9",
-  "M11e Kotoeko 8-7",
-  "M11w Tsurugisho 5-10",
-  "M12e Chiyoshoma 6-9",
-  "M12w Wakatakakage 0-0-15",
-  "M13e Gonoyama 10-5",
-  "M13w Kotoshoho 7-8",
-  "M14e Daishoho 6-9",
-  "M14w Shonannoumi 10-5",
-  "M15e Ryuden 10-5",
-  "M15w Takarafuji 9-6",
-  "M16e Endo 10-5",
-  "M16w Bushozan 3-12",
-  "M17e Aoiyama 9-6",
-  "M17w Hakuoho 11-4",
-  "J1e Kagayaki 9-6",
-  "J1w Atamifuji 11-4",
-  "J2e Roga 8-7",
-  "J2w Mitoryu 6-9",
-  "J3e Ichiyamamoto 4-9-2",
-  "J3w Shimazuumi 5-10",
-  "J4e Oshoma 7-8",
-  "J4w Tohakuryu 7-8",
-  "J5e Tamashoho 10-5",
-  "J5w Kitanowaka 10-5",
-  "J6e Fujiseiun 0-0-15",
-  "J6w Azumaryu 7-8",
-  "J7e Hakuyozan 6-9",
-  "J7w Churanoumi 8-7",
-  "J8e Takakento 7-8",
-  "J8w Akua 7-8",
-  "J9e Daiamami 11-4",
-  "J9w Tomokaze 10-5",
-  "J10e Chiyosakae 8-7",
-  "J10w Shimanoumi 5-10",
-  "J11e Chiyomaru 8-7",
-  "J11w Tsushimanada 3-12",
-  "J12e Shishi 9-6",
-  "J12w Hidenoumi 5-10",
-  "J13e Kiho 7-5-3",
-  "J13w Shiden 8-7",
-  "J14e Yuma 6-9",
-  "J14w Chiyonoumi 4-11",
-  "Ms1e Tokihayate 7-0",
-  "Ms1w Enho 0-0-7",
-  "Ms2e Tochimusashi 2-5",
-  "Ms2w Kiryuko 3-4",
-  "Ms3e Onosato 4-3",
-  "Ms3w Mukainakano 4-3",
-  "Ms4e Kotokuzan 2-5",
-  "Ms4w Takahashi 5-2",
-  "Ms5e Ishizaki 5-2",
-  "Ms5w Chiyonokuni 0-0-7",
-  "Ms6e Kazekeno 3-4",
-  "Ms6w Kaisho 4-3",
-  "Ms7e Hayatefuji 3-2-2",
-  "Ms7w Tsukahara 6-1",
-  "Ms8e Chiyonoo 2-5",
-  "Ms8w Mineyaiba 3-4",
-  "Ms9e Otsuji 3-4",
-  "Ms9w Hitoshi 5-2",
-  "Ms10e Kotoozutsu 2-5",
-  "Ms10w Kamito 5-2",
-  "Ms11e Kanzaki 3-4",
-  "Ms11w Nabatame 4-3",
-  "Ms12e Terutsuyoshi 4-3",
-  "Ms12w Fukai 4-3",
-  "Ms13e Yago 3-4",
-  "Ms13w Fujinoyama 3-4",
-  "Ms14e Nishinoryu 2-5",
-  "Ms14w Tsurubayashi 2-5",
-  "Ms15e Tokushoryu 1-6",
+  "Y1e Terunofuji 1-3-11", 
+  "O1e Takakeisho 0-0-15", 
+  "O1w Kirishima 6-7-2", 
+  "S1e Hoshoryu 12-3 YK", 
+  "S1w Daieisho 9-6", 
+  "S2w Wakamotoharu 9-6", 
+  "K1e Kotonowaka 11-4 K", 
+  "K1w Abi 6-9", 
+  "M1e Nishikigi 10-5 S", 
+  "M1w Tobizaru 9-6", 
+  "M2e Shodai 6-9", 
+  "M2w Mitakeumi 3-12", 
+  "M3e Midorifuji 4-11", 
+  "M3w Meisei 8-7", 
+  "M4e Asanoyama 8-4-3", 
+  "M4w Ura 7-8", 
+  "M5e Hiradoumi 5-10", 
+  "M5w Onosho 6-9", 
+  "M6e Hokuseiho 5-10", 
+  "M6w Oho 6-9", 
+  "M7e Takayasu 7-8", 
+  "M7w Tamawashi 8-7", 
+  "M8e Sadanoumi 5-10", 
+  "M8w Nishikifuji 5-10", 
+  "M9e Takanosho 8-7", 
+  "M9w Hokutofuji 12-3 DK", 
+  "M10e Kinbozan 7-8", 
+  "M10w Myogiryu 6-9", 
+  "M11e Kotoeko 8-7", 
+  "M11w Tsurugisho 5-10", 
+  "M12e Chiyoshoma 6-9", 
+  "M12w Wakatakakage 0-0-15", 
+  "M13e Gonoyama 10-5 K", 
+  "M13w Kotoshoho 7-8", 
+  "M14e Daishoho 6-9", 
+  "M14w Shonannoumi 10-5 K", 
+  "M15e Ryuden 10-5", 
+  "M15w Takarafuji 9-6", 
+  "M16e Endo 10-5", 
+  "M16w Bushozan 3-12", 
+  "M17e Aoiyama 9-6", 
+  "M17w Hakuoho 11-4 GK", 
+  "J1e Kagayaki 9-6", 
+  "J1w Atamifuji 11-4 Y", 
+  "J2e Roga 8-7", 
+  "J2w Mitoryu 6-9", 
+  "J3e Ichiyamamoto 4-9-2", 
+  "J3w Shimazuumi 5-10", 
+  "J4e Oshoma 7-8", 
+  "J4w Tohakuryu 7-8", 
+  "J5e Tamashoho 10-5", 
+  "J5w Kitanowaka 10-5", 
+  "J6e Fujiseiun 0-0-15", 
+  "J6w Azumaryu 7-8", 
+  "J7e Hakuyozan 6-9", 
+  "J7w Churanoumi 8-7", 
+  "J8e Takakento 7-8", 
+  "J8w Akua 7-8", 
+  "J9e Daiamami 11-4 D", 
+  "J9w Tomokaze 10-5", 
+  "J10e Chiyosakae 8-7", 
+  "J10w Shimanoumi 5-10", 
+  "J11e Chiyomaru 8-7", 
+  "J11w Tsushimanada 3-12", 
+  "J12e Shishi 9-6", 
+  "J12w Hidenoumi 5-10", 
+  "J13e Kiho 7-5-3", 
+  "J13w Shiden 8-7", 
+  "J14e Yuma 6-9", 
+  "J14w Chiyonoumi 4-11", 
+  "Ms1e Tokihayate 7-0 Y", 
+  "Ms1w Enho 0-0-7", 
+  "Ms2e Tochimusashi 2-5", 
+  "Ms2w Kiryuko 3-4", 
+  "Ms3e Onosato 4-3", 
+  "Ms3w Mukainakano 4-3", 
+  "Ms4e Kotokuzan 2-5", 
+  "Ms4w Takahashi 5-2", 
+  "Ms5e Ishizaki 5-2", 
+  "Ms5w Chiyonokuni 0-0-7", 
+  "Ms6e Kazekeno 3-4", 
+  "Ms6w Kaisho 4-3", 
+  "Ms7e Hayatefuji 3-2-2", 
+  "Ms7w Tsukahara 6-1", 
+  "Ms8e Chiyonoo 2-5", 
+  "Ms8w Mineyaiba 3-4", 
+  "Ms9e Otsuji 3-4", 
+  "Ms9w Hitoshi 5-2", 
+  "Ms10e Kotoozutsu 2-5", 
+  "Ms10w Kamito 5-2", 
+  "Ms11e Kanzaki 3-4", 
+  "Ms11w Nabatame 4-3", 
+  "Ms12e Terutsuyoshi 4-3", 
+  "Ms12w Fukai 4-3", 
+  "Ms13e Yago 3-4", 
+  "Ms13w Fujinoyama 3-4", 
+  "Ms14e Nishinoryu 2-5", 
+  "Ms14w Tsurubayashi 2-5", 
+  "Ms15e Tokushoryu 1-6", 
   "Ms15w Dewanoryu 3-4",
   "Ms16e Akiseyama 5-2",
   "Ms16w Oshoumi 4-3",
@@ -251,13 +251,13 @@ var theSekitori = [
   "Sd61e Satorufuji 6-1",
   "Sd61w Gonoumi 5-2",
   "Sd86e Wakaikari 7-0",
-  "Sd86w Genbumaru 2-5",
+  "Sd86w Genbumaru 2-5"
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the 
  * following banzuke. If nobody retired then leave this array empty
  */
-var retiredRikishi = [];
+var retiredRikishi = ["Chiyonokuni"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the 
  * browser's inspector (F12). Find the table and copy & paste the <tbody> node. 
@@ -266,812 +266,108 @@ var retiredRikishi = [];
  * theSekitori array.
  */
 var sekitoriID = [
-  11927,
-  12191,
-  12231,
-  12451,
-  11985,
-  11980,
-  12270,
-  12370,
-  12130,
-  12094,
-  12352,
-  6480,
-  12055,
-  12203,
-  12351,
-  12226,
-  6596,
-  12721,
-  12449,
-  11946,
-  12210,
-  12239,
-  5944,
-  2879,
-  11855,
-  12043,
-  12314,
-  6594,
-  11728,
-  12646,
-  12040,
-  11786,
-  7153,
-  11785,
-  12107,
-  12291,
-  11784,
-  12362,
-  12113,
-  12406,
-  12453,
-  11845,
-  12688,
-  12162,
-  11723,
-  12575,
-  12117,
-  12412,
-  12717,
-  12516,
-  6599,
-  11918,
-  11943,
-  12013,
-  12114,
-  12320,
-  12664,
-  12796,
-  12273,
-  6642,
-  7240,
-  12548,
-  12026,
-  11976,
-  12427,
-  11736,
-  12702,
-  12024,
-  12542,
-  12342,
-  12141,
-  12779,
-  11809,
-  12599,
-  11988,
-  12255,
-  12674,
-  12596,
-  12165,
-  11868,
-  12709,
-  11726,
-  12592,
-  8900,
-  12416,
-  12733,
-  12597,
-  12075,
-  12523,
-  12448,
-  12836,
-  12710,
-  12713,
-  12536,
-  12557,
-  12773,
-  12767,
-  12316,
-  11840,
-  12531,
-  12771
+  11927, 
+  12191, 
+  12231, 
+  12451, 
+  11985, 
+  11980, 
+  12270, 
+  12094, 
+  6596, 
+  12203, 
+  12130, 
+  12210, 
+  12352, 
+  11946, 
+  12291, 
+  12226, 
+  12314, 
+  12043, 
+  12646, 
+  12453, 
+  6480, 
+  5944, 
+  2879, 
+  12351, 
+  11855, 
+  12239, 
+  12721, 
+  11784, 
+  7153, 
+  12113, 
+  11785, 
+  12370, 
+  12688, 
+  12449, 
+  12040, 
+  12162, 
+  6594, 
+  11728, 
+  12055, 
+  12117, 
+  11786, 
+  12796, 
+  11845, 
+  12664, 
+  12516, 
+  12406, 
+  12362, 
+  12013, 
+  12717, 
+  12575, 
+  11976, 
+  12548, 
+  12702, 
+  11723, 
+  11943, 
+  12320, 
+  12114, 
+  11918, 
+  12273, 
+  12427, 
+  11736, 
+  12024, 
+  7240, 
+  12342, 
+  12599, 
+  12026, 
+  12779, 
+  12141, 
+  12165, 
+  12255, 
+  12542, 
+  12412, 
+  12674, 
+  12711, 
+  12836, 
+  12709, 
+  11809, 
+  12773, 
+  12710, 
+  6642, 
+  12767, 
+  12075, 
+  12596, 
+  12448, 
+  11840, 
+  12557, 
+  12561, 
+  12704, 
+  12316, 
+  12416, 
+  12733, 
+  12597, 
+  11868, 
+  12610, 
+  12425, 
+  12534, 
+  12523, 
+  11755, 
+  11726, 
+  12592, 
+  8900
 ];
-
-var hoshitori = [
-{
-  "record": [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Takakeisho", "Kiribayama", "Hoshoryu", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Endo", "Tobizaru", "Ura", "Nishikigi", "Kinbozan", "Kotoshoho", "Meisei", "Asanoyama"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Terunofuji", "Kiribayama", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Endo", "Tobizaru", "Nishikifuji", "Ura", "Nishikigi", "Kinbozan", "Meisei"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Hoshoryu", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Endo", "Tobizaru", "Nishikifuji", "Ura", "Hiradoumi", "Hokuseiho"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 0, 1, 1, 1, 1, 3, 3, 0, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Kiribayama", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Takayasu", "Endo", "Tobizaru", "Nishikifuji", "Hiradoumi", "Hokuseiho", "Tsurugisho"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 3, 1, 0, 1
-  ],
-  "aite": [
-    "Takakeisho", "Kiribayama", "Hoshoryu", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Nishikifuji", "Ura", "Nishikigi", "Kotoshoho", "Meisei", "Mitakeumi", "Asanoyama"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Endo", "Tobizaru", "Nishikifuji", "Nishikigi", "Hokuseiho", "Tsurugisho"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Wakamotoharu", "Shodai", "Abi", "Midorifuji", "Tobizaru", "Nishikifuji", "Ura", "Nishikigi", "Kinbozan", "Meisei"
-  ]
-}, {
-  "record": [],
-  "aite": []
-}, {
-  "record": [
-    0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Wakamotoharu", "Kotonowaka", "Abi", "Midorifuji", "Tobizaru", "Nishikifuji", "Nishikigi", "Kinbozan", "Mitakeumi", "Asanoyama"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Midorifuji", "Takayasu", "Tobizaru", "Nishikifuji", "Ura", "Nishikigi", "Meisei"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Takayasu", "Endo", "Tobizaru", "Ura", "Kinbozan", "Hokutofuji", "Oho"
-  ]
-}, {
-  "record": [
-    2, 1, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Hoshoryu", "Abi", "Midorifuji", "Nishikifuji", "Kotoshoho", "Tamawashi"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 2, 0, 0, 0
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Wakamotoharu", "Midorifuji", "Nishikifuji"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Hoshoryu", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Midorifuji", "Nishikifuji", "Ura", "Nishikigi", "Mitakeumi", "Tamawashi", "Kotoeko"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Takakeisho", "Kiribayama", "Hoshoryu", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Takayasu", "Endo", "Tobizaru", "Ura", "Kinbozan", "Sadanoumi", "Takanosho"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kiribayama", "Daieisho", "Kotonowaka", "Abi", "Midorifuji", "Tobizaru", "Nishikifuji", "Nishikigi", "Kotoshoho", "Meisei", "Mitakeumi", "Hokutofuji", "Daishoho"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Daieisho", "Wakamotoharu", "Kotonowaka", "Shodai", "Abi", "Tobizaru", "Ura", "Kinbozan", "Kotoshoho", "Meisei", "Mitakeumi", "Hokutofuji", "Onosho"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Kotonowaka", "Shodai", "Midorifuji", "Nishikifuji", "Nishikigi", "Kotoshoho", "Meisei", "Mitakeumi", "Hokutofuji", "Tamawashi", "Sadanoumi", "Daishoho", "Kotoeko"
-  ]
-}, {
-  "record": [
-    0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
-  ],
-  "aite": [
-    "Terunofuji", "Daieisho", "Takayasu", "Ura", "Nishikigi", "Kinbozan", "Meisei", "Mitakeumi", "Hokutofuji", "Tamawashi", "Takanosho", "Takarafuji"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Terunofuji", "Takakeisho", "Daieisho", "Kotonowaka", "Abi", "Ura", "Nishikigi", "Kinbozan", "Kotoshoho", "Mitakeumi", "Hokutofuji", "Sadanoumi", "Hiradoumi", "Hokuseiho", "Asanoyama"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Daieisho", "Shodai", "Tobizaru", "Ura", "Nishikigi", "Kinbozan", "Kotoshoho", "Meisei", "Hokutofuji", "Tamawashi", "Sadanoumi", "Takanosho", "Onosho", "Tsurugisho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Midorifuji", "Ura", "Nishikigi", "Kinbozan", "Kotoshoho", "Meisei", "Mitakeumi", "Tamawashi", "Sadanoumi", "Takanosho", "Onosho", "Hiradoumi", "Ryuden", "Aoiyama", "Mitoryu"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Takayasu", "Tobizaru", "Kinbozan", "Kotoshoho", "Mitakeumi", "Hokutofuji", "Sadanoumi", "Takanosho", "Onosho", "Ryuden", "Takarafuji", "Aoiyama", "Chiyoshoma", "Myogiryu", "Ichiyamamoto"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Nishikifuji", "Kinbozan", "Meisei", "Mitakeumi", "Hokutofuji", "Tamawashi", "Takanosho", "Onosho", "Ryuden", "Takarafuji", "Aoiyama", "Kotoeko", "Chiyoshoma", "Tsurugisho", "Oho"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Nishikifuji", "Kotoshoho", "Mitakeumi", "Hokutofuji", "Tamawashi", "Sadanoumi", "Onosho", "Hiradoumi", "Ryuden", "Takarafuji", "Daishoho", "Chiyoshoma", "Myogiryu", "Ichiyamamoto", "Mitoryu"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Nishikigi", "Mitakeumi", "Hokutofuji", "Tamawashi", "Sadanoumi", "Takanosho", "Hiradoumi", "Ryuden", "Takarafuji", "Hokuseiho", "Daishoho", "Chiyoshoma", "Myogiryu", "Oho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0
-  ],
-  "aite": [
-    "Kiribayama", "Hoshoryu", "Meisei", "Hokutofuji", "Takanosho", "Onosho", "Ryuden", "Takarafuji", "Hokuseiho", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Asanoyama", "Tsurugisho"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0
-  ],
-  "aite": [
-    "Hokutofuji", "Tamawashi", "Sadanoumi", "Takanosho", "Onosho", "Hiradoumi", "Takarafuji", "Hokuseiho", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Asanoyama", "Ichiyamamoto", "Oho"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Kotoshoho", "Tamawashi", "Sadanoumi", "Takanosho", "Onosho", "Hiradoumi", "Ryuden", "Hokuseiho", "Daishoho", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Oho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Kiribayama", "Hoshoryu", "Wakamotoharu", "Meisei", "Onosho", "Hiradoumi", "Ryuden", "Takarafuji", "Daishoho", "Aoiyama", "Kotoeko", "Asanoyama", "Tsurugisho", "Oho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Ura", "Kinbozan", "Takanosho", "Onosho", "Hiradoumi", "Ryuden", "Takarafuji", "Hokuseiho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Myogiryu", "Ichiyamamoto", "Mitoryu", "Kagayaki"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Hokutofuji", "Tamawashi", "Sadanoumi", "Hiradoumi", "Ryuden", "Hokuseiho", "Daishoho", "Kotoeko", "Chiyoshoma", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Mitoryu", "Oho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0
-  ],
-  "aite": [
-    "Tobizaru", "Kinbozan", "Sadanoumi", "Hiradoumi", "Ryuden", "Hokuseiho", "Daishoho", "Aoiyama", "Chiyoshoma", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Mitoryu", "Oho", "Kagayaki"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Tamawashi", "Sadanoumi", "Takanosho", "Onosho", "Hiradoumi", "Ryuden", "Daishoho", "Aoiyama", "Kotoeko", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Kagayaki"
-  ]
-}, {
-  "record": [],
-  "aite": []
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Terunofuji", "Daieisho", "Shodai", "Meisei", "Hiradoumi", "Ryuden", "Hokuseiho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Oho"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Tamawashi", "Takanosho", "Onosho", "Takarafuji", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Asanoyama", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Oho", "Kagayaki", "Enho"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0
-  ],
-  "aite": [
-    "Tamawashi", "Takanosho", "Ryuden", "Takarafuji", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Asanoyama", "Myogiryu", "Tsurugisho", "Mitoryu", "Oho", "Kagayaki", "Bushozan"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Hoshoryu", "Wakamotoharu", "Mitakeumi", "Sadanoumi", "Hiradoumi", "Takarafuji", "Hokuseiho", "Chiyoshoma", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Mitoryu", "Oho", "Kagayaki", "Tohakuryu"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Hokutofuji", "Takanosho", "Takarafuji", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Oho", "Kagayaki", "Azumaryu", "Tohakuryu"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0
-  ],
-  "aite": [
-    "Midorifuji", "Sadanoumi", "Onosho", "Ryuden", "Takarafuji", "Hokuseiho", "Aoiyama", "Kotoeko", "Asanoyama", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Kagayaki", "Shonannoumi"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1
-  ],
-  "aite": [
-    "Mitakeumi", "Onosho", "Takarafuji", "Hokuseiho", "Daishoho", "Aoiyama", "Kotoeko", "Chiyoshoma", "Myogiryu", "Ichiyamamoto", "Tsurugisho", "Mitoryu", "Oho", "Gonoyama", "Oshoma"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1
-  ],
-  "aite": [
-    "Kagayaki", "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Enho", "Oshoma", "Roga", "Akua", "Hakuyozan", "Shimazuumi", "Atamifuji", "Ochiai", "Kitanowaka", "Tamashoho"
-  ]
-}, {
-  "record": [
-    1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Oho", "Gonoyama", "Azumaryu", "Tohakuryu", "Bushozan", "Enho", "Oshoma", "Roga", "Shimazuumi", "Takakento", "Churanoumi", "Atamifuji", "Ochiai", "Tamashoho", "Chiyosakae"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Mitoryu", "Gonoyama", "Shonannoumi", "Bushozan", "Enho", "Oshoma", "Roga", "Akua", "Hakuyozan", "Shimazuumi", "Takakento", "Churanoumi", "Chiyomaru", "Kitanowaka", "Tomokaze"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Tsurugisho", "Mitoryu", "Gonoyama", "Shonannoumi", "Bushozan", "Enho", "Oshoma", "Roga", "Akua", "Hakuyozan", "Shimazuumi", "Takakento", "Daiamami", "Chiyomaru", "Hidenoumi"
-  ]
-}, {
-  "record": [
-    1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0
-  ],
-  "aite": [
-    "Ichiyamamoto", "Gonoyama", "Shonannoumi", "Azumaryu", "Tohakuryu", "Enho", "Oshoma", "Roga", "Hakuyozan", "Shimazuumi", "Takakento", "Churanoumi", "Ochiai", "Hidenoumi", "Tamashoho"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 0, 0, 0, 2, 0
-  ],
-  "aite": [
-    "Myogiryu", "Gonoyama", "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Oshoma", "Roga", "Akua", "Takakento"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0
-  ],
-  "aite": [
-    "Kagayaki", "Gonoyama", "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Enho", "Roga", "Tochinoshin", "Akua", "Hakuyozan", "Atamifuji", "Ochiai", "Chiyosakae", "Shimanoumi"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Gonoyama", "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Enho", "Oshoma", "Tochinoshin", "Akua", "Hakuyozan", "Ochiai", "Kitanowaka", "Tamashoho", "Fujiseiun", "Shimanoumi"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 2
-  ],
-  "aite": [
-    "Oshoma", "Roga", "Akua", "Hakuyozan", "Shimazuumi", "Takakento"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Gonoyama", "Azumaryu", "Tohakuryu", "Enho", "Oshoma", "Roga", "Tochinoshin", "Hakuyozan", "Shimazuumi", "Takakento", "Churanoumi", "Chiyomaru", "Hidenoumi", "Fujiseiun", "Tokihayate"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Gonoyama", "Azumaryu", "Tohakuryu", "Bushozan", "Oshoma", "Roga", "Tochinoshin", "Akua", "Shimazuumi", "Takakento", "Churanoumi", "Atamifuji", "Tamashoho", "Fujiseiun"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Gonoyama", "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Tochinoshin", "Akua", "Hakuyozan", "Takakento", "Churanoumi", "Atamifuji", "Ochiai", "Chiyomaru", "Hidenoumi", "Chiyosakae"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Shonannoumi", "Azumaryu", "Tohakuryu", "Bushozan", "Enho", "Tochinoshin", "Akua", "Hakuyozan", "Shimazuumi", "Churanoumi", "Atamifuji", "Ochiai", "Daiamami", "Chiyosakae", "Shimanoumi"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0
-  ],
-  "aite": [
-    "Shonannoumi", "Azumaryu", "Bushozan", "Akua", "Hakuyozan", "Shimazuumi", "Takakento", "Atamifuji", "Ochiai", "Daiamami", "Chiyonokuni", "Chiyomaru", "Tomokaze", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Gonoyama", "Shonannoumi", "Oshoma", "Hakuyozan", "Shimazuumi", "Takakento", "Churanoumi", "Ochiai", "Daiamami", "Chiyonokuni", "Chiyomaru", "Tamashoho", "Tomokaze", "Chiyosakae", "Shimanoumi"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Gonoyama", "Shonannoumi", "Bushozan", "Oshoma", "Roga", "Shimazuumi", "Takakento", "Churanoumi", "Atamifuji", "Daiamami", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Tamashoho"
-  ]
-}, {
-  "record": [
-    1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0
-  ],
-  "aite": [
-    "Ryuo", "Tohakuryu", "Takakento", "Churanoumi", "Atamifuji", "Ochiai", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Chiyosakae", "Fujiseiun", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 0, 0, 2, 0, 0
-  ],
-  "aite": [
-    "Churanoumi", "Atamifuji", "Ochiai", "Daiamami", "Kitanowaka", "Hidenoumi", "Tamashoho", "Tomokaze", "Fujiseiun", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Azumaryu", "Tohakuryu", "Akua", "Shimazuumi", "Churanoumi", "Atamifuji", "Ochiai", "Daiamami", "Kitanowaka", "Hidenoumi", "Tomokaze", "Fujiseiun", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1
-  ],
-  "aite": [
-    "Gonoyama", "Azumaryu", "Roga", "Ochiai", "Daiamami", "Chiyonokuni", "Chiyomaru", "Hidenoumi", "Tamashoho", "Tomokaze", "Chiyosakae", "Fujiseiun", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Tohakuryu", "Bushozan", "Akua", "Shimazuumi", "Ochiai", "Daiamami", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Tamashoho", "Tomokaze", "Chiyosakae", "Fujiseiun", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Gonoyama", "Shonannoumi", "Bushozan", "Roga", "Hakuyozan", "Atamifuji", "Ochiai", "Chiyonokuni", "Kitanowaka", "Hidenoumi", "Tomokaze", "Chiyosakae", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 1, 3, 0, 1, 1, 0, 0, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Chiyonoumi", "Kawazoe", "Azumaryu", "Churanoumi", "Atamifuji", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Tamashoho", "Chiyosakae", "Fujiseiun", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0
-  ],
-  "aite": [
-    "Ryuo", "Shonannoumi", "Oshoma", "Shimazuumi", "Takakento", "Atamifuji", "Daiamami", "Kitanowaka", "Hidenoumi", "Tamashoho", "Tomokaze", "Fujiseiun", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Shishi", "Shiden", "Roga", "Akua", "Hakuyozan", "Daiamami", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Tomokaze", "Chiyosakae", "Shimanoumi", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Yuma", "Kotokuzan", "Oshoma", "Roga", "Takakento", "Atamifuji", "Daiamami", "Chiyomaru", "Kitanowaka", "Tamashoho", "Tomokaze", "Chiyosakae", "Fujiseiun", "Tokihayate", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Hayatefuji", "Shishi", "Kawazoe", "Akua", "Churanoumi", "Daiamami", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Tamashoho", "Tomokaze", "Chiyosakae", "Fujiseiun", "Shimanoumi", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Yuma", "Tochimusashi", "Shiden", "Churanoumi", "Daiamami", "Chiyonokuni", "Chiyomaru", "Kitanowaka", "Hidenoumi", "Tamashoho", "Tomokaze", "Chiyosakae", "Fujiseiun", "Shimanoumi", "Tokihayate"
-  ]
-}, 
-// Juryo rikishi's torikumi
-{
-  "record": [
-    1, 1, 0, 1, 1, 0, 0
-  ],
-  "aite": [
-    "Kawazoe", "Tsushimanada", "Yuma", "Tochimusashi", "Mukainakano", "Onosato", "Fujiseiun"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Shiden", "Tokihayate", "Ryuo", "Tokushoryu", "Yuma", "Kamito", "Tomokaze"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Shishi", "Chiyonoumi", "Shimanoumi", "Dewanoryu", "Ryuo", "Tochimusashi", "Terutsuyoshi"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Kotokuzan", "Ryuo", "Fujiseiun", "Yuma", "Takahashi", "Kiryuko", "Tokihayate"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 0, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Chiyonoumi", "Shishi", "Kawazoe", "Chiyosakae", "Kotokuzan", "Kanzaki", "Dewanoryu", "Daiamami"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 0, 1, 1, 1
-  ],
-  "aite": [
-    "Ryuo", "Kotokuzan", "Tochimusashi", "Hayatefuji", "Tomokaze", "Terutsuyoshi", "Kamito"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Hayatefuji", "Terutsuyoshi", "Chiyonoumi", "Shiden", "Tsushimanada", "Kotokuzan", "Nabatame"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 1, 0, 0
-  ],
-  "aite": [
-    "Tochimusashi", "Yuma", "Mukainakano", "Chiyonoumi", "Tokushoryu", "Tokihayate", "Kaisho"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Terutsuyoshi", "Hayatefuji", "Shiden", "Shishi", "Kawazoe", "Shimanoumi", "Tsushimanada"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 1, 0, 0
-  ],
-  "aite": [
-    "Yuma", "Tochimusashi", "Dewanoryu", "Kamito", "Kanzaki", "Chiyonoumi", "Kotokuzan"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 1, 0, 1, 0
-  ],
-  "aite": [
-    "Tokushoryu", "Dewanoryu", "Hayatefuji", "Akiseyama", "Shiden", "Nabatame", "Ishizaki"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Mukainakano", "Kamito", "Nabatame", "Kawazoe", "Hayatefuji", "Nishinoryu", "Kanzaki"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 0, 1, 1
-  ],
-  "aite": [
-    "Akiseyama", "Mukainakano", "Terutsuyoshi", "Kotokuzan", "Miyagi", "Daiseiryu", "Ryuo"
-  ]
-}, {
-  "record": [
-    1, 0, 1, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Dewanoryu", "Nabatame", "Kamito", "Mukainakano", "Kaisho", "Tsukahara", "Miyagi"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 1, 0, 0
-  ],
-  "aite": [
-    "Kanzaki", "Tokushoryu", "Akiseyama", "Terutsuyoshi", "Yoshii", "Kawazoe", "Chiyonoumi"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Kamito", "Kaisho", "Tsukahara", "Miyagi", "Terutsuyoshi", "Ryuo", "Tokushoryu"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 0, 0, 0, 0
-  ],
-  "aite": [
-    "Kaisho", "Akiseyama", "Tokushoryu", "Takahashi", "Onosato", "Mukainakano", "Tochimusashi"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Nabatame", "Kanzaki", "Nishinoryu", "Onosato", "Akiseyama", "Ishizaki", "Hayatefuji"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Tsukahara", "Ishizaki", "Kaisho", "Yoshii", "Tochikamiyama", "Tokushoryu", "Kotoozutsu"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 1, 1, 1
-  ],
-  "aite": [
-    "Nishinoryu", "Onosato", "Kanzaki", "Kotoozutsu", "Kayo", "Akiseyama", "Tokunomusashi"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 1, 1, 1, 1
-  ],
-  "aite": [
-    "Ishizaki", "Tsukahara", "Yoshii", "Kaisho", "Nabatame", "Shiden", "Otsuji"
-  ]
-}, {
-  "record": [
-    1, 1, 0, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Onosato", "Nishinoryu", "Takahashi", "Mineyaiba", "Kazekeno", "Kaisho", "Mukainakano"
-  ]
-}, {
-  "record": [
-    0, 0, 0, 0, 1, 1, 1
-  ],
-  "aite": [
-    "Yoshii", "Mineyaiba", "Tochikamiyama", "Kanzaki", "Dewanoryu", "Kotoyusho", "Akiseyama"
-  ]
-}, {
-  "record": [
-    1, 0, 0, 1, 0, 0, 0
-  ],
-  "aite": [
-    "Miyagi", "Takahashi", "Onosato", "Nishinoryu", "Kamito", "Kotoozutsu", "Toshunryu"
-  ]
-}, {
-  "record": [
-    0, 1, 1, 0, 1, 1, 0
-  ],
-  "aite": [
-    "Takahashi", "Miyagi", "Kotoozutsu", "Ishizaki", "Toshunryu", "Tokunomusashi", "Kazekeno"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Mineyaiba", "Yoshii", "Ishizaki", "Nabatame", "Shishi", "Kazekeno", "Tsurubayashi"
-  ]
-}, {
-  "record": [
-    1, 1, 1, 0, 1, 0, 1
-  ],
-  "aite": [
-    "Kotoozutsu", "Chiyonoo", "Tokunomusashi", "Hitoshi", "Ishizaki", "Takahashi", "Mineyaiba"
-  ]
-}, {
-  "record": [
-    0, 1, 0, 1, 0, 1, 1
-  ],
-  "aite": [
-    "Kazekeno", "Tochikamiyama", "Mineyaiba", "Tsukahara", "Tokunomusashi", "Yoshii", "Nishinoryu"
-  ]
-}, {
-  "record": [
-    1, 0, 1, 1, 1, 0, 1
-  ],
-  "aite": [
-    "Tochikamiyama", "Kazekeno", "Tochimaru", "Tokunomusashi", "Yago", "Otsuji", "Fukai"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 0, 0, 0, 1
-  ],
-  "aite": [
-    "Chiyonoo", "Kotoozutsu", "Miyagi", "Toshunryu", "Nishinoryu", "Kayo", "Kotoyusho"
-  ]
-}, {
-  "record": [
-    0, 0, 1, 1, 0, 0, 1
-  ],
-  "aite": [
-    "Tokunomusashi", "Tochimaru", "Kayo", "Tochikamiyama", "Mineyaiba", "Tochinobori", "Yoshii"
-  ]
-}];
 
 //***** Just update the "basho" variable and you're all done. *****
 
@@ -1173,17 +469,10 @@ window.onload = function() {
     //populateSlots();
   }
   if (window.localStorage.getItem("picks") !== null) {
-    document.getElementById("tableLiner").innerHTML = window.localStorage.getItem("picks");
-    
-    var banzuke1 = document.getElementById("banzuke1");
-    var b1Cell = banzuke1.getElementsByClassName("redips-only");
-
-    for (var i = 0; i < b1Cell.length; i++) {
-      if (b1Cell[i].children.length > 1) 
-        b1Cell[i].children[0].remove();
-    }
-
-    window.localStorage.setItem("picks", document.getElementById("tableLiner").innerHTML);
+    window.localStorage.removeItem("picks");
+  }
+  if (window.localStorage.getItem("savedBanzuke") !== null) {
+    document.getElementById("tableLiner").innerHTML = window.localStorage.getItem("savedBanzuke");
   }
   else {
     writeTableTitles(basho);
@@ -1233,7 +522,7 @@ window.onload = function() {
 
       time = setTimeout(function() {
         hideHoshitori();
-        window.localStorage.setItem("picks", document.getElementById("tableLiner").innerHTML);
+        saveBanzuke();
         showSaving();
       }, 1000);
     });
@@ -1245,17 +534,6 @@ window.onload = function() {
     cards[i].addEventListener("mouseover", showHoshitori.bind(this));
     cards[i].addEventListener("mouseout", function() {
       this.style.border = "";
-      if (document.getElementById("hoshiCheckbox").checked) {
-        var rikishiCard = document.querySelectorAll(".redips-drag");
-        
-        for (var j = 0; j < rikishiCard.length; j++) {
-          if (rikishiCard[j].style.border != "") {
-            rikishiCard[j].style.border = "";
-          }
-          if (rikishiCard[j].style.outline != "") 
-            rikishiCard[j].style.outline = "";
-        }
-      }
     });
   }
     
@@ -1357,12 +635,13 @@ window.onload = function() {
 }
 
 function showHoshitori() {
+  /*
   if (event.target.classList.contains("redips-drag")) {
     var thisRikishi = theSekitori.find(text => text.startsWith(event.target.id));
     var rikishiNum = theSekitori.indexOf(thisRikishi);
-    
+  */
     event.target.style.border = "2px solid blue";
-
+  /*
     if (document.getElementById("hoshiCheckbox").checked && hoshitori[rikishiNum].record.length > 0) {
       for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
         var aite = theSekitori.find(text => text.split(' ')[1] == hoshitori[rikishiNum].aite[i]);
@@ -1393,6 +672,7 @@ function showHoshitori() {
       }
     }
   }
+  */
 }
 
 /*
@@ -1425,6 +705,7 @@ function hideNextRank() {
 
 function hideHoshitori() {
   event.target.style.border = "";
+  /*
   if (document.getElementById("hoshiCheckbox").checked) {
     var rikishiCard = document.querySelectorAll(".redips-drag");
     
@@ -1436,6 +717,7 @@ function hideHoshitori() {
         rikishiCard[j].style.outline = "";
     }
   }
+  */
 }
 
 function saveRadio(radioButton) {
@@ -1449,6 +731,13 @@ function saveDropRadio(button) {
     rd.dropMode = "multiple";
 
   window.localStorage.setItem("radioDrop", button.value);
+}
+
+function saveBanzuke() {
+  var date = new Date();
+
+  window.localStorage.setItem("savedBanzuke", document.getElementById("tableLiner").innerHTML);
+  window.localStorage.setItem("savedBanzukeTime", date.toString());
 }
 
 // *****************************************************************************
@@ -1494,7 +783,7 @@ redips.init = function () {
       chTooltip.id = "chTooltip";
       chTooltip.innerHTML = '(' + rd.obj.id + ' ' + rd.obj.dataset.re + ')';
       if (change != "") 
-        chTooltip.innerHTML += " <b>" + change + "</b>";
+        chTooltip.innerHTML = "<b>" + change + "</b> " + chTooltip.innerHTML;
       rd.obj.prepend(chTooltip);
     }
     var tip = document.getElementById("tip");
@@ -1606,8 +895,7 @@ redips.init = function () {
           //b1Cell[i].style.removeProperty("border");
           hideHoshitori();
           updateInfoCells();
-          window.localStorage.setItem("picks", 
-            document.getElementById("tableLiner").innerHTML);
+          saveBanzuke();
         }
       });
       showSaving();
@@ -1737,7 +1025,7 @@ redips.init = function () {
 
   rd.event.finish = function() {
     hideHoshitori();
-    window.localStorage.setItem("picks", document.getElementById("tableLiner").innerHTML);
+    saveBanzuke();
   };
 
 };
@@ -1771,7 +1059,7 @@ function toggleColumns(button) {
   for (var i = 1; i < 8; i++) {
     window.localStorage.setItem("colCheck" + String(i), colCheck[i-1].checked);
   }
-  window.localStorage.setItem("picks", document.getElementById("tableLiner").innerHTML);
+  saveBanzuke();
 }
 
 function updateInfoCells() {
@@ -1874,7 +1162,7 @@ redips.resetBanzuke = function() {
         c5 = document.querySelectorAll(".ch2"),
         c6 = document.querySelectorAll(".nte");
 
-    window.localStorage.removeItem("picks");
+    window.localStorage.removeItem("savedBanzuke");
     document.getElementById("makRik").innerHTML = 0;
     for (var i = 1; i < 8; i++) 
       window.localStorage.removeItem("colCheck" + String(i));
