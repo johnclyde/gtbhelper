@@ -2236,7 +2236,12 @@ window.onload = function () {
 
           card.id = rikiData[0];
           card.className = "redips-drag se";
-          if (rikiData[0].startsWith("Ms"))
+          if (
+            rikiData[0].startsWith("Ms") ||
+            rikiData[0].startsWith("Sd") ||
+            rikiData[0].startsWith("Jd") ||
+            rikiData[0].startsWith("Jk")
+          )
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
 
