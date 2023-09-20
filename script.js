@@ -1227,20 +1227,26 @@ function getChange(thisRank, targetCellRank) {
     chg = '─';
   else {
     const change = [
-      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
-      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!"],
-      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!"],
-      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!"],
-      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!"],
-      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "],
-      ["!!!", "!!!", "!!!", "!!!", "!!!", ' ↑ ', "calc"]
+      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"], 
+      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!"], 
+      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!", "!!!"], 
+      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"], 
+      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!", "!!!"], 
+      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"], 
+      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "], 
+      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"]
     ]
     var r1, r2;
 
     switch (thisRank.charAt(0)) {
       case 'Y': r1 = 0; break;
       case 'O': r1 = 1; break;
-      case 'S': r1 = 2; break;
+      case 'S': 
+        if (!thisRank.startsWith("Sd")) 
+          r1 = 2;
+        else 
+          r1 = 7;
+        break;
       case 'K': r1 = 3; break;
       case 'M': 
         if (!thisRank.startsWith("Ms")) 
@@ -1253,13 +1259,18 @@ function getChange(thisRank, targetCellRank) {
     switch (targetCellRank.charAt(0)) {
       case 'Y': r2 = 0; break;
       case 'O': r2 = 1; break;
-      case 'S': r2 = 2; break;
+      case 'S': 
+        if (!targetCellRank.startsWith("Sd")) 
+          r2 = 2;
+        else 
+          r2 = 7; 
+        break;
       case 'K': r2 = 3; break;
-      case 'M':
-        if (!targetCellRank.startsWith("Ms"))
+      case 'M': 
+        if (!targetCellRank.startsWith("Ms")) 
           r2 = 4;
-        else
-          r2 = 6;
+        else 
+          r2 = 6; 
         break;
       default:  r2 = 5;
     }
