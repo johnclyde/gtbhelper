@@ -1246,8 +1246,14 @@ function getChange(thisRank, targetCellRank) {
 
     if (change[r1][r2] != "calc") chg = change[r1][r2];
     else {
-      var thisRankNum = parseInt(thisRank.slice(1, -1)),
-        targetRankNum = parseInt(targetCellRank.slice(1, -1));
+      var thisRankNum =
+          r1 == 6 || r1 == 7
+            ? parseInt(thisRank.slice(2, -1))
+            : parseInt(thisRank.slice(1, -1)),
+        targetRankNum =
+          r2 == 6 || r2 == 7
+            ? parseInt(targetCellRank.slice(2, -1))
+            : parseInt(targetCellRank.slice(1, -1));
 
       if (thisRank.slice(-1) == "w") thisRankNum += 0.5;
       if (targetCellRank.slice(-1) == "w") targetRankNum += 0.5;
