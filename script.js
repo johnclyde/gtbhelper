@@ -58,7 +58,7 @@ var theSekitori = [
   "J1w Kotoshoho 12-3 Y",
   "J2e Bushozan 10-5",
   "J2w Shimazuumi 9-6",
-  "J3e Kagayaki 4-9",
+  "J3e Kagayaki 5-10",
   "J3w Oshoma 6-9",
   "J4e Daiamami 9-6",
   "J4w Mitoryu 9-6",
