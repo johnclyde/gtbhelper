@@ -1,15 +1,5 @@
 "use strict";
 
-/*
-var shikonaCells = document.getElementsByClassName("shikona");
-var theRikishi = [], rikishiID = [];
-for (var i = 0; i < 100; i++) {
-  theRikishi[i] = shikonaCells[i].previousSibling.innerHTML + ' ' + shikonaCells[i].children[0].innerHTML + ' ' + shikonaCells[i].nextSibling.children[0].innerHTML;
-  rikishiID[i]  = shikonaCells[i].children[0].href.split('=')[1];
-} 
-/* To make this, enable "One Column" option in SumoDB, copy & paste the tables 
- * as plain text and then turn them into array like this.
- */
 var theSekitori = [
   "Y1e Terunofuji 0-0-15",
   "O1e Takakeisho 9-6",
@@ -221,9 +211,6 @@ var theSekitori = [
   "Sd73e Oki 6-1",
 ];
 
-/* Add here the shikona of retired sekitori, who will not appear in the
- * following banzuke. If nobody retired then leave this array empty
- */
 var retiredRikishi = ["Chiyonokuni"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the
@@ -244,8 +231,6 @@ var sekitoriID = [
   12316, 12416, 12733, 12597, 11868, 12610, 12425, 12534, 12523, 11755, 11726,
   12592, 8900,
 ];
-
-//***** Just update the "basho" variable and you're all done. *****
 
 let redips = {},
   rd = REDIPS.drag;
@@ -335,9 +320,7 @@ function exportTableToCSV($table, filename) {
 
 window.onload = function () {
   var basho = "202309"; // The date of the basho just ended
-  //****************************************************************************
 
-  // This must be a hyperlink
   $("#exportToCsv1").on("click", function (event) {
     exportTableToCSV.apply(this, [$("#banzuke1"), "banzuke1.csv"]);
   });
@@ -350,10 +333,7 @@ window.onload = function () {
     window.localStorage.removeItem("banzuke2");
   }
   if (window.localStorage.getItem("banzuke") !== null) {
-    //document.getElementById("tableLiner").innerHTML = window.localStorage.getItem("banzuke");
     window.localStorage.removeItem("banzuke");
-    //writeTableTitles(basho);
-    //populateSlots();
   }
   if (window.localStorage.getItem("picks") !== null) {
     window.localStorage.removeItem("picks");
@@ -406,7 +386,6 @@ window.onload = function () {
     let time = 0;
     noteCells[i].children[0].contentEditable = "true";
     noteCells[i].children[0].addEventListener("input", function () {
-      // Reset the timer
       clearTimeout(time);
 
       time = setTimeout(function () {
@@ -570,9 +549,6 @@ window.onload = function () {
             card.removeAttribute("data-ko");
           }
 
-          //card.setAttribute("onmouseout", "hideHoshitori()");
-
-          //cell[i].appendChild(holder);
           cell[i].appendChild(card);
 
           var resCell, newRankCell;
@@ -581,8 +557,6 @@ window.onload = function () {
           else resCell = cell[i].nextSibling;
 
           resCell.innerHTML = rikiData[2];
-
-          //cell[i].style.borderInline = "1px solid #929292";
         }
       }
     }
@@ -590,89 +564,11 @@ window.onload = function () {
 };
 
 function showHoshitori() {
-  /*
-  if (event.target.classList.contains("redips-drag")) {
-    var thisRikishi = theSekitori.find(text => text.startsWith(event.target.id));
-    var rikishiNum = theSekitori.indexOf(thisRikishi);
-  */
   event.target.style.border = "2px solid blue";
-  /*
-    if (document.getElementById("hoshiCheckbox").checked && hoshitori[rikishiNum].record.length > 0) {
-      for (var i = 0; i < hoshitori[rikishiNum].record.length; i++) {
-        var aite = theSekitori.find(text => text.split(' ')[1] == hoshitori[rikishiNum].aite[i]);
-        
-        if (aite) {
-          var aiteCard = document.getElementById(aite.split(' ')[0]);
-          var honwariBoutColor = "", ketteisenBoutColor = "";
-
-          switch (hoshitori[rikishiNum].record[i]) {
-            case 0: 
-              honwariBoutColor = "2px solid red"; break;
-            case 1: 
-              honwariBoutColor = "2px solid black"; break;
-            case 2:
-              honwariBoutColor = "2px dashed red"; break;
-            case 3: 
-              honwariBoutColor = "2px dashed black"; break;
-            case 4: 
-              ketteisenBoutColor = "2px solid red"; break;
-            default: 
-              ketteisenBoutColor = "2px solid black";
-          }
-          if (honwariBoutColor != "") 
-            aiteCard.style.border = honwariBoutColor;
-          else 
-            aiteCard.style.outline = ketteisenBoutColor;
-        }
-      }
-    }
-  }
-  */
 }
-
-/*
-function showNextRank(thisRank) {
-  if (event.target.className == "hold") {
-    var cards = document.querySelectorAll(".se");
-
-    event.target.parentNode.style.boxShadow = "0 0 0 2px inset blue";
-    for (var i = 0; i < cards.length; i++) {
-      if (cards[i].id == thisRank) {
-        var cardCurrentRank = cards[i].parentNode.id;
-        var table1Cell = document.querySelectorAll('.' + cardCurrentRank);
-        table1Cell[0].style.boxShadow = "0 0 0 2px inset black";
-        break;
-      }
-    }
-  }
-}
-
-function hideNextRank() {
-  var cell = document.getElementsByTagName("td");
-    
-  for (var j = 0; j < cell.length; j++) {
-    if (cell[j].style.boxShadow != "rgba(0, 0, 0, 0.16) 0px 0px 0px 2px inset") {
-      cell[j].style.boxShadow = "rgba(0, 0, 0, 0.16) 0px 0px 0px 2px inset";
-    }
-  }
-}
-*/
 
 function hideHoshitori() {
   event.target.style.border = "";
-  /*
-  if (document.getElementById("hoshiCheckbox").checked) {
-    var rikishiCard = document.querySelectorAll(".redips-drag");
-    
-    for (var j = 0; j < rikishiCard.length; j++) {
-      if (rikishiCard[j].style.border != "") {
-        rikishiCard[j].style.border = "";
-      }
-      if (rikishiCard[j].style.outline != "") 
-        rikishiCard[j].style.outline = "";
-    }
-  }
-  */
 }
 
 function saveRadio(radioButton) {
@@ -696,15 +592,11 @@ function saveBanzuke() {
   window.localStorage.setItem("savedBanzukeTime", date.toString());
 }
 
-// *****************************************************************************
-
 rd.animation = "off";
 
 redips.init = function () {
   rd.init();
   rd.hover.colorTd = "chartreuse";
-  //rd.hover.borderTd = "2px solid blue";
-  //rd.dropMode = "multiple";
   rd.only.divClass.se = "b2";
 
   rd.enableDrag(false, ".intai");
@@ -802,7 +694,6 @@ redips.init = function () {
                 b2Cell[i] === rd.obj.parentNode) ||
               ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
             ) {
-              //b2Cell[i].style.border = "none";
               b2Cell[i].classList.add("shiftTo");
               for (var j = i - 1; j >= targetIndex; i--, j--) {
                 for (var k = 0; k < b2Cell[j].children.length; k++)
@@ -854,7 +745,6 @@ redips.init = function () {
             document.getElementById("juRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
-          //b1Cell[i].style.removeProperty("border");
           hideHoshitori();
           updateInfoCells();
           saveBanzuke();
@@ -865,15 +755,11 @@ redips.init = function () {
   };
 
   rd.event.clicked = function (currentCell) {
-    //currentCell.style.boxShadow = "0 0 0 4px #0000003d inset";
     hideHoshitori();
   };
 
   rd.event.notMoved = function () {
     var currentCell = rd.findParent("TD", rd.obj);
-
-    //currentCell.style.removeProperty("box-shadow");
-    //rd.obj.removeChild(rd.obj.childNodes[1]);
   };
 
   rd.event.droppedBefore = function (targetCell) {
@@ -888,8 +774,6 @@ redips.init = function () {
       targetCellRank,
       curCellIsOfBanzuke2 = currentCell.classList.contains("b2"),
       tarCellIsOfBanzuke2 = targetCell.classList.contains("b2");
-
-    //currentCell.style.removeProperty("box-shadow");
 
     if (curCellIsOfBanzuke2) {
       currentCellRank = currentCell.dataset.r.charAt(0);
@@ -936,7 +820,6 @@ redips.init = function () {
                 b2Cell[i] === thisCard.parentNode) ||
               ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
             ) {
-              //b2Cell[i].style.border = "none";
               for (var j = i - 1; j >= targetIndex; i--, j--)
                 rd.relocate(b2Cell[j], b2Cell[i], "instant");
               redips.init();
@@ -953,7 +836,6 @@ redips.init = function () {
                 b2Cell[i] === thisCard.parentNode) ||
               ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
             ) {
-              //b2Cell[i].style.border = "none";
               for (var j = i + 1; j <= targetIndex; i++, j++)
                 rd.relocate(b2Cell[j], b2Cell[i], "instant");
               redips.init();
@@ -1153,8 +1035,6 @@ redips.resetBanzuke = function () {
 
     for (var i = 0; i < b2Cell.length; i++) {
       if (b2Cell[i].children.length > 0) {
-        //b2Cell[i].style.border = "1px dashed dimgray";
-        //chgCell[i].innerHTML = ' ';
         for (var j = b2Cell[i].children.length - 1; j >= 0; j--) {
           for (var k = 0; k < 100; k++) {
             if (redipsCell[k].classList.contains(b2Cell[i].children[j].id)) {
@@ -1163,7 +1043,6 @@ redips.resetBanzuke = function () {
                 target: redipsCell[k],
               });
               redipsCell[k].children[0].style.display = "none";
-              //b1Cell[k].style.removeProperty("border");
               break;
             }
           }
@@ -1219,7 +1098,6 @@ redips.arrange = function () {
         target: document.querySelector('[data-r="' + rikishiRank + '"]'),
       });
     }
-    //else break;
   }
   updateInfoCells();
 };
