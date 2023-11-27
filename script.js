@@ -334,7 +334,7 @@ function exportTableToCSV($table, filename) {
 }
 
 window.onload = function () {
-  var basho = "202307"; // The date of the basho just ended
+  var basho = "202309"; // The date of the basho just ended
   //****************************************************************************
 
   // This must be a hyperlink
@@ -358,6 +358,7 @@ window.onload = function () {
   if (window.localStorage.getItem("picks") !== null) {
     window.localStorage.removeItem("picks");
   }
+
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     document.getElementById("tableLiner").innerHTML =
       window.localStorage.getItem("savedBanzuke");
@@ -365,6 +366,7 @@ window.onload = function () {
     writeTableTitles(basho);
     populateSlots();
   }
+
   if (window.localStorage.getItem("colCheck1") === null) {
     var columnCheckbox = document.querySelectorAll(".checkedByDefault");
 
@@ -385,10 +387,13 @@ window.onload = function () {
     radioLocal = window.localStorage.getItem("radioButton"),
     radioLocalDrop = window.localStorage.getItem("radioDrop");
 
-  if (radioLocal === null || radioLocal == "openRikishiPage")
+  if (radioLocal === null || radioLocal == "openRikishiPage") {
     radioButton[0].checked = true;
-  else if (radioLocal == "returnToOld") radioButton[1].checked = true;
-  else radioButton[2].checked = true;
+  } else if (radioLocal == "returnToOld") {
+    radioButton[1].checked = true;
+  } else {
+    radioButton[2].checked = true;
+  }
 
   if (radioLocalDrop === null || radioLocalDrop == "multiple")
     radioButton[3].checked = true;
@@ -427,14 +432,14 @@ window.onload = function () {
       tableTitle = document.getElementsByClassName("tableTitle");
 
     const bashoMonthLookup = {
-        1: "Hatsu",
-        3: "Haru",
-        5: "Natsu",
-        7: "Nagoya",
-        9: "Aki",
-        11: "Kyushu",
-      },
-      getBashoName = (bMonth) => bashoMonthLookup[bMonth];
+      1: "Hatsu",
+      3: "Haru",
+      5: "Natsu",
+      7: "Nagoya",
+      9: "Aki",
+      11: "Kyushu",
+    };
+    const getBashoName = (bMonth) => bashoMonthLookup[bMonth];
 
     tableTitle[0].innerHTML =
       getBashoName(bashoMonth) +
@@ -454,9 +459,66 @@ window.onload = function () {
       tableTitle[1].innerHTML;
   }
 
+  function updateDisplay(cell, wins, losses) {
+    var resCell = cell.nextSibling || cell.previousSibling;
+    resCell.innerHTML = wins.toString() + "-" + losses.toString();
+  }
+
+  function saveTheSekitori() {
+    localStorage.setItem("theSekitori", JSON.stringify(theSekitori));
+  }
+
+  function adjustRecord(cell, winAdjustment, lossAdjustment) {
+    var card = cell.querySelector(".redips-drag");
+    if (!card) return;
+
+    var wins = parseInt(card.getAttribute("data-w").split("-")[0]);
+    var losses = parseInt(card.getAttribute("data-w").split("-")[1]);
+
+    wins += winAdjustment;
+    losses += lossAdjustment;
+
+    wins = Math.max(wins, 0); // Prevent negative wins
+    losses = Math.max(losses, 0); // Prevent negative losses
+
+    card.setAttribute("data-w", wins + "-" + losses);
+    updateDisplay(cell, wins, losses);
+    saveTheSekitori();
+  }
+
+  function createButton(text, onClickFunction) {
+    var button = document.createElement("button");
+    button.innerHTML = text;
+    button.onclick = onClickFunction;
+    return button;
+  }
+
+  function addAdjustmentButtons(cell) {
+    // Create buttons for incrementing and decrementing wins
+    var incWinsButton = createButton("+ Wins", function () {
+      adjustRecord(cell, 1, 0);
+    });
+    var decWinsButton = createButton("- Wins", function () {
+      adjustRecord(cell, -1, 0);
+    });
+
+    // Create buttons for incrementing and decrementing losses
+    var incLossesButton = createButton("+ Losses", function () {
+      adjustRecord(cell, 0, 1);
+    });
+    var decLossesButton = createButton("- Losses", function () {
+      adjustRecord(cell, 0, -1);
+    });
+
+    cell.appendChild(incWinsButton);
+    cell.appendChild(decWinsButton);
+    cell.appendChild(incLossesButton);
+    cell.appendChild(decLossesButton);
+  }
+
   function populateSlots() {
-    var table1 = document.getElementById("banzuke1"),
-      cell = table1.querySelectorAll(".redips-only");
+    var table1 = document.getElementById("banzuke1");
+    var cell = table1.querySelectorAll(".redips-only");
 
     for (var i = 0; i < cell.length; i++) {
       for (var j = 0; j < theSekitori.length; j++) {
@@ -482,19 +544,6 @@ window.onload = function () {
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
           card.setAttribute("data-re", record);
-
-          /*
-          var holder = document.createElement('a');
-
-          holder.innerHTML = rikiData[1];
-          holder.href = "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
-          holder.target = "_blank";
-          if (rikiData[0].startsWith("Ms")) 
-            holder.className = "msLink";
-          //holder.setAttribute("onmouseover", 'showNextRank("' + rikiData[0] + '")');
-          //holder.setAttribute("onmouseout", "hideNextRank()");
-          holder.style.display = "none";
-          */
 
           rikiData[1] =
             '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
