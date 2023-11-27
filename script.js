@@ -211,6 +211,48 @@ var theSekitori = [
   "Sd73e Oki 6-1",
 ];
 
+class Record {
+  constructor(wins = 0, losses = 0, absents = 0, draws = 0) {
+    this.wins = wins;
+    this.losses = losses;
+    this.absents = absents;
+    this.draws = draws;
+  }
+
+  incrementWins() {
+    this.wins++;
+  }
+
+  decrementWins() {
+    if (this.wins > 0) {
+      this.wins--;
+    }
+  }
+
+  incrementLosses() {
+    this.losses++;
+  }
+
+  decrementLosses() {
+    if (this.losses > 0) {
+      this.losses--;
+    }
+  }
+
+  // Add similar methods for absents and draws
+
+  toString() {
+    let result = `${this.wins}-${this.losses}`;
+    if (this.absents > 0) {
+      result += `-${this.absents}`;
+    }
+    if (this.draws > 0) {
+      result += `-${this.draws}d`;
+    }
+    return result;
+  }
+}
+
 var retiredRikishi = ["Chiyonokuni"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the
