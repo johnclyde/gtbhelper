@@ -975,7 +975,7 @@ redips.init = function () {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == 'J') 
         juCounter.innerHTML++;
-      else if (currentCell.dataset.r.charAt(1) == 's')
+      else if (targetCell.dataset.r.charAt(1) == 's')
         msCounter.innerHTML++;
       else 
         makuCounter.innerHTML++;
