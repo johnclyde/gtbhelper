@@ -935,7 +935,7 @@ redips.init = function () {
     if (tarCellIsOfBanzuke2) {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == "J") juCounter.innerHTML++;
-      else if (currentCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
+      else if (targetCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
       else makuCounter.innerHTML++;
     } else targetCell.children[0].remove();
 
