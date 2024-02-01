@@ -1,15 +1,15 @@
 "use strict";
 
 var theSekitori = [
-  "Y1e Terunofuji 13-2",
+  "Y1e Terunofuji 13-2 Y",
   "O1e Kirishima 11-4",
   "O1w Hoshoryu 10-4-1",
   "O2w Takakeisho 2-2-11",
-  "S1e Kotonowaka 13-2",
+  "S1e Kotonowaka 13-2 DG",
   "S1w Daieisho 9-6",
   "K1e Takayasu 2-4-9",
   "K1w Ura 6-9",
-  "M1e Wakamotoharu 10-5",
+  "M1e Wakamotoharu 10-5 S",
   "M1w Atamifuji 6-9",
   "M2e Midorifuji 5-10",
   "M2w Abi 8-7",
@@ -38,7 +38,7 @@ var theSekitori = [
   "M14e Kotoshoho 9-6",
   "M14w Onosho 10-5",
   "M15e Tomokaze 5-10",
-  "M15w Onosato 11-4",
+  "M15w Onosato 11-4 K",
   "M16e Takarafuji 6-9",
   "M16w Bushozan 4-11",
   "M17e Shimazuumi 9-6",
@@ -61,7 +61,7 @@ var theSekitori = [
   "J8w Shiden 6-9",
   "J9e Asakoryu 8-7",
   "J9w Daishoho 9-6",
-  "J10e Takerufuji 13-2",
+  "J10e Takerufuji 13-2 Y",
   "J10w Hakuyozan 10-5",
   "J11e Akua 6-9",
   "J11w Hidenoumi 10-5",
@@ -72,7 +72,7 @@ var theSekitori = [
   "J14e Chiyosakae 6-9",
   "J14w Tochimusashi 5-10",
   "Ms1e Kayo 3-4",
-  "Ms1w Wakatakakage 7-0",
+  "Ms1w Wakatakakage 7-0 Y",
   "Ms2e Tsushimanada 5-2",
   "Ms2w Kitaharima 4-3",
   "Ms3e Takakento 0-0-7",
@@ -209,7 +209,7 @@ var theSekitori = [
   "Sd21w Shiroma 6-1",
   "Sd24e Gonoumi 2-2-3",
   "Sd25e Maikeru 5-2",
-  "Sd26w Fujiseiun 7-0",
+  "Sd26w Fujiseiun 7-0 Y",
   "Sd28e Miyata 5-2",
   "Sd29w Akiyoshi 5-2",
   "Sd31e Kirinryu 6-1",
@@ -217,49 +217,10 @@ var theSekitori = [
   "Sd44w Takashoki 6-1",
 ];
 
-class Record {
-  constructor(wins = 0, losses = 0, absents = 0, draws = 0) {
-    this.wins = wins;
-    this.losses = losses;
-    this.absents = absents;
-    this.draws = draws;
-  }
-
-  incrementWins() {
-    this.wins++;
-  }
-
-  decrementWins() {
-    if (this.wins > 0) {
-      this.wins--;
-    }
-  }
-
-  incrementLosses() {
-    this.losses++;
-  }
-
-  decrementLosses() {
-    if (this.losses > 0) {
-      this.losses--;
-    }
-  }
-
-  // Add similar methods for absents and draws
-
-  toString() {
-    let result = `${this.wins}-${this.losses}`;
-    if (this.absents > 0) {
-      result += `-${this.absents}`;
-    }
-    if (this.draws > 0) {
-      result += `-${this.draws}d`;
-    }
-    return result;
-  }
-}
-
-var retiredRikishi = ["Chiyonokuni"];
+/* Add here the shikona of retired sekitori, who will not appear in the
+ * following banzuke. If nobody retired then leave this array empty
+ */
+var retiredRikishi = ["Azumaryu"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the
  * browser's inspector (F12). Find the table and copy & paste the <tbody> node.
@@ -268,17 +229,19 @@ var retiredRikishi = ["Chiyonokuni"];
  * theSekitori array.
  */
 var sekitoriID = [
-  11927, 12191, 12231, 12451, 11985, 11980, 12270, 12094, 6596, 12203, 12130,
-  12210, 12352, 11946, 12291, 12226, 12314, 12043, 12646, 12453, 6480, 5944,
-  2879, 12351, 11855, 12239, 12721, 11784, 7153, 12113, 11785, 12370, 12688,
-  12449, 12040, 12162, 6594, 11728, 12055, 12117, 11786, 12796, 11845, 12664,
-  12516, 12406, 12362, 12013, 12717, 12575, 11976, 12548, 12702, 11723, 11943,
-  12320, 12114, 11918, 12273, 12427, 11736, 12024, 7240, 12342, 12599, 12026,
-  12779, 12141, 12165, 12255, 12542, 12412, 12674, 12711, 12836, 12709, 11809,
-  12773, 12710, 6642, 12767, 12075, 12596, 12448, 11840, 12557, 12561, 12704,
-  12316, 12416, 12733, 12597, 11868, 12610, 12425, 12534, 12523, 11755, 11726,
-  12592, 8900,
+  11927, 12231, 12451, 12191, 12270, 11985, 6480, 12226, 11980, 12664, 12352,
+  12094, 12688, 12239, 12203, 12130, 6594, 6596, 12721, 12162, 12362, 12291,
+  12646, 12314, 12210, 11946, 5944, 2879, 12113, 12453, 11855, 11784, 12320,
+  12055, 12449, 12043, 12427, 12836, 11728, 12117, 12013, 11786, 12273, 12406,
+  12351, 12575, 12516, 12548, 11976, 7153, 11785, 12717, 12542, 12773, 11845,
+  12599, 12024, 12141, 12710, 12040, 12780, 11943, 11918, 12026, 7240, 12709,
+  12165, 12634, 11736, 12674, 12774, 12370, 12342, 1241, 12114, 12793, 12255,
+  12732, 12711, 12796, 12425, 12155, 12704, 12585, 12840, 12729, 12561, 12519,
+  11809, 12357, 12448, 11949, 12597, 12610, 11723, 12733, 12724, 12333, 12800,
+  12536,
 ];
+
+//***** Just update the "basho" variable and you're all done. *****
 
 let redips = {},
   rd = REDIPS.drag;
@@ -367,8 +330,9 @@ function exportTableToCSV($table, filename) {
 }
 
 window.onload = function () {
-  var basho = "202309"; // The date of the basho just ended
+  var basho = "202401"; // The date of the basho just ended
 
+  // This must be a hyperlink
   $("#exportToCsv1").on("click", function (event) {
     exportTableToCSV.apply(this, [$("#banzuke1"), "banzuke1.csv"]);
   });
@@ -381,20 +345,97 @@ window.onload = function () {
     window.localStorage.removeItem("banzuke2");
   }
   if (window.localStorage.getItem("banzuke") !== null) {
+    //document.getElementById("tableLiner").innerHTML = window.localStorage.getItem("banzuke");
     window.localStorage.removeItem("banzuke");
+    //writeTableTitles(basho);
+    //populateSlots();
   }
   if (window.localStorage.getItem("picks") !== null) {
     window.localStorage.removeItem("picks");
   }
-
   if (window.localStorage.getItem("savedBanzuke") !== null) {
-    document.getElementById("tableLiner").innerHTML =
-      window.localStorage.getItem("savedBanzuke");
-  } else {
+    var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
+      expireDate = new Date(Date.UTC(2024, 0, 28, 9, 5));
+
+    if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
+    else
+      document.getElementById("tableLiner").innerHTML =
+        window.localStorage.getItem("savedBanzuke");
+  }
+  if (window.localStorage.getItem("savedBanzuke") === null) {
     writeTableTitles(basho);
     populateSlots();
   }
 
+  var radioButton = document.getElementsByClassName("checkbox"),
+    radioLocal = window.localStorage.getItem("radioButton"),
+    radioLocalDrop = window.localStorage.getItem("radioDrop");
+
+  if (radioLocal === null || radioLocal == "openRikishiPage")
+    radioButton[0].checked = true;
+  else if (radioLocal == "returnToOld") radioButton[1].checked = true;
+  else radioButton[2].checked = true;
+
+  if (radioLocalDrop === null || radioLocalDrop == "multiple")
+    radioButton[3].checked = true;
+  else if (radioLocalDrop == "shift") radioButton[4].checked = true;
+  else radioButton[5].checked = true;
+
+  var noteCells = document.querySelectorAll(".nte");
+
+  for (var i = 2; i < noteCells.length; i++) {
+    let time = 0;
+    noteCells[i].children[0].contentEditable = "true";
+    noteCells[i].children[0].addEventListener("input", function () {
+      // Reset the timer
+      clearTimeout(time);
+
+      time = setTimeout(function () {
+        saveBanzuke();
+        showSaving();
+      }, 1000);
+    });
+  }
+
+  var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
+
+  //check storage if dark mode was on or off
+  if (localStorage.getItem("mode") == "dark") {
+    darkmode(); //if dark mode was on, run this funtion
+  } else {
+    nodark(); //else run this funtion
+  }
+
+  checkbox.addEventListener("change", function () {
+    //check if the checkbox is checked or not
+    if (checkbox.checked) {
+      darkmode(); //if the checkbox is checked, run this funtion
+    } else {
+      nodark(); //else run this funtion
+    }
+    updateInfoCells();
+  });
+
+  var drafts = window.localStorage.getItem("drafts");
+
+  if (drafts !== null) {
+    var draftsTable = document.getElementById("draftsTable");
+    var draftsJSON = JSON.parse(drafts);
+
+    for (var i = 0; i < draftsJSON.length; i++) {
+      var draftRow = document.createElement("tr");
+
+      draftRow.innerHTML =
+        '<td title="' +
+        draftsJSON[i].name +
+        '" class="dname"><b>' +
+        draftsJSON[i].name +
+        "</b></td><td>" +
+        draftsJSON[i].date +
+        '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
+      draftsTable.children[0].appendChild(draftRow);
+    }
+  }
   if (window.localStorage.getItem("colCheck1") === null) {
     var columnCheckbox = document.querySelectorAll(".checkedByDefault");
 
@@ -411,46 +452,73 @@ window.onload = function () {
     }
   }
 
-  var radioButton = document.getElementsByClassName("checkbox"),
-    radioLocal = window.localStorage.getItem("radioButton"),
-    radioLocalDrop = window.localStorage.getItem("radioDrop");
+  var saveDialog = document.getElementById("saveDialog");
 
-  if (radioLocal === null || radioLocal == "openRikishiPage") {
-    radioButton[0].checked = true;
-  } else if (radioLocal == "returnToOld") {
-    radioButton[1].checked = true;
-  } else {
-    radioButton[2].checked = true;
+  document.getElementById("saveDraft").addEventListener("click", function () {
+    saveDialog.show();
+  });
+  document
+    .getElementById("saveDraftButton")
+    .addEventListener("click", function () {
+      if (window.localStorage.getItem("savedBanzuke") !== null) {
+        var draftsTable = document.getElementById("draftsTable");
+        var draftName = document.getElementById("draftName").value;
+        var currentDate = new Date().toLocaleString();
+        var draftCount = draftsTable.children[0].children.length + 1;
+        var draft = {
+          name: "",
+          date: "",
+          mainContent: "",
+        };
+        var draftRow = document.createElement("tr");
+        var draftsString = window.localStorage.getItem("drafts");
+        var draftsJSON;
+
+        draft.name = draftName;
+        draft.date = currentDate;
+        draft.mainContent = window.localStorage.getItem("savedBanzuke");
+        if (draftsString !== null) draftsJSON = JSON.parse(draftsString);
+        else draftsJSON = [];
+        draftsJSON.unshift(draft);
+        window.localStorage.setItem("drafts", JSON.stringify(draftsJSON));
+        draftRow.innerHTML =
+          '<td title="' +
+          draftName +
+          '" class="dname"><b>' +
+          draftName +
+          "</b></td><td>" +
+          currentDate +
+          '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
+        draftsTable.children[0].prepend(draftRow);
+        document.getElementById("draftName").value = "";
+      }
+      saveDialog.close();
+    });
+  document.getElementById("closeDialog").addEventListener("click", function () {
+    saveDialog.close();
+  });
+  document
+    .getElementById("draftName")
+    .addEventListener("keypress", function () {
+      // If the user presses the "Enter" key on the keyboard
+      if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("saveDraftButton").click();
+      }
+    });
+
+  function darkmode() {
+    document.body.classList.add("darkm"); //add a class to the body tag
+    checkbox.checked = true; //set checkbox to be checked state
+    localStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
   }
 
-  if (radioLocalDrop === null || radioLocalDrop == "multiple")
-    radioButton[3].checked = true;
-  else if (radioLocalDrop == "shift") radioButton[4].checked = true;
-  else radioButton[5].checked = true;
-
-  var noteCells = document.querySelectorAll(".nte");
-
-  for (var i = 2; i < noteCells.length; i++) {
-    let time = 0;
-    noteCells[i].children[0].contentEditable = "true";
-    noteCells[i].children[0].addEventListener("input", function () {
-      clearTimeout(time);
-
-      time = setTimeout(function () {
-        hideHoshitori();
-        saveBanzuke();
-        showSaving();
-      }, 1000);
-    });
-  }
-
-  var cards = document.querySelectorAll(".redips-drag");
-
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener("mouseover", showHoshitori.bind(this));
-    cards[i].addEventListener("mouseout", function () {
-      this.style.border = "";
-    });
+  function nodark() {
+    document.body.classList.remove("darkm"); //remove added class from body tag
+    checkbox.checked = false; //set checkbox to be unchecked state
+    localStorage.setItem("mode", "light"); //store a name & value to know that dark mode is off or light mode is on
   }
 
   function writeTableTitles(endedBashoDate) {
@@ -459,14 +527,14 @@ window.onload = function () {
       tableTitle = document.getElementsByClassName("tableTitle");
 
     const bashoMonthLookup = {
-      1: "Hatsu",
-      3: "Haru",
-      5: "Natsu",
-      7: "Nagoya",
-      9: "Aki",
-      11: "Kyushu",
-    };
-    const getBashoName = (bMonth) => bashoMonthLookup[bMonth];
+        1: "Hatsu",
+        3: "Haru",
+        5: "Natsu",
+        7: "Nagoya",
+        9: "Aki",
+        11: "Kyushu",
+      },
+      getBashoName = (bMonth) => bashoMonthLookup[bMonth];
 
     tableTitle[0].innerHTML =
       getBashoName(bashoMonth) +
@@ -486,66 +554,9 @@ window.onload = function () {
       tableTitle[1].innerHTML;
   }
 
-  function updateDisplay(cell, wins, losses) {
-    var resCell = cell.nextSibling || cell.previousSibling;
-    resCell.innerHTML = wins.toString() + "-" + losses.toString();
-  }
-
-  function saveTheSekitori() {
-    localStorage.setItem("theSekitori", JSON.stringify(theSekitori));
-  }
-
-  function adjustRecord(cell, winAdjustment, lossAdjustment) {
-    var card = cell.querySelector(".redips-drag");
-    if (!card) return;
-
-    var wins = parseInt(card.getAttribute("data-w").split("-")[0]);
-    var losses = parseInt(card.getAttribute("data-w").split("-")[1]);
-
-    wins += winAdjustment;
-    losses += lossAdjustment;
-
-    wins = Math.max(wins, 0); // Prevent negative wins
-    losses = Math.max(losses, 0); // Prevent negative losses
-
-    card.setAttribute("data-w", wins + "-" + losses);
-    updateDisplay(cell, wins, losses);
-    saveTheSekitori();
-  }
-
-  function createButton(text, onClickFunction) {
-    var button = document.createElement("button");
-    button.innerHTML = text;
-    button.onclick = onClickFunction;
-    return button;
-  }
-
-  function addAdjustmentButtons(cell) {
-    // Create buttons for incrementing and decrementing wins
-    var incWinsButton = createButton("+ Wins", function () {
-      adjustRecord(cell, 1, 0);
-    });
-    var decWinsButton = createButton("- Wins", function () {
-      adjustRecord(cell, -1, 0);
-    });
-
-    // Create buttons for incrementing and decrementing losses
-    var incLossesButton = createButton("+ Losses", function () {
-      adjustRecord(cell, 0, 1);
-    });
-    var decLossesButton = createButton("- Losses", function () {
-      adjustRecord(cell, 0, -1);
-    });
-
-    cell.appendChild(incWinsButton);
-    cell.appendChild(decWinsButton);
-    cell.appendChild(incLossesButton);
-    cell.appendChild(decLossesButton);
-  }
-
   function populateSlots() {
-    var table1 = document.getElementById("banzuke1");
-    var cell = table1.querySelectorAll(".redips-only");
+    var table1 = document.getElementById("banzuke1"),
+      cell = table1.querySelectorAll(".redips-only");
 
     for (var i = 0; i < cell.length; i++) {
       for (var j = 0; j < theSekitori.length; j++) {
@@ -572,6 +583,19 @@ window.onload = function () {
           else card.setAttribute("data-w", wins);
           card.setAttribute("data-re", record);
 
+          /*
+          var holder = document.createElement('a');
+
+          holder.innerHTML = rikiData[1];
+          holder.href = "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
+          holder.target = "_blank";
+          if (rikiData[0].startsWith("Ms") || rikiData[0].startsWith("Sd") || rikiData[0].startsWith("Jd") || rikiData[0].startsWith("Jk"))
+            holder.className = "msLink";
+          //holder.setAttribute("onmouseover", 'showNextRank("' + rikiData[0] + '")');
+          //holder.setAttribute("onmouseout", "hideNextRank()");
+          holder.style.display = "none";
+          */
+
           rikiData[1] =
             '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
             sekitoriID[j] +
@@ -597,6 +621,9 @@ window.onload = function () {
             card.removeAttribute("data-ko");
           }
 
+          //card.setAttribute("onmouseout", "unhighlight()");
+
+          //cell[i].appendChild(holder);
           cell[i].appendChild(card);
 
           var resCell, newRankCell;
@@ -605,18 +632,73 @@ window.onload = function () {
           else resCell = cell[i].nextSibling;
 
           resCell.innerHTML = rikiData[2];
+
+          //cell[i].style.borderInline = "1px solid #929292";
         }
       }
     }
   }
 };
 
-function showHoshitori() {
-  event.target.style.border = "2px solid blue";
+function loadDraft() {
+  var draftDate = event.target.parentNode.previousSibling.innerText;
+
+  if (confirm("Load draft from " + draftDate + "?")) {
+    var draftsTable = document.getElementById("draftsTable");
+    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
+
+    for (var i = 0; i < allDrafts.length; i++) {
+      if (allDrafts[i].date == draftDate)
+        document.getElementById("tableLiner").innerHTML =
+          allDrafts[i].mainContent;
+    }
+    saveBanzuke();
+    redips.init();
+    if (window.localStorage.getItem("colCheck1") === null) {
+      var columnCheckbox = document.querySelectorAll(".checkedByDefault");
+
+      for (var i = 0; i < columnCheckbox.length; i++)
+        columnCheckbox[i].checked = true;
+    } else {
+      for (var i = 1; i < 8; i++) {
+        var columnCheck = document.querySelectorAll(".columnCheckbox")[i - 1];
+        var check = JSON.parse(
+          window.localStorage.getItem("colCheck" + String(i)),
+        );
+
+        columnCheck.checked = check;
+      }
+    }
+    var noteCells = document.querySelectorAll(".nte");
+
+    for (var i = 2; i < noteCells.length; i++) {
+      let time = 0;
+      noteCells[i].children[0].contentEditable = "true";
+      noteCells[i].children[0].addEventListener("input", function () {
+        // Reset the timer
+        clearTimeout(time);
+
+        time = setTimeout(function () {
+          saveBanzuke();
+          showSaving();
+        }, 1000);
+      });
+    }
+  }
 }
 
-function hideHoshitori() {
-  event.target.style.border = "";
+function deleteDraft() {
+  var draftDate = event.target.parentNode.previousSibling.innerText;
+
+  if (confirm("Delete draft from " + draftDate + "?")) {
+    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
+
+    for (var i = 0; i < allDrafts.length; i++) {
+      if (allDrafts[i].date == draftDate) allDrafts.splice(i, 1);
+    }
+    window.localStorage.setItem("drafts", JSON.stringify(allDrafts));
+    event.target.parentNode.parentNode.remove();
+  }
 }
 
 function saveRadio(radioButton) {
@@ -640,11 +722,15 @@ function saveBanzuke() {
   window.localStorage.setItem("savedBanzukeTime", date.toString());
 }
 
+// *****************************************************************************
+
 rd.animation = "off";
 
 redips.init = function () {
   rd.init();
   rd.hover.colorTd = "chartreuse";
+  //rd.hover.borderTd = "2px solid blue";
+  //rd.dropMode = "multiple";
   rd.only.divClass.se = "b2";
 
   rd.enableDrag(false, ".intai");
@@ -742,6 +828,7 @@ redips.init = function () {
                 b2Cell[i] === rd.obj.parentNode) ||
               ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
             ) {
+              //b2Cell[i].style.border = "none";
               b2Cell[i].classList.add("shiftTo");
               for (var j = i - 1; j >= targetIndex; i--, j--) {
                 for (var k = 0; k < b2Cell[j].children.length; k++)
@@ -793,7 +880,7 @@ redips.init = function () {
             document.getElementById("juRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
-          hideHoshitori();
+          //b1Cell[i].style.removeProperty("border");
           updateInfoCells();
           saveBanzuke();
         },
@@ -802,12 +889,11 @@ redips.init = function () {
     }
   };
 
-  rd.event.clicked = function (currentCell) {
-    hideHoshitori();
-  };
-
   rd.event.notMoved = function () {
     var currentCell = rd.findParent("TD", rd.obj);
+
+    //currentCell.style.removeProperty("box-shadow");
+    //rd.obj.removeChild(rd.obj.childNodes[1]);
   };
 
   rd.event.droppedBefore = function (targetCell) {
@@ -823,10 +909,11 @@ redips.init = function () {
       curCellIsOfBanzuke2 = currentCell.classList.contains("b2"),
       tarCellIsOfBanzuke2 = targetCell.classList.contains("b2");
 
+    //currentCell.style.removeProperty("box-shadow");
+
     if (curCellIsOfBanzuke2) {
       currentCellRank = currentCell.dataset.r.charAt(0);
       if (currentCellRank == "J") juCounter.innerHTML--;
-      else if (currentCell.dataset.r.charAt(1) == "s") msCounter.innerHTML--;
       else makuCounter.innerHTML--;
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
@@ -835,14 +922,20 @@ redips.init = function () {
         thisCard.childNodes[thisCard.childNodes.length - 1].innerText;
       holder.href = thisCard.children[thisCard.childNodes.length - 1].href;
       holder.target = "_blank";
-      if (thisCard.id.startsWith("Ms")) holder.className = "msLink";
+      if (
+        thisCard.id.startsWith("Ms") ||
+        thisCard.id.startsWith("Sd") ||
+        thisCard.id.startsWith("Jd") ||
+        thisCard.id.startsWith("Jk")
+      )
+        holder.className = "msLink";
       currentCell.appendChild(holder);
     }
 
     if (tarCellIsOfBanzuke2) {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == "J") juCounter.innerHTML++;
-      else if (targetCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
+      else if (currentCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
       else makuCounter.innerHTML++;
     } else targetCell.children[0].remove();
 
@@ -868,6 +961,7 @@ redips.init = function () {
                 b2Cell[i] === thisCard.parentNode) ||
               ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
             ) {
+              //b2Cell[i].style.border = "none";
               for (var j = i - 1; j >= targetIndex; i--, j--)
                 rd.relocate(b2Cell[j], b2Cell[i], "instant");
               redips.init();
@@ -884,6 +978,7 @@ redips.init = function () {
                 b2Cell[i] === thisCard.parentNode) ||
               ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
             ) {
+              //b2Cell[i].style.border = "none";
               for (var j = i + 1; j <= targetIndex; i++, j++)
                 rd.relocate(b2Cell[j], b2Cell[i], "instant");
               redips.init();
@@ -918,7 +1013,6 @@ redips.init = function () {
   };
 
   rd.event.finish = function () {
-    hideHoshitori();
     saveBanzuke();
   };
 };
@@ -1007,7 +1101,12 @@ function updateInfoCells() {
 
         thisChg = getChange(thisRank, targetCellRank);
 
-        if (thisRank.startsWith("Ms")) {
+        if (
+          thisRank.startsWith("Ms") ||
+          thisRank.startsWith("Sd") ||
+          thisRank.startsWith("Jd") ||
+          thisRank.startsWith("Jk")
+        ) {
           if (thisRank.endsWith("TD")) thisRank = thisRank.slice(0, -2);
           thisChg =
             '<a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&form1_rank=' +
@@ -1083,6 +1182,8 @@ redips.resetBanzuke = function () {
 
     for (var i = 0; i < b2Cell.length; i++) {
       if (b2Cell[i].children.length > 0) {
+        //b2Cell[i].style.border = "1px dashed dimgray";
+        //chgCell[i].innerHTML = ' ';
         for (var j = b2Cell[i].children.length - 1; j >= 0; j--) {
           for (var k = 0; k < 100; k++) {
             if (redipsCell[k].classList.contains(b2Cell[i].children[j].id)) {
@@ -1091,6 +1192,7 @@ redips.resetBanzuke = function () {
                 target: redipsCell[k],
               });
               redipsCell[k].children[0].style.display = "none";
+              //b1Cell[k].style.removeProperty("border");
               break;
             }
           }
@@ -1116,38 +1218,41 @@ redips.resetBanzuke = function () {
 };
 
 redips.arrange = function () {
-  var rikishi = document.querySelectorAll(".se"),
-    juCounter = document.getElementById("juRik"),
-    makuCounter = document.getElementById("makRik");
+  if (confirm("Confirm auto-arrange?") == true) {
+    var rikishi = document.querySelectorAll(".se"),
+      juCounter = document.getElementById("juRik"),
+      makuCounter = document.getElementById("makRik");
 
-  for (var i = 0; i < rikishi.length; i++) {
-    var rikishiRank = rikishi[i].id;
+    for (var i = 0; i < rikishi.length; i++) {
+      var rikishiRank = rikishi[i].id;
 
-    if (
-      !rikishiRank.startsWith("Ms") &&
-      rikishiRank != rikishi[i].parentNode.dataset.r
-    ) {
-      if (!rikishi[i].parentNode.classList.contains("b2")) {
-        var holder = document.createElement("a");
+      if (
+        !rikishiRank.startsWith("Ms") &&
+        rikishiRank != rikishi[i].parentNode.dataset.r
+      ) {
+        if (!rikishi[i].parentNode.classList.contains("b2")) {
+          var holder = document.createElement("a");
 
-        holder.innerHTML = rikishi[i].innerText;
-        holder.href = rikishi[i].children[0].href;
-        holder.target = "_blank";
-        rikishi[i].parentNode.appendChild(holder);
-      } else {
-        if (rikishi[i].parentNode.dataset.r.startsWith("J"))
-          juCounter.innerHTML--;
-        else makuCounter.innerHTML--;
+          holder.innerHTML = rikishi[i].innerText;
+          holder.href = rikishi[i].children[0].href;
+          holder.target = "_blank";
+          rikishi[i].parentNode.appendChild(holder);
+        } else {
+          if (rikishi[i].parentNode.dataset.r.startsWith("J"))
+            juCounter.innerHTML--;
+          else makuCounter.innerHTML--;
+        }
+        if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+        else makuCounter.innerHTML++;
+        rd.moveObject({
+          obj: rikishi[i],
+          target: document.querySelector('[data-r="' + rikishiRank + '"]'),
+        });
       }
-      if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
-      else makuCounter.innerHTML++;
-      rd.moveObject({
-        obj: rikishi[i],
-        target: document.querySelector('[data-r="' + rikishiRank + '"]'),
-      });
+      //else break;
     }
+    updateInfoCells();
   }
-  updateInfoCells();
 };
 
 function getChange(thisRank, targetCellRank) {
@@ -1244,3 +1349,57 @@ function showSaving() {
 if (window.addEventListener)
   window.addEventListener("load", redips.init, false);
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
+
+/*
+var hoshitori = [], 
+    rikishiTr = document.getElementsByTagName("tr");
+
+for (var i = 1; i < rikishiTr.length; i++) {
+  var recordArr = [], 
+    aiteArr = [], 
+    hyper = rikishiTr[i].getElementsByTagName('a');
+
+  for (var j = 1; j < hyper.length; j++) {
+    aiteArr.push(hyper[j].title.split(' ')[2]);
+    if (hyper[j].children[0].getAttribute("src") == "img/w.gif") {
+      if (hyper[j].title.split(' ')[3] == "fusen") 
+        recordArr.push(3);
+      else 
+        recordArr.push(1);
+    }
+    else {
+      if (hyper[j].title.split(' ')[3] == "fusen") 
+        recordArr.push(2);
+      else 
+        recordArr.push(0);
+    }
+  }
+  var rikishiObj = {
+    record: recordArr, 
+    aite: aiteArr
+  }
+  hoshitori.push(rikishiObj);
+}
+
+var tori = document.getElementsByClassName("rb_torikumi"), recordArr = [], aiteArr = [], record;
+for (var i = 0; i < tori[0].children[0].children.length; i++) {
+  record = tori[0].children[0].children[i].children[1].children[0].src.split('_')[1];
+  switch (record) {
+    case "kuro.gif":
+      record = 0; break;
+    case "shiro.gif":
+      record = 1; break;
+    case "fusenpai.gif":
+      record = 2; break;
+    case "fusensho.gif":
+      record = 3; break;
+  }
+  recordArr.push(record);
+  aiteArr.push(tori[0].children[0].children[i].children[3].children[0].innerHTML.split(' ')[1]);
+}
+var rikishiObj = {
+  record: recordArr, 
+  aite: aiteArr
+}
+console.log(rikishiObj);
+*/

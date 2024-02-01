@@ -30,7 +30,9 @@
       </h1>
       <div id="links">
         <a href="previous.html">Previous basho</a>
-        <a href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx" target="_blank"
+        <a
+          href="http://sumodb.sumogames.de/gtb/GTBEntry.aspx"
+          onclick="window.open('http://sumodb.sumogames.de/gtb/GTBEntry.aspx')"
           >GTB Entry Form</a
         >
       </div>
@@ -137,15 +139,39 @@
               type="checkbox"
               name="checkbox"
               autocomplete="on"
-            />Turn off tooltips</label
+            />Disable tooltips</label
           >
-          <button id="resetBanzuke" onclick="redips.resetBanzuke()">
-            Reset changes
-          </button>
           <button onclick="redips.arrange()">
             Auto-arrange to current ranks
           </button>
+          <button id="resetBanzuke" onclick="redips.resetBanzuke()">
+            Reset changes
+          </button>
         </fieldset>
+        <fieldset id="saveLoad" class="option">
+          <legend>Save/load drafts</legend>
+          <button id="saveDraft">Save draft</button>
+          <dialog id="saveDialog">
+            <input
+              type="text"
+              name=""
+              id="draftName"
+              placeholder="name (optional)"
+              autocomplete="off"
+            />
+            <br />
+            <button id="saveDraftButton">Save</button>
+            <button id="closeDialog">Cancel</button>
+          </dialog>
+          <div id="draftsTableContainer">
+            <table id="draftsTable">
+              <tbody></tbody>
+            </table>
+          </div>
+        </fieldset>
+        <label id="darkMode">
+          Dark Mode <input type="checkbox" id="ChangeTheme" />
+        </label>
       </div>
       <!--
     <div id="saveLoadProgress">
@@ -253,17 +279,6 @@
                     <td class="ch1 hid"></td>
                     <th>S1</th>
                     <td class="redips-only S1w"></td>
-                    <td class="rs1"></td>
-                    <td class="new hid"></td>
-                    <td class="ch1 hid"></td>
-                  </tr>
-                  <tr class="sgroup">
-                    <td class="rs1"></td>
-                    <td class="redips-only S2e"></td>
-                    <td class="new hid"></td>
-                    <td class="ch1 hid"></td>
-                    <th>S2</th>
-                    <td class="redips-only S2w"></td>
                     <td class="rs1"></td>
                     <td class="new hid"></td>
                     <td class="ch1 hid"></td>
@@ -784,17 +799,6 @@
                     <td class="ch1 hid"></td>
                     <th>Ms15</th>
                     <td class="redips-only Ms15w"></td>
-                    <td class="rs1"></td>
-                    <td class="new hid"></td>
-                    <td class="ch1 hid"></td>
-                  </tr>
-                  <tr>
-                    <td class="rs1"></td>
-                    <td class="redips-only Ms15TD"></td>
-                    <td class="new hid"></td>
-                    <td class="ch1 hid"></td>
-                    <th>Ms15TD</th>
-                    <td class="redips-only Ms15TDw"></td>
                     <td class="rs1"></td>
                     <td class="new hid"></td>
                     <td class="ch1 hid"></td>
@@ -2405,19 +2409,6 @@
                     <td class="ch2"></td>
                     <td class="nte hid"><div></div></td>
                   </tr>
-                  <tr class="sgroup">
-                    <td class="nte hid"><div></div></td>
-                    <td class="cur"></td>
-                    <td data-r="S2e" class="redips-only b2"></td>
-                    <td class="rs2"></td>
-                    <td class="ch2"></td>
-                    <th>S2</th>
-                    <td class="cur"></td>
-                    <td data-r="S2w" class="redips-only b2"></td>
-                    <td class="rs2"></td>
-                    <td class="ch2"></td>
-                    <td class="nte hid"><div></div></td>
-                  </tr>
                   <tr class="kgroup">
                     <td class="nte hid"><div></div></td>
                     <td class="cur"></td>
@@ -2427,19 +2418,6 @@
                     <th>K1</th>
                     <td class="cur"></td>
                     <td data-r="K1w" class="redips-only b2"></td>
-                    <td class="rs2"></td>
-                    <td class="ch2"></td>
-                    <td class="nte hid"><div></div></td>
-                  </tr>
-                  <tr class="kgroup">
-                    <td class="nte hid"><div></div></td>
-                    <td class="cur"></td>
-                    <td data-r="K2e" class="redips-only b2"></td>
-                    <td class="rs2"></td>
-                    <td class="ch2"></td>
-                    <th>K2</th>
-                    <td class="cur"></td>
-                    <td data-r="K2w" class="redips-only b2"></td>
                     <td class="rs2"></td>
                     <td class="ch2"></td>
                     <td class="nte hid"><div></div></td>
@@ -2666,7 +2644,7 @@
                     <td class="nte hid"><div></div></td>
                   </tr>
                   <tr>
-                    <th colspan="9" class="tableTitle juryoGuessTitle">
+                    <th colspan="9" class="tableTitle">
                       Juryo Guess - <span id="juRik">0</span>/28
                     </th>
                   </tr>
