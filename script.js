@@ -340,31 +340,36 @@ window.onload = function () {
     exportTableToCSV.apply(this, [$("#banzuke2"), "banzuke2.csv"]);
   });
 
+  // removing unused local storage names of before *****************************
   if (window.localStorage.getItem("banzuke1") !== null) {
     window.localStorage.removeItem("banzuke1");
     window.localStorage.removeItem("banzuke2");
   }
   if (window.localStorage.getItem("banzuke") !== null) {
-    //document.getElementById("tableLiner").innerHTML = window.localStorage.getItem("banzuke");
     window.localStorage.removeItem("banzuke");
-    //writeTableTitles(basho);
-    //populateSlots();
   }
   if (window.localStorage.getItem("picks") !== null) {
     window.localStorage.removeItem("picks");
   }
+  // ***************************************************************************
   if (window.localStorage.getItem("savedBanzuke") !== null) {
     var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
       expireDate = new Date(Date.UTC(2024, 0, 28, 9, 5));
 
     if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
-    else
+    else {
       document.getElementById("tableLiner").innerHTML =
         window.localStorage.getItem("savedBanzuke");
+      if (document.querySelectorAll(".makushitaTable").length == 0) {
+        addMakushitaTable();
+        updateInfoCells();
+      }
+    }
   }
   if (window.localStorage.getItem("savedBanzuke") === null) {
     writeTableTitles(basho);
-    populateSlots();
+    addRikishi();
+    addMakushitaTable();
   }
 
   var radioButton = document.getElementsByClassName("checkbox"),
@@ -554,7 +559,7 @@ window.onload = function () {
       tableTitle[1].innerHTML;
   }
 
-  function populateSlots() {
+  function addRikishi() {
     var table1 = document.getElementById("banzuke1"),
       cell = table1.querySelectorAll(".redips-only");
 
@@ -639,6 +644,64 @@ window.onload = function () {
     }
   }
 };
+
+function addMakushitaTable() {
+  var container = document.querySelectorAll(".banzukeContainer")[1];
+  var table1 = document.createElement("table");
+  var table2 = document.createElement("table");
+  var table3 = document.createElement("table");
+  var groups = [[], [], [], [], [], [], [], []];
+
+  table1.className = "makushitaTable";
+  table2.className = "makushitaTable";
+  table3.className = "makushitaTable";
+  for (var i = 0; i < theSekitori.length; i++) {
+    if (theSekitori[i].startsWith("Ms")) {
+      var rikishiData = theSekitori[i].split(" ");
+
+      groups[rikishiData[2].charAt(0)].push({
+        rikishi: rikishiData[0] + " " + rikishiData[1],
+        id: sekitoriID[i],
+      });
+    }
+  }
+  table1.appendChild(document.createElement("tbody"));
+  table2.appendChild(document.createElement("tbody"));
+  table3.appendChild(document.createElement("tbody"));
+  for (var i = 7; i >= 0; i--) {
+    if (groups[i].length > 0) {
+      var headerRow = document.createElement("tr");
+      var header = document.createElement("th");
+
+      header.colSpan = 2;
+      header.innerText = i + " wins";
+      headerRow.appendChild(header);
+      if (i > 4) table1.children[0].appendChild(headerRow);
+      else if (i == 4) table2.children[0].appendChild(headerRow);
+      else table3.children[0].appendChild(headerRow);
+      for (var j = 0; j < groups[i].length; j++) {
+        var rikishiRow = document.createElement("tr");
+        var rikishiCell = document.createElement("td");
+        var link = document.createElement("a");
+
+        link.href =
+          "https://sumodb.sumogames.de/Rikishi.aspx?r=" + groups[i][j].id;
+        link.target = "_blank";
+        link.innerText = groups[i][j].rikishi;
+        rikishiCell.appendChild(link);
+        rikishiCell.id = groups[i][j].rikishi.split(" ")[1].toLowerCase();
+        rikishiRow.appendChild(rikishiCell);
+        rikishiRow.appendChild(document.createElement("td"));
+        if (i > 4) table1.children[0].appendChild(rikishiRow);
+        else if (i == 4) table2.children[0].appendChild(rikishiRow);
+        else table3.children[0].appendChild(rikishiRow);
+      }
+    }
+  }
+  container.appendChild(table1);
+  container.appendChild(table2);
+  container.appendChild(table3);
+}
 
 function loadDraft() {
   var draftDate = event.target.parentNode.previousSibling.innerText;
@@ -822,11 +885,13 @@ redips.init = function () {
           for (var i = targetIndex; i < b2Cell.length; i++) {
             if (
               b2Cell[i].children.length == 0 ||
-              targetIndex == 57 ||
-              targetIndex == 85 ||
+              targetIndex == 53 ||
+              targetIndex == 81 ||
+              targetIndex == 111 ||
               (b2Cell[i].children.length == 1 &&
                 b2Cell[i] === rd.obj.parentNode) ||
-              ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
+              ((i == 53 || i == 81 || i == 111) &&
+                b2Cell[i].children.length > 0)
             ) {
               //b2Cell[i].style.border = "none";
               b2Cell[i].classList.add("shiftTo");
@@ -843,10 +908,11 @@ redips.init = function () {
             if (
               b2Cell[i].children.length == 0 ||
               targetIndex == 0 ||
-              targetIndex == 58 ||
+              targetIndex == 54 ||
+              targetIndex == 82 ||
               (b2Cell[i].children.length == 1 &&
                 b2Cell[i] === rd.obj.parentNode) ||
-              ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
+              ((i == 0 || i == 54 || i == 82) && b2Cell[i].children.length > 0)
             ) {
               //b2Cell[i].style.border = "none";
               b2Cell[i].classList.add("shiftTo");
@@ -880,6 +946,9 @@ redips.init = function () {
             document.getElementById("juRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
+          $("#" + rd.obj.innerText.toLowerCase())
+            .next()
+            .html("");
           //b1Cell[i].style.removeProperty("border");
           updateInfoCells();
           saveBanzuke();
@@ -937,7 +1006,17 @@ redips.init = function () {
       if (targetCellRank == "J") juCounter.innerHTML++;
       else if (targetCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
       else makuCounter.innerHTML++;
-    } else targetCell.children[0].remove();
+    } else {
+      targetCell.children[0].remove();
+      if (rd.obj.children.length > 1)
+        $("#" + rd.obj.children[1].innerText.toLowerCase())
+          .next()
+          .html("");
+      else
+        $("#" + rd.obj.innerText.toLowerCase())
+          .next()
+          .html("");
+    }
 
     if (
       dropRadio[1].checked &&
@@ -955,11 +1034,13 @@ redips.init = function () {
           for (var i = targetIndex; i < b2Cell.length; i++) {
             if (
               b2Cell[i].children.length == 0 ||
-              targetIndex == 57 ||
-              targetIndex == 85 ||
+              targetIndex == 53 ||
+              targetIndex == 81 ||
+              targetIndex == 111 ||
               (b2Cell[i].children.length == 1 &&
                 b2Cell[i] === thisCard.parentNode) ||
-              ((i == 57 || i == 85) && b2Cell[i].children.length > 0)
+              ((i == 53 || i == 81 || i == 111) &&
+                b2Cell[i].children.length > 0)
             ) {
               //b2Cell[i].style.border = "none";
               for (var j = i - 1; j >= targetIndex; i--, j--)
@@ -973,10 +1054,11 @@ redips.init = function () {
             if (
               b2Cell[i].children.length == 0 ||
               targetIndex == 0 ||
-              targetIndex == 58 ||
+              targetIndex == 54 ||
+              targetIndex == 82 ||
               (b2Cell[i].children.length == 1 &&
                 b2Cell[i] === thisCard.parentNode) ||
-              ((i == 0 || i == 58) && b2Cell[i].children.length > 0)
+              ((i == 0 || i == 54 || i == 82) && b2Cell[i].children.length > 0)
             ) {
               //b2Cell[i].style.border = "none";
               for (var j = i + 1; j <= targetIndex; i++, j++)
@@ -1147,6 +1229,10 @@ function updateInfoCells() {
           currRankCell.innerHTML +=
             "<br><span>" + b2Cell[i].children[j].id + "</span>";
         }
+        if (thisRank.startsWith("Ms"))
+          $("#" + b2Cell[i].children[j].innerText.toLowerCase())
+            .next()
+            .html(thisChg);
 
         var rikishiBgColor = window
           .getComputedStyle(b2Cell[i].children[j])
@@ -1232,7 +1318,6 @@ redips.arrange = function () {
       ) {
         if (!rikishi[i].parentNode.classList.contains("b2")) {
           var holder = document.createElement("a");
-
           holder.innerHTML = rikishi[i].innerText;
           holder.href = rikishi[i].children[0].href;
           holder.target = "_blank";
@@ -1351,31 +1436,31 @@ if (window.addEventListener)
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
 
 /*
-var hoshitori = [], 
+var hoshitori = [],
     rikishiTr = document.getElementsByTagName("tr");
 
 for (var i = 1; i < rikishiTr.length; i++) {
-  var recordArr = [], 
-    aiteArr = [], 
+  var recordArr = [],
+    aiteArr = [],
     hyper = rikishiTr[i].getElementsByTagName('a');
 
   for (var j = 1; j < hyper.length; j++) {
     aiteArr.push(hyper[j].title.split(' ')[2]);
     if (hyper[j].children[0].getAttribute("src") == "img/w.gif") {
-      if (hyper[j].title.split(' ')[3] == "fusen") 
+      if (hyper[j].title.split(' ')[3] == "fusen")
         recordArr.push(3);
-      else 
+      else
         recordArr.push(1);
     }
     else {
-      if (hyper[j].title.split(' ')[3] == "fusen") 
+      if (hyper[j].title.split(' ')[3] == "fusen")
         recordArr.push(2);
-      else 
+      else
         recordArr.push(0);
     }
   }
   var rikishiObj = {
-    record: recordArr, 
+    record: recordArr,
     aite: aiteArr
   }
   hoshitori.push(rikishiObj);
@@ -1398,7 +1483,7 @@ for (var i = 0; i < tori[0].children[0].children.length; i++) {
   aiteArr.push(tori[0].children[0].children[i].children[3].children[0].innerHTML.split(' ')[1]);
 }
 var rikishiObj = {
-  record: recordArr, 
+  record: recordArr,
   aite: aiteArr
 }
 console.log(rikishiObj);
