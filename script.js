@@ -215,6 +215,12 @@ var theSekitori = [
   "Sd31e Kirinryu 6-1",
   "Sd36w Aron 6-1",
   "Sd44w Takashoki 6-1",
+  "Jk15e Bobokuni 1-6",
+  "Jk15w Okikuma 1-6",
+  "Jk16e Imanonami 3-4",
+  "Jk16w Leonishiki 3-4",
+  "Jk17e Getayukata 6-1",
+  "Jk17w Ekigozan 7-0 Y",
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the
