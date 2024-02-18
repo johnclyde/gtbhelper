@@ -1,15 +1,5 @@
 "use strict";
 
-/*
-var shikonaCells = document.getElementsByClassName("shikona");
-var theRikishi = [], rikishiID = [];
-for (var i = 0; i < 100; i++) {
-  theRikishi[i] = shikonaCells[i].previousSibling.innerHTML + ' ' + shikonaCells[i].children[0].innerHTML + ' ' + shikonaCells[i].nextSibling.children[0].innerHTML;
-  rikishiID[i]  = shikonaCells[i].children[0].href.split('=')[1];
-} 
-/* To make this, enable "One Column" option in SumoDB, copy & paste the tables 
- * as plain text and then turn them into array like this.
- */
 var theSekitori = [
   "Y1e Terunofuji 13-2 Y",
   "O1e Kirishima 11-4",
@@ -105,56 +95,140 @@ var theSekitori = [
   "Ms11w Kotodaigo 5-2",
   "Ms12e Nabatame 5-2",
   "Ms12w Fukai 3-4",
-  "Ms13e Azumaryu 0-0",
   "Ms13w Kanzaki 2-5",
   "Ms14e Kotokenryu 3-4",
   "Ms14w Tokunomusashi 4-3",
   "Ms15e Wakaikari 4-3",
   "Ms15w Yoshii 3-4",
+  "Ms16e Chiyonoo 3-4",
   "Ms17e Miyagi 4-3",
+  "Ms17w Asagyokusei 3-4",
   "Ms18e Dewanoryu 5-2",
   "Ms18w Daiseizan 4-3",
+  "Ms19e Asahakuryu 3-4",
+  "Ms19w Asashiyu 2-5",
   "Ms20e Daishomaru 6-1",
+  "Ms20w Tochikamiyama 2-5",
   "Ms21e Kairyu 4-3",
+  "Ms21w Oshoryu 1-6",
   "Ms22e Fujinoyama 4-3",
   "Ms22w Nishinoryu 4-3",
   "Ms23e Oyamatoumi 4-3",
   "Ms23w Mineyaiba 4-3",
+  "Ms24e Toseiryu 3-4",
+  "Ms24w Tochiseiryu 2-4-1",
+  "Ms25e Kamito 3-4",
   "Ms25w Mudoho 5-2",
   "Ms26e Kazekeno 5-2",
   "Ms26w Kotoyusho 5-2",
+  "Ms27e Tochikodai 3-4",
+  "Ms27w Wakanosho 3-4",
   "Ms28e Osanai 4-3",
+  "Ms28w Asonoyama 2-5",
   "Ms29e Kaisho 4-3",
   "Ms29w Hananoumi 6-1",
   "Ms30e Toshunryu 5-2",
   "Ms30w Obara 4-3",
+  "Ms31e Onojo 1-6",
+  "Ms31w Kaishin 1-2-4",
   "Ms32e Asanowaka 4-3",
+  "Ms32w Nionoumi 3-4",
+  "Ms33e Terutsuyoshi 3-4",
+  "Ms33w Seigo 2-5",
   "Ms34e Chiyotora 5-2",
+  "Ms34w Kurohimeyama 3-4",
+  "Ms35e Sasakiyama 3-4",
+  "Ms35w Marusho 1-6",
+  "Ms36e Daishoryu 2-5",
+  "Ms36w Denuma 2-5",
   "Ms37e Hokaho 4-3",
   "Ms37w Omoto 5-2",
   "Ms38e Tendozan 6-1",
+  "Ms38w Chiyonokatsu 2-5",
   "Ms39e Tsurubayashi 4-3",
   "Ms39w Taiga 4-3",
+  "Ms40e Kazuto 3-4",
   "Ms40w Daikisho 5-2",
   "Ms41e Ryusei 4-3",
   "Ms41w Haruyama 6-1",
+  "Ms42e Nihonyanagi 3-4",
+  "Ms42w Kiho 0-0-7",
+  "Ms43e Tokisoma 2-5",
   "Ms43w Awanokuni 5-2",
+  "Ms44e Oka 1-6",
+  "Ms44w Kaizen 3-4",
   "Ms45e Shohoryu 4-3",
+  "Ms45w Kyokutaisei 3-4",
   "Ms46e Kazenoumi 5-2",
+  "Ms46w Kotodairyu 3-4",
   "Ms47e Yoshiyasu 4-3",
   "Ms47w Asakoki 4-3",
+  "Ms48e Kotakiyama 1-6",
   "Ms48w Fujitoshi 5-2",
+  "Ms49e Yutakasho 2-4-1",
+  "Ms49w Kaiseijo 3-4",
+  "Ms50e Nobehara 2-5",
   "Ms50w Kotoozutsu 4-3",
   "Ms51e Amakaze 5-2",
+  "Ms51w Tosamidori 3-4",
+  "Ms52e Nishida 3-4",
+  "Ms52w Kotohaguro 2-5",
   "Ms53e Akinoyama 5-2",
   "Ms53w Hinataryu 4-3",
   "Ms54e Hoshuzan 4-3",
+  "Ms54w Nagamura 3-4",
   "Ms55e Sazanami 4-3",
+  "Ms55w Wakamiyabi 2-5",
+  "Ms56e Aratakayama 3-4",
   "Ms56w Otani 5-2",
   "Ms57e Anosho 4-3",
   "Ms57w Kumanoryu 4-3",
+  "Ms58e Yuki 3-4",
+  "Ms58w Oyamada 3-4",
+  "Ms59e Kiyota 1-6",
+  "Ms59w Tochinobori 3-4",
+  "Ms60e Asashinjo 3-4",
   "Ms60w Ohata 4-3",
+  "Sd1e Tanji 6-1",
+  "Sd1w Kenshin 2-4",
+  "Sd2e Hayanami 2-5",
+  "Sd2w Kotodaishin 5-2",
+  "Sd3e Sadanohikari 3-4",
+  "Sd3w Wakatakamoto 5-2",
+  "Sd4e Kyoda 4-3",
+  "Sd4w Shunrai 5-2",
+  "Sd5e Kaigo 4-3",
+  "Sd5w Arauma 5-2",
+  "Sd7e Suzaki 5-2",
+  "Sd8e Akitoba 4-3",
+  "Sd9w Kainoshima 4-3",
+  "Sd14e Hamayutaka 6-1",
+  "Sd14w Okinohama 5-2",
+  "Sd15e Hodaka 6-1",
+  "Sd18e Chiyoraizan 5-2",
+  "Sd21w Shiroma 6-1",
+  "Sd24e Gonoumi 2-2-3",
+  "Sd25e Maikeru 5-2",
   "Sd26w Fujiseiun 7-0 Y",
+  "Sd28e Miyata 5-2",
+  "Sd29w Akiyoshi 5-2",
+  "Sd31e Kirinryu 6-1",
+  "Sd36w Aron 6-1",
+  "Sd44w Takashoki 6-1",
+  "Jd15e Ekigozan 7-0 Y",
+  "Jd34w Getayukata 1-6",
+  "Jd62e Imanonami 0-0-7",
+  "Jd62w Leonishiki 4-3",
+  "Jk10e Bobokuni 4-3",
+  "Jk10w Okikuma 0-0-7",
+  "Jk15e Gaijingai 0-7",
+  "Jk15w Carl Saxton 2-5",
+  "Jk16e Chankoyutaka 3-4",
+  "Jk17e Rob&Sarah Carke 5-2",
+  "Jk17w Okimura 6-1",
+  "Jk18e Kintaro 6-1",
+  "Jk18w Nogaihayim 7-0 D",
+  "Jk19e Robanoumi 7-0 Y",
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the
@@ -178,11 +252,7 @@ var sekitoriID = [
   12165, 12634, 11736, 12674, 12774, 12370, 12342, 1241, 12114, 12793, 12255,
   12732, 12711, 12796, 12425, 12155, 12704, 12585, 12840, 12729, 12561, 12519,
   11809, 12357, 12448, 11949, 12597, 12610, 11723, 12733, 12724, 12333, 12800,
-  12536, 12713, 12592, 12725, 12144, 6506, 12534, 12523, 12236, 12557, 12593,
-  12767, 12319, 12699, 12075, 12727, 12771, 12220, 12484, 12576, 7156, 12199,
-  12601, 11755, 12485, 12526, 2892, 12832, 12530, 12189, 12782, 12379, 11743,
-  12703, 12316, 7143, 9066, 12455, 12656, 12225, 12778, 12834, 12689, 12192,
-  12702,
+  12536,
 ];
 
 //***** Just update the "basho" variable and you're all done. *****
@@ -522,10 +592,28 @@ window.onload = function () {
 
           card.id = rikiData[0];
           card.className = "redips-drag se";
-          if (rikiData[0].startsWith("Ms") || rikiData[0].startsWith("Sd"))
+          if (
+            rikiData[0].startsWith("Ms") ||
+            rikiData[0].startsWith("Sd") ||
+            rikiData[0].startsWith("Jd") ||
+            rikiData[0].startsWith("Jk")
+          )
             card.setAttribute("data-w", wins * 2);
           else card.setAttribute("data-w", wins);
           card.setAttribute("data-re", record);
+
+          /*
+          var holder = document.createElement('a');
+
+          holder.innerHTML = rikiData[1];
+          holder.href = "https://sumodb.sumogames.de/Rikishi.aspx?r=" + sekitoriID[j];
+          holder.target = "_blank";
+          if (rikiData[0].startsWith("Ms") || rikiData[0].startsWith("Sd") || rikiData[0].startsWith("Jd") || rikiData[0].startsWith("Jk"))
+            holder.className = "msLink";
+          //holder.setAttribute("onmouseover", 'showNextRank("' + rikiData[0] + '")');
+          //holder.setAttribute("onmouseout", "hideNextRank()");
+          holder.style.display = "none";
+          */
 
           rikiData[1] =
             '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
@@ -870,8 +958,6 @@ redips.init = function () {
         callback: function () {
           if (currentCell.dataset.r.charAt(0) == "J")
             document.getElementById("juRik").innerHTML--;
-          else if (currentCell.dataset.r.startsWith("Ms"))
-            document.getElementById("msRik").innerHTML--;
           else document.getElementById("makRik").innerHTML--;
           originCell.children[0].remove();
           $("#" + rd.obj.innerText.toLowerCase())
@@ -911,7 +997,6 @@ redips.init = function () {
     if (curCellIsOfBanzuke2) {
       currentCellRank = currentCell.dataset.r.charAt(0);
       if (currentCellRank == "J") juCounter.innerHTML--;
-      else if (currentCell.dataset.r.startsWith("Ms")) msCounter.innerHTML--;
       else makuCounter.innerHTML--;
     } else if (tarCellIsOfBanzuke2) {
       var holder = document.createElement("a");
@@ -920,15 +1005,20 @@ redips.init = function () {
         thisCard.childNodes[thisCard.childNodes.length - 1].innerText;
       holder.href = thisCard.children[thisCard.childNodes.length - 1].href;
       holder.target = "_blank";
-      //if (thisCard.id.startsWith("Ms"))
-      //  holder.className = "msLink";
+      if (
+        thisCard.id.startsWith("Ms") ||
+        thisCard.id.startsWith("Sd") ||
+        thisCard.id.startsWith("Jd") ||
+        thisCard.id.startsWith("Jk")
+      )
+        holder.className = "msLink";
       currentCell.appendChild(holder);
     }
 
     if (tarCellIsOfBanzuke2) {
       targetCellRank = targetCell.dataset.r.charAt(0);
       if (targetCellRank == "J") juCounter.innerHTML++;
-      else if (targetCell.dataset.r.startsWith("Ms")) msCounter.innerHTML++;
+      else if (targetCell.dataset.r.charAt(1) == "s") msCounter.innerHTML++;
       else makuCounter.innerHTML++;
     } else {
       targetCell.children[0].remove();
@@ -1107,7 +1197,12 @@ function updateInfoCells() {
 
         thisChg = getChange(thisRank, targetCellRank);
 
-        if (thisRank.startsWith("Ms") || thisRank.startsWith("Sd")) {
+        if (
+          thisRank.startsWith("Ms") ||
+          thisRank.startsWith("Sd") ||
+          thisRank.startsWith("Jd") ||
+          thisRank.startsWith("Jk")
+        ) {
           if (thisRank.endsWith("TD")) thisRank = thisRank.slice(0, -2);
           thisChg =
             '<a href="https://sumodb.sumogames.de/Query.aspx?show_form=0&form1_rank=' +
@@ -1225,7 +1320,6 @@ redips.resetBanzuke = function () {
 redips.arrange = function () {
   if (confirm("Confirm auto-arrange?") == true) {
     var rikishi = document.querySelectorAll(".se"),
-      msCounter = document.getElementById("msRik"),
       juCounter = document.getElementById("juRik"),
       makuCounter = document.getElementById("makRik");
 
@@ -1233,43 +1327,28 @@ redips.arrange = function () {
       var rikishiRank = rikishi[i].id;
 
       if (
-        (rikishiRank.startsWith("Ms") && rikishiRank.slice(2, -1) > 15) ||
-        rikishiRank.startsWith("Sd")
+        !rikishiRank.startsWith("Ms") &&
+        rikishiRank != rikishi[i].parentNode.dataset.r
       ) {
-        /*
-        if (rikishi[i].parentNode.classList.contains("b2")) {
-          rd.moveObject({
-            obj: rikishi[i], 
-            target: document.querySelector('.' + rikishiRank), 
-            callback: function () {
-              document.querySelector('.' + rikishiRank).children[0].remove();
-            }
-          });
+        if (!rikishi[i].parentNode.classList.contains("b2")) {
+          var holder = document.createElement("a");
+          holder.innerHTML = rikishi[i].innerText;
+          holder.href = rikishi[i].children[0].href;
+          holder.target = "_blank";
+          rikishi[i].parentNode.appendChild(holder);
+        } else {
+          if (rikishi[i].parentNode.dataset.r.startsWith("J"))
+            juCounter.innerHTML--;
+          else makuCounter.innerHTML--;
         }
-        */
-        continue;
+        if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
+        else makuCounter.innerHTML++;
+        rd.moveObject({
+          obj: rikishi[i],
+          target: document.querySelector('[data-r="' + rikishiRank + '"]'),
+        });
       }
-      if (!rikishi[i].parentNode.classList.contains("b2")) {
-        var holder = document.createElement("a");
-
-        holder.innerHTML = rikishi[i].innerText;
-        holder.href = rikishi[i].children[0].href;
-        holder.target = "_blank";
-        rikishi[i].parentNode.appendChild(holder);
-      } else {
-        if (rikishi[i].parentNode.dataset.r.startsWith("J"))
-          juCounter.innerHTML--;
-        else if (rikishi[i].parentNode.dataset.r.startsWith("Ms"))
-          msCounter.innerHTML--;
-        else makuCounter.innerHTML--;
-      }
-      if (rikishiRank.startsWith("J")) juCounter.innerHTML++;
-      else if (rikishiRank.startsWith("Ms")) msCounter.innerHTML++;
-      else makuCounter.innerHTML++;
-      rd.moveObject({
-        obj: rikishi[i],
-        target: document.querySelector('[data-r="' + rikishiRank + '"]'),
-      });
+      //else break;
     }
     updateInfoCells();
   }
@@ -1371,31 +1450,31 @@ if (window.addEventListener)
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
 
 /*
-var hoshitori = [], 
+var hoshitori = [],
     rikishiTr = document.getElementsByTagName("tr");
 
 for (var i = 1; i < rikishiTr.length; i++) {
-  var recordArr = [], 
-    aiteArr = [], 
+  var recordArr = [],
+    aiteArr = [],
     hyper = rikishiTr[i].getElementsByTagName('a');
 
   for (var j = 1; j < hyper.length; j++) {
     aiteArr.push(hyper[j].title.split(' ')[2]);
     if (hyper[j].children[0].getAttribute("src") == "img/w.gif") {
-      if (hyper[j].title.split(' ')[3] == "fusen") 
+      if (hyper[j].title.split(' ')[3] == "fusen")
         recordArr.push(3);
-      else 
+      else
         recordArr.push(1);
     }
     else {
-      if (hyper[j].title.split(' ')[3] == "fusen") 
+      if (hyper[j].title.split(' ')[3] == "fusen")
         recordArr.push(2);
-      else 
+      else
         recordArr.push(0);
     }
   }
   var rikishiObj = {
-    record: recordArr, 
+    record: recordArr,
     aite: aiteArr
   }
   hoshitori.push(rikishiObj);
@@ -1418,7 +1497,7 @@ for (var i = 0; i < tori[0].children[0].children.length; i++) {
   aiteArr.push(tori[0].children[0].children[i].children[3].children[0].innerHTML.split(' ')[1]);
 }
 var rikishiObj = {
-  record: recordArr, 
+  record: recordArr,
   aite: aiteArr
 }
 console.log(rikishiObj);
