@@ -189,31 +189,35 @@ var theSekitori = [
   "Ms59w Tochinobori 3-4",
   "Ms60e Asashinjo 3-4",
   "Ms60w Ohata 4-3",
-  "Sd21w Ekigozan 2-5",
-  "Jd15e Nogaihayim 4-3",
-  "Jd15w Robanoumi 4-3",
-  "Jd32w Okimura 4-3",
-  "Jd33e Kintaro 6-1",
-  "Jd33w Leonishiki 7-0 Y",
-  "Jd64e Rob&Sarah_Carke 0-0-7",
-  "Jd69e Getayukata 5-2",
-  "Jd80e Bobokuni 4-3",
-  "Jd107w Chankoyutaka 1-6",
-  "Jk4e Carl_Saxton 0-0-7",
-  "Jk9w Imanonami 6-1 Y",
-  "Jk40w Gaijingai 2-5",
-  "Jk41e Babanoshuzan 1-6",
-  "Jk41w Obana 3-4",
-  "Jk42e Seigatakaigai 3-4",
-  "Jk42w Akinomaki 6-1",
-  "Jk43e Chabonowaka 6-1",
+  "Sd35e Leonishiki 2-5",
+  "Sd52w Ekigozan 5-2",
+  "Sd69e Kintaro 5-2",
+  "Sd85e Nogaihayim 0-0-7",
+  "Sd85w Robanoumi 4-3",
+  "Jd11e Okimura 3-4",
+  "Jd22e Imanonami 3-4",
+  "Jd24w Getayukata 2-5",
+  "Jd49e Bobokuni 0-0-7",
+  "Jd60e Akinomaki 1-6",
+  "Jd60w Chabonowaka 7-0 Y",
+  "Jk10e Chankoyutaka 0-0-7",
+  "Jk15w Obana 0-0-7",
+  "Jk18e Seigatakaigai 4-3",
+  "Jk20w Gaijingai 6-1",
+  "Jk39e Babanoshuzan 0-0-7",
+  "Jk39w Asahikai 0-7",
+  "Jk40e Oziyoziyozi 2-5",
+  "Jk40w Sensonishiki 3-4",
+  "Jk41e Nikkan_Sports 4-3",
+  "Jk41w Okumenmonai 5-2",
+  "Jk43e Yubiquitoyama 7-0 Y",
   "Jk43w Okikuma 0-2",
 ];
 
 /* Add here the shikona of retired sekitori, who will not appear in the
  * following banzuke. If nobody retired then leave this array empty
  */
-var retiredRikishi = ["Rob&Sarah_Carke", "Carl_Saxton"];
+var retiredRikishi = ["Babanoshuzan", "Nogaihayim"];
 
 /* Enable "No Rank Colouring" and "One Column" options and then open the
  * browser's inspector (F12). Find the table and copy & paste the <tbody> node.
