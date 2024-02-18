@@ -1360,14 +1360,16 @@ function getChange(thisRank, targetCellRank) {
   if (thisRank == targetCellRank) chg = "─";
   else {
     const change = [
-      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
-      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!"],
-      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!", "!!!"],
-      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"],
-      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!", "!!!"],
-      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"],
-      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "],
-      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
+      ["calc", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      [" ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", " ↑ ", "calc", " ↓ ", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", " ↑ ", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ ", "!!!"],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc", " ↓ "],
+      ["!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", "!!!", " ↑ ", "calc"],
     ];
     var r1, r2;
 
@@ -1388,6 +1390,11 @@ function getChange(thisRank, targetCellRank) {
       case "M":
         if (!thisRank.startsWith("Ms")) r1 = 4;
         else r1 = 6;
+        break;
+      case "J":
+        if (thisRank.startsWith("Jk")) r1 = 9;
+        else if (thisRank.startsWith("Jd")) r1 = 8;
+        else r1 = 5;
         break;
       default:
         r1 = 5;
@@ -1410,6 +1417,11 @@ function getChange(thisRank, targetCellRank) {
         if (!targetCellRank.startsWith("Ms")) r2 = 4;
         else r2 = 6;
         break;
+      case "J":
+        if (targetCellRank.startsWith("Jk")) r2 = 9;
+        else if (targetCellRank.startsWith("Jd")) r2 = 8;
+        else r2 = 5;
+        break;
       default:
         r2 = 5;
     }
@@ -1417,11 +1429,11 @@ function getChange(thisRank, targetCellRank) {
     if (change[r1][r2] != "calc") chg = change[r1][r2];
     else {
       var thisRankNum =
-          r1 == 6 || r1 == 7
+          r1 > 5
             ? parseInt(thisRank.slice(2, -1))
             : parseInt(thisRank.slice(1, -1)),
         targetRankNum =
-          r2 == 6 || r2 == 7
+          r2 > 5
             ? parseInt(targetCellRank.slice(2, -1))
             : parseInt(targetCellRank.slice(1, -1));
 
