@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Fetch the page
-url = "http://sumodb.sumogames.de/gtb/GTBScoreBasho.aspx?b=199907"
+url = "http://sumodb.sumogames.de/gtb/GTBScoreBasho.aspx?b=199909"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
