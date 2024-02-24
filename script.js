@@ -1,7 +1,7 @@
 "use strict";
 
 var theSekitori = [
-  "K1w Ekigozan 15-0",
+  "K1w Ekigozan 15-0 Y",
   "M13w Imanonami 6-9",
   "J12w Yubiquitoyama 12-3 Y",
   "J13w Chiyonokitaro 11-4",

@@ -30,6 +30,36 @@ class SumoScoreUpdater:
                         SumoScore(rank=rank, name=name, record=f"{wins}-{losses}{misc}")
                     )
 
+    def update_promotions(self, promotions: list[PromotionNote], promotions_filename: str):
+        for score in self.scores:
+            # Check for an exact match and continue if found
+            if any(
+                p.old_rank == score.rank and p.record == score.record
+                for p in promotions
+            ):
+                continue
+
+            print(
+                f"Researching {score.record} records for {score.rank} {score.name} ..."
+            )
+            # Display near matches, which will do nothing if the list is empty
+            for p in promotions:
+                if p.record[:3] != score.record[:3]:
+                    continue
+                print(f"- {p.old_rank} {p.record} -> {p.new_rank}")
+            new_rank = input(f"- {score.rank} {score.record} -> ")
+
+            # Append the new promotion note immediately to the file
+            with open(promotions_filename, "a") as f:
+                f.write(f"{score.rank} {score.record} -> {new_rank}\n")
+
+            # Prompt for the new rank after listing any near matches
+            promotions.append(
+                PromotionNote(
+                    old_rank=score.rank, record=score.record, new_rank=new_rank
+                )
+            )
+
 
 class PromotionNoteParser:
     def __init__(self):
@@ -60,15 +90,11 @@ class PromotionNoteParser:
 
 
 # Usage
+promotions_file = "promotion_notes.txt"
 sumo_score_updater = SumoScoreUpdater()
 sumo_score_updater.parse_file("script.js")
 
 promotion_note_parser = PromotionNoteParser()
-promotion_note_parser.parse_file("promotion_notes.txt")
+promotion_note_parser.parse_file(promotions_file)
 
-# Access the data
-for score in sumo_score_updater.scores:
-    print(score.dict())
-
-for promotion in promotion_note_parser.promotions:
-    print(promotion.dict())
+sumo_score_updater.update_promotions(promotion_note_parser.promotions, promotions_file)
