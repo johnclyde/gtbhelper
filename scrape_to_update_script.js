@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Fetch the page
-url = "http://sumodb.sumogames.de/gtb/GTBScoreBasho.aspx?b=200001"
+url = "http://sumodb.sumogames.de/gtb/GTBScoreBasho.aspx?b=200003"
 response = requests.get(url)
 soup = BeautifulSoup(response.text, "html.parser")
 
@@ -28,15 +28,15 @@ for row in results_table.find_all("tr")[1:]:  # Skip header row
     )  # Removes asterisk from name, if present
     score = cols[-1].text.strip()  # Assumes this correctly targets the score
     name = name.replace(" ", "_")
+    found = False
     for i, line in enumerate(existing_content):
-        if name in line:
+        if not found and f" {name} " in line:
             prefix = line[: line.index(name)]
             updated_line = f'{prefix}{name} {score}",\n'
             existing_content[i] = updated_line
-            break
-    else:
+            found = True
+    if not found:
         updated_content.append(f'  "Jk??? {name} {score}",\n')
-        break
 
 
 with open("script.js.new", "w") as f:
