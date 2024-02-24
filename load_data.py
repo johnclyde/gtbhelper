@@ -47,6 +47,12 @@ class SumoScoreUpdater:
                 if p.record[:3] != score.record[:3]:
                     continue
                 print(f"- {p.old_rank} {p.record} -> {p.new_rank}")
+
+            wins, losses = score.record.split('-')[:2]
+            rank = score.rank[:-1]
+            research_url = f"https://sumodb.sumogames.de/Query.aspx?show_form=0&rowcount=5&form1_rank={rank}&form1_wins={wins}"
+            print(f"Research link for {score.rank} {score.name} with record {score.record}:\n{research_url}")
+
             new_rank = input(f"- {score.rank} {score.record} -> ")
 
             # Append the new promotion note immediately to the file
@@ -88,7 +94,6 @@ class PromotionNoteParser:
                         )
                     )
 
-
 # Usage
 promotions_file = "promotion_notes.txt"
 sumo_score_updater = SumoScoreUpdater()
@@ -98,3 +103,40 @@ promotion_note_parser = PromotionNoteParser()
 promotion_note_parser.parse_file(promotions_file)
 
 sumo_score_updater.update_promotions(promotion_note_parser.promotions, promotions_file)
+
+violations = []
+
+def count_rank_lines(index_html_lines, rank) -> int:
+    count = 0
+    for line in index_html_lines:
+        if rank in line:
+            count += 1
+    return count
+
+# Usage example:
+with open('index.html', 'r', encoding='utf-8') as file:
+    html_content = file.read()
+    index_html_lines = html_content.split('\n')  # Split the HTML content into lines
+
+# After all updates and user inputs
+print("\nRikishi Recommended Promotions:")
+for score in sumo_score_updater.scores:
+    official_promotion = None
+    for promotion in promotion_note_parser.promotions:
+        if score.rank == promotion.old_rank and score.record == promotion.record:
+            official_promotion = promotion
+            print(f"{score.name}: {promotion.old_rank} {score.record} -> {promotion.new_rank}")
+
+    old_rank_lines = count_rank_lines(index_html_lines, official_promotion.old_rank)
+    new_rank_lines = count_rank_lines(index_html_lines, official_promotion.new_rank)
+
+    if old_rank_lines < 2:
+        violations.append(f"You have to add {official_promotion.old_rank}")
+    if new_rank_lines < 2:
+        violations.append(f"You have to add {official_promotion.new_rank}")
+
+# Report violations
+if violations:
+    print("index.html isn't ready - you have to add table rows for the following violations:")
+    for violation in violations:
+        print(violation)
