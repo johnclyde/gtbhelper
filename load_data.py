@@ -1,38 +1,35 @@
-from pydantic import BaseModel, Field
-from pydantic.fields import FieldValidator
 import re
 
-# Define Pydantic models
+from pydantic import BaseModel
+
+
 class SumoScore(BaseModel):
+    rank: str
     name: str
-    score: int
+    record: str
+
 
 class PromotionNote(BaseModel):
-    rank: str
+    old_rank: str
     record: str
-    promotion: str
+    new_rank: str
 
-    # Custom validator to ensure correct format if needed
-    @FieldValidator('promotion', pre=True, always=True)
-    def set_promotion(cls, values, field, config, field_name):
-        record = values.get('record')
-        if record and '->' in record:
-            return values.get('promotion')
-        return None
 
-# Define classes to parse files and store data using Pydantic models
 class SumoScoreUpdater:
     def __init__(self):
         self.scores: list[SumoScore] = []
 
     def parse_file(self, filename):
-        pattern = re.compile(r'"([^"]+) (\d+)",')
+        pattern = re.compile(r'"([^"]+) ([^"]+) (\d+)\-(\d+)([^"]*)",')
         with open(filename, "r") as f:
             for line in f:
                 match = pattern.search(line)
                 if match:
-                    name, score = match.groups()
-                    self.scores.append(SumoScore(name=name, score=int(score)))
+                    rank, name, wins, losses, misc = match.groups()
+                    self.scores.append(
+                        SumoScore(rank=rank, name=name, record=f"{wins}-{losses}{misc}")
+                    )
+
 
 class PromotionNoteParser:
     def __init__(self):
@@ -42,12 +39,25 @@ class PromotionNoteParser:
         with open(filename, "r") as f:
             for line in f:
                 parts = line.strip().split(" ")
-                if len(parts) < 2:
+                if len(parts) < 3:
                     continue
+                if "->" == parts[2]:
+                    self.promotions.append(
+                        PromotionNote(
+                            old_rank=parts[0],
+                            record=parts[1],
+                            new_rank=" ".join(parts[3:]),
+                        )
+                    )
+                elif "->" == parts[3]:
+                    self.promotions.append(
+                        PromotionNote(
+                            old_rank=parts[0],
+                            record=" ".join(parts[1:3]),
+                            new_rank=" ".join(parts[4:]),
+                        )
+                    )
 
-                if "->" not in parts:
-                    continue
-                self.promotions.append(PromotionNote(rank=parts[0], record=parts[1], promotion=' '.join(parts[2:])))
 
 # Usage
 sumo_score_updater = SumoScoreUpdater()
