@@ -38,12 +38,12 @@ if __name__ == "__main__":
     print("Records updated successfully.")
 
 
-with open("script.js", "r") as f:
+with open("script.js.new", "r") as f:
     existing_content = f.readlines()
 
 
 # The filename as saved by wget or to be used as the cache file
-filename = "GTBScoreBasho.aspx?b=200009"
+filename = "GTBScoreBasho.aspx?b=200011"
 
 # Check if the file exists locally
 if os.path.exists(filename):

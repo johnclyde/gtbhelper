@@ -1,3 +1,5 @@
+S1e 13-2 Y -> O1w
+
 S1e 11-4 -> S1e
 
 K1e 15-0 Y -> S1e
@@ -13,18 +15,22 @@ J12w 12-3 Y -> J3w
 J2w 11-4 -> M13w
 J13w 11-4 -> J5w
 
+M9w 9-6 -> M5e
 J6e 9-6 -> J2e
 J6w 9-6 -> J2w
+J14w 9-6 -> J9e
 
 J5w 8-7 -> J4e
 J9e 8-7 -> J6w
 J12e 8-7 -> J9e
+J14e 8-7 -> J10w
 
 S1e 7-8 -> K1e
 J4e 7-8 -> J4w
 
 M1e 6-9 -> M3e
 M13w 6-9 -> M15e
+M14w 6-9 -> J1e (before 2007)
 J3w 6-9 -> J6e
 
 J8e 5-10 -> J12w
@@ -37,7 +43,6 @@ J4w 0-0-15 -> Ms3w
 Ms1e 7-0 Y -> J8e
 Ms7w 7-0 Y -> J12e
 Ms10e 7-0 Y -> J13w
-Ms19w 7-0 D -> Ms1e
 Ms27w 7-0 Y -> Ms2w
 Ms40w 7-0 Y -> Ms3w
 Ms42w 7-0 Y -> Ms4e
@@ -50,7 +55,7 @@ Sd44e 7-0 Y -> Ms28e
 Sd58e 7-0 Y -> Ms39e
 Sd67e 7-0 Y -> Ms40e
 Sd74e 7-0 Y -> Ms49w
-Sd84w 7-0 D -> Ms58w
+Sd80e 7-0 Y -> Ms54e
 Jd7e 7-0 Y -> Sd15w
 Jd15e 7-0 Y -> Sd22e
 Jd22e 7-0 Y -> Sd28e
@@ -61,6 +66,7 @@ Jd40e 7-0 Y -> Sd44e
 Jd60w 7-0 Y -> Sd60w
 Jd62e 7-0 Y -> Sd61w
 Jd67e 7-0 Y -> Sd66e
+Jd78w 7-0 Y -> Sd73e
 Jd80e 7-0 Y -> Sd74e
 Jd92e 7-0 Y -> Sd84w
 Jd105w 7-0 Y -> Sd93e
@@ -71,8 +77,15 @@ Jk21e 7-0 Y -> Jd15e
 Jk32e 7-0 Y -> Jd15e
 Jk43e 7-0 Y -> Jd15e
 
+Ms19w 7-0 D -> Ms1e
+Sd52e 7-0 D -> Ms35e
+Sd84w 7-0 D -> Ms58w
+Jd33e 7-0 D -> Sd36w
+
+Ms7w 6-1 Y -> J14w
 Ms33w 6-1 Y -> Ms13w
 Ms59w 6-1 Y -> Ms26w
+Jk5w 6-1 Y -> Jd26e
 Jk14e 6-1 Y -> Jd32e
 Jk16w 6-1 Y -> Jd32e
 Jk21e 6-1 Y -> Jd36e
@@ -86,6 +99,7 @@ Sd21w 6-1 -> Ms42w
 Sd63w 6-1 -> Sd8e
 Sd69e 6-1 -> Sd13w
 Sd84w 6-1 -> Sd26e
+Sd87w 6-1 -> Sd29e
 Jd3e 6-1 -> Sd42e
 Jd7e 6-1 -> Sd45w
 Jd7w 6-1 -> Sd46e
@@ -94,6 +108,7 @@ Jd36e 6-1 -> Sd71w
 Jd39e 6-1 -> Sd74e
 Jd50w 6-1 -> Sd84w
 Jd53e 6-1 -> Sd85w
+Jd67e 6-1 -> Sd97e
 Jd80w 6-1 -> Jd7e
 Jd93e 6-1 -> Jd16w
 Jk18w 6-1 -> Jd45w
@@ -106,6 +121,7 @@ Ms27w 5-2 -> Ms15w
 Ms44e 5-2 -> Ms26e
 Ms47e 5-2 -> Ms27w
 Ms52e 5-2 -> Ms32e
+Sd13w 5-2 -> Ms50e
 Sd15w 5-2 -> Ms52e
 Sd22e 5-2 -> Ms58e
 Sd23w 5-2 -> Ms59w
@@ -117,6 +133,7 @@ Jd5e 5-2 -> Sd67e
 Jd6w 5-2 -> Sd67w (old)
 Jd7w 5-2 -> Sd69e (old)
 Jd14e 5-2 -> Sd78e (old)
+Jd15e 5-2 -> Sd80e (old)
 Jd15w 5-2 -> Sd81e (old)
 Jd18w 5-2 -> Sd84w (old)
 Jd33w 5-2 -> Sd97w
@@ -126,6 +143,7 @@ Jd40e 5-2 -> Jd3e
 Jd46w 5-2 -> Jd7e
 Jd59e 5-2 -> Jd17e
 Jd61e 5-2 -> Jd18w
+Jd63e 5-2 -> Jd20e
 Jd69w 5-2 -> Jd24w
 Jd78w 5-2 -> Jd33e
 Jd80e 5-2 -> Jd34e
@@ -141,6 +159,7 @@ Jk19e 5-2 -> Jd63w
 Jk19w 5-2 -> Jd63w
 Jk21e 5-2 -> Jd64w
 Jk21w 5-2 -> Jd65e
+Jk24w 5-2 -> Jd67e
 Jk25e 5-2 -> Jd67w
 Jk41w 5-2 -> Jd80w
 
@@ -161,6 +180,7 @@ Sd22w 4-3 -> Sd9w
 Sd23e 4-3 -> Sd10e
 Sd30e 4-3 -> Sd15w
 Sd33w 4-3 -> Sd18e
+Sd38w 4-3 -> Sd21e
 Sd40e 4-3 -> Sd22e
 Sd47w 4-3 -> Sd30e
 Sd60w 4-3 -> Sd41e
@@ -176,17 +196,21 @@ Jd24e 4-3 -> Jd3w
 Jd26e 4-3 -> Jd5e
 Jd30e 4-3 -> Jd7w
 Jd32e 4-3 -> Jd9e
+Jd33w 4-3 -> Jd10e
 Jd34e 4-3 -> Jd10w
+Jd46w 4-3 -> Jd22e
 Jd47w 4-3 -> Jd23e
 Jd48w 4-3 -> Jd23w
 Jd60w 4-3 -> Jd31e
 Jd64e 4-3 -> Jd33w
 Jd64w 4-3 -> Jd34e
 Jd65w 4-3 -> Jd35e
+Jd66e 4-3 -> Jd35w
 Jd68e 4-3 -> Jd37e
 Jd69w 4-3 -> Jd38e
 Jd76e 4-3 -> Jd42e
 Jd78w 4-3 -> Jd45w
+Jd79e 4-3 -> Jd46e
 Jd79w 4-3 -> Jd46w
 Jd80e 4-3 -> Jd47e
 Jd80w 4-3 -> Jd47w
@@ -210,6 +234,7 @@ Jk22e 4-3 -> Jd82e
 Jk22w 4-3 -> Jd82w
 Jk30e 4-3 -> Jd92e
 Jk32e 4-3 -> Jd95w
+Jk33e 4-3 -> Jd98e
 Jk36w 4-3 -> Jd104e
 Jk39w 4-3 -> Jd105w
 Jk40e 4-3 -> Jd106e
@@ -221,8 +246,10 @@ Ms15w 3-4 -> Ms22e
 Ms26w 3-4 -> Ms33w
 Ms33e 3-4 -> Ms40w
 Ms39e 3-4 -> Ms47w
+Ms40e 3-4 -> Ms48w
 Ms40w 3-4 -> Ms49e
 Ms49e 3-4 -> Ms60e
+Sd7e 3-4 -> Sd19e
 Sd9e 3-4 -> Sd21e
 Sd9w 3-4 -> Sd21w
 Sd10w 3-4 -> Sd22w
@@ -256,15 +283,18 @@ Jd46e 3-4 -> Jd67e
 Jd47e 3-4 -> Jd67w
 Jd48e 3-4 -> Jd68w
 Jd51w 3-4 -> Jd71e
+Jd54w 3-4 -> Jd74w
 Jd62w 3-4 -> Jd80w
 Jd64w 3-4 -> Jd82e
 Jd69w 3-4 -> Jd85w
+Jd70e 3-4 -> Jd86e
 Jd75w 3-4 -> Jd90e
 Jd76e 3-4 -> Jd90w
 Jd105e 3-4 -> Jd102w
 Jd107w 3-4 -> Jd105e
 Jk1e 3-4 -> Jd105w
 Jk4w 3-4 -> Jd106e
+Jk5e 3-4 -> Jd106w
 Jk9w 3-4 -> Jd108w
 Jk11e 3-4 -> Jd109e
 Jk12w 3-4 -> Jd109w
@@ -277,6 +307,7 @@ Jk21w 3-4 -> Jk6e
 Jk22e 3-4 -> Jk6w
 Jk22w 3-4 -> Jk7e
 Jk23e 3-4 -> Jk7e
+Jk25e 3-4 -> Jk8e
 Jk33w 3-4 -> Jk11w
 Jk36e 3-4 -> Jk12e
 Jk37w 3-4 -> Jk12w
@@ -293,12 +324,14 @@ Ms60e 2-5 -> Sd23e
 Sd35e 2-5 -> Sd58e
 Sd41w 2-5 -> Sd67w
 Sd60w 2-5 -> Sd88w
+Sd78e 2-5 -> Jd3e
 Sd82e 2-5 -> Jd7e
 Sd90w 2-5 -> Jd15w
 Sd91e 2-5 -> Jd15w
 Sd97w 2-5 -> Jd23e
 Jd3e 2-5 -> Jd30e
 Jd24w 2-5 -> Jd59e
+Jd34e 2-5 -> Jd65e
 Jd40e 2-5 -> Jd69w
 Jd62w 2-5 -> Jd82e
 Jd65w 2-5 -> Jd84w
@@ -307,7 +340,10 @@ Jd78w 2-5 -> Jd92w
 Jd80w 2-5 -> Jd93w
 Jd106w 2-5 -> Jk1e
 Jk4e 2-5 -> Jk4e
+Jk6w 2-5 -> Jk4e
+Jk8e 2-5 -> Jk4w
 Jk12w 2-5 -> Jk4w
+Jk13e 2-5 -> Jk5e
 Jk14w 2-5 -> Jk5e
 Jk15e 2-5 -> Jk5w
 Jk22e 2-5 -> Jk8w
@@ -315,6 +351,7 @@ Jk22w 2-5 -> Jk9e
 Jk23e 2-5 -> Jk9e
 Jk23w 2-5 -> Jk9e
 Jk24e 2-5 -> Jk9w
+Jk25w 2-5 -> Jk9w
 Jk30w 2-5 -> Jk11w
 Jk34e 2-5 -> Jk15w
 Jk40e 2-5 -> Jk20e
@@ -329,12 +366,14 @@ Sd71e 1-6 -> Jd9e
 Sd95w 1-6 -> Jd34e
 Jd30w 1-6 -> Jd76e
 Jd37e 1-6 -> Jd78w
+Jd38e 1-6 -> Jd79e
 Jd42e 1-6 -> Jd80e
 Jd47w 1-6 -> Jd90e
 Jd51w 1-6 -> Jd93w
 Jd60e 1-6 -> Jk2w
 Jd62e 1-6 -> Jk2e
 Jd78e 1-6 -> Jk5w
+Jd91w 1-6 -> Jk8e
 Jd93w 1-6 -> Jk8w
 Jd102w 1-6 -> Jk9w
 Jk6e 1-6 -> Jk10w
@@ -361,8 +400,10 @@ Jd106e 0-7 -> Jk12e
 Jk2 0-7 -> Jk15w
 Jk11w 0-7 -> Jk21w
 Jk14e 0-7 -> Jk24e
+Jk15w 0-7 -> Jk24w
 Jk16w 0-7 -> Jk25e
 Jk17e 0-7 -> Jk25w
+Jk17w 0-7 -> Jk26e
 Jk20e 0-7 -> Jk28w
 Jk22w 0-7 -> Jk30e
 Jk24w 0-7 -> Jk30w
@@ -374,7 +415,11 @@ Jk31w 0-7 -> Jk33w
 Jk33e 0-7 -> Jk34e / Mz
 Jk39w 0-7 -> Jk40e / Mz
 
+Ms3e 0-0-7 -> Ms43e
 Ms13w 0-0-7 -> Ms53w
+Ms26e 0-0-7 -> Sd6e
+Ms32e 0-0-7 -> Sd12e
+Ms40w 0-0-7 -> Sd20w
 Sd15w 0-0-7 -> Sd75w
 Sd42e 0-0-7 -> Jd2e
 Sd42w 0-0-7 -> Jd2w
@@ -386,22 +431,26 @@ Sd100e 0-0-7 -> Jd60w
 Jk7e 0-0-7 -> Bg
 Jd9e 0-0-7 -> Jd79e
 Jd10e 0-0-7 -> Jd80e
+Jd16w 0-0-7 -> Jd86w
 Jd23e 0-0-7 -> Jd93e
 Jd30e 0-0-7 -> Jd100e
 Jd32e 0-0-7 -> Jd102e
 Jd42e 0-0-7 -> Jd112e
 Jd45e 0-0-7 -> Jk4w
+Jd47w 0-0-7 -> Jk9w
 Jd49e 0-0-7 -> Jk12w
 Jd54w 0-0-7 -> Jk12w
 Jd59e 0-0-7 -> Jk13e
 Jd62w 0-0-7 -> Jk13e
 Jd64w 0-0-7 -> Jk13w
 Jd65w 0-0-7 -> Jk13w
+Jd66w 0-0-7 -> Jk13w
 Jd67w 0-0-7 -> Jk13w
 Jd71e 0-0-7 -> Jk14e
 Jd80e 0-0-7 -> Jk14w
 Jd80w 0-0-7 -> Jk14w
 Jd81w 0-0-7 -> Jk14w
+Jd90e 0-0-7 -> Jk15e
 Jd93w 0-0-7 -> Jk15e
 Jd100e 0-0-7 -> Jk16e
 Jd105e 0-0-7 -> Jk17e
@@ -421,6 +470,11 @@ Jk15w 0-0-7 -> Bg
 Jk17w 0-0-7 -> Bg
 Jk18e 0-0-7 -> Bg
 Jk19e 0-0-7 -> Bg
+Jk21w 0-0-7 -> Bg
+Jk24e 0-0-7 -> Bg
 Jk30w 0-0-7 -> Bg
+Jk32w 0-0-7 -> Bg
+Jk33e 0-0-7 -> Bg
+Jk33w 0-0-7 -> Bg
 
 Bg 0-0-7 -> Bg
