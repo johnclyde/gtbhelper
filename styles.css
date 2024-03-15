@@ -65,7 +65,6 @@ div a {
 ul {
   font-size: 11pt;
   line-height: 25px;
-  display: inline-block;
   margin-right: 4%;
   margin-top: 0;
   float: left;
@@ -115,9 +114,6 @@ legend {
   padding: 1px 3px;
   border: 1px dimgray solid;
   border-radius: 5px;
-}
-
-#resetBanzuke {
 }
 
 #miscellany {
@@ -221,9 +217,6 @@ table {
 
 #banzuke2 .tableTitle {
   background-color: #26c22d;
-}
-
-tr {
 }
 
 td,
@@ -415,9 +408,6 @@ td .redips-drag a {
   color: black;
 }
 
-.intai {
-}
-
 [data-w="14"],
 [data-w="15"] {
   background-color: #8fff8f;
@@ -450,16 +440,12 @@ td .redips-drag a {
 [data-w="1"] {
   background-color: #ffb7bf;
 }
-
+/*
 [id^="Ms"] {
-  text-shadow: none !important;
-  border-style: solid !important;
-  font-family:
-    Trebuchet MS,
-    Tahoma,
-    Calibri,
-    Arial;
-  border-radius: 6px !important;
+	text-shadow: none !important;
+	border-style: solid !important;
+	font-family: Trebuchet MS, Tahoma, Calibri, Arial;
+	border-radius: 6px !important;
 }
 
 [id^="Ms"] a {
@@ -467,13 +453,9 @@ td .redips-drag a {
 }
 
 .msLink {
-  font-family:
-    Trebuchet MS,
-    Tahoma,
-    Calibri,
-    Arial;
+	font-family: Trebuchet MS, Tahoma, Calibri, Arial;
 }
-
+*/
 td .redips-drag,
 .redips-nodrag {
   /*background: linear-gradient(rgba(255, 255, 255, 0.75), transparent 15%, transparent 85%, rgba(0, 0, 0, 0.25));*/
@@ -568,18 +550,15 @@ footer {
   color: #88deff;
 }
 
-.darkm .se {
-}
-
 .darkm .se > a {
   color: #e6e6e6;
   text-shadow: 1px 1px #0000005e;
 }
-
+/*
 .darkm [id^="Ms"] > a {
   color: white !important;
 }
-
+*/
 .darkm .intai {
   background-color: #515151 !important;
 }
