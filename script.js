@@ -1223,3 +1223,27 @@ function showSaving() {
 if (window.addEventListener)
   window.addEventListener("load", redips.init, false);
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
+
+document.addEventListener('DOMContentLoaded', function() {
+    populateBanzukeTable('banzuke1Body', 18, 'M', 'M');
+    populateBanzukeTable('banzuke2Body', 60, 'Ms', 'Ms');
+});
+
+function populateBanzukeTable(tableId, count, rankPrefix, classPrefix) {
+    const tableBody = document.getElementById(tableId);
+    for (let i = 1; i <= count; i++) {
+        let row = document.createElement('tr');
+        row.classList.add(`${classPrefix}group`);
+        row.innerHTML = `
+            <td class="rs1"></td>
+            <td class="redips-only ${rankPrefix}${i}e"></td>
+            <td class="new hid"></td>
+            <td class="ch1 hid"></td>
+            <th>${rankPrefix}${i}</th>
+            <td class="redips-only ${rankPrefix}${i}w"></td>
+            <td class="rs1"></td>
+            <td class="new hid"></td>
+            <td class="ch1 hid"></td>`;
+        tableBody.appendChild(row);
+    }
+}
