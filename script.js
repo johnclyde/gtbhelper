@@ -1,6 +1,19 @@
 "use strict";
 
-import { exportTableToCSV, darkmode, nodark, checkDarkMode, saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage } from './utilities.js';
+import {
+  exportTableToCSV,
+  darkmode,
+  nodark,
+} from "./utilities.js";
+
+import {
+  saveToLocalStorage,
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  initializeLocalStorage,
+  saveRadioState,
+  saveDropRadioState,
+} from "./localStorageManager.js";
 
 /*
 var shikonaCells = document.getElementsByClassName("shikona");
@@ -277,51 +290,7 @@ window.onload = function () {
     exportTableToCSV.apply(this, [$("#banzuke2"), "banzuke2.csv"]);
   });
 
-  // removing unused local storage names of before *****************************
-  if (window.localStorage.getItem("banzuke1") !== null) {
-    window.localStorage.removeItem("banzuke1");
-    window.localStorage.removeItem("banzuke2");
-  }
-  if (window.localStorage.getItem("banzuke") !== null) {
-    window.localStorage.removeItem("banzuke");
-  }
-  if (window.localStorage.getItem("picks") !== null) {
-    window.localStorage.removeItem("picks");
-  }
-  // ***************************************************************************
-  if (window.localStorage.getItem("savedBanzuke") !== null) {
-    var saveDate = Date.parse(window.localStorage.getItem("savedBanzukeTime")),
-      expireDate = new Date(Date.UTC(2024, 0, 28, 9, 5));
-
-    if (saveDate < expireDate) window.localStorage.removeItem("savedBanzuke");
-    else {
-      document.getElementById("tableLiner").innerHTML =
-        window.localStorage.getItem("savedBanzuke");
-      if (document.querySelectorAll(".makushitaTable").length == 0) {
-        addMakushitaTable();
-        updateInfoCells();
-      }
-    }
-  }
-  if (window.localStorage.getItem("savedBanzuke") === null) {
-    writeTableTitles(basho);
-    addRikishi();
-    addMakushitaTable();
-  }
-
-  var radioButton = document.getElementsByClassName("checkbox"),
-    radioLocal = window.localStorage.getItem("radioButton"),
-    radioLocalDrop = window.localStorage.getItem("radioDrop");
-
-  if (radioLocal === null || radioLocal == "openRikishiPage")
-    radioButton[0].checked = true;
-  else if (radioLocal == "returnToOld") radioButton[1].checked = true;
-  else radioButton[2].checked = true;
-
-  if (radioLocalDrop === null || radioLocalDrop == "multiple")
-    radioButton[3].checked = true;
-  else if (radioLocalDrop == "shift") radioButton[4].checked = true;
-  else radioButton[5].checked = true;
+  initializeLocalStorage();
 
   var noteCells = document.querySelectorAll(".nte");
 
@@ -358,7 +327,7 @@ window.onload = function () {
     updateInfoCells();
   });
 
-  var drafts = window.localStorage.getItem("drafts");
+  var drafts = getFromLocalStorage("drafts");
 
   if (drafts !== null) {
     var draftsTable = document.getElementById("draftsTable");
@@ -689,12 +658,8 @@ function saveDropRadio(button) {
 
 function saveBanzuke() {
   var date = new Date();
-
-  window.localStorage.setItem(
-    "savedBanzuke",
-    document.getElementById("tableLiner").innerHTML,
-  );
-  window.localStorage.setItem("savedBanzukeTime", date.toString());
+  saveToLocalStorage("savedBanzuke", document.getElementById("tableLiner").innerHTML);
+  saveToLocalStorage("savedBanzukeTime", date.toString());
 }
 
 // *****************************************************************************
