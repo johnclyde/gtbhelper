@@ -1227,9 +1227,9 @@ else if (window.attachEvent) window.attachEvent("onload", redips.init);
 document.addEventListener('DOMContentLoaded', function() {
     const banzuke1Config = [
         { prefix: 'M', range: Array.from({length: 17}, (_, i) => i + 1) },
-        { divider: false },
+        { divider: true },
         { prefix: 'J', range: Array.from({length: 14}, (_, i) => i + 1) },
-        { divider: false },
+        { divider: true },
         { prefix: 'Ms', range: Array.from({length: 60}, (_, i) => i + 1) }
     ];
 
@@ -1295,11 +1295,10 @@ function createRowBanzuke2(rank) {
 
 function createDividerRow(title) {
     const row = document.createElement('tr');
-    if (title) {
+    if (title !== true) {
         row.innerHTML = `<th colspan="9" class="tableTitle">${title}</th>`;
     } else {
-        row.classList.add('divider');
-        row.innerHTML = '<td colspan="9"></td>';
+        row.innerHTML = '<th colspan="9" class="divider"></th>';
     }
     return row;
 }
