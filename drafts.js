@@ -55,3 +55,30 @@ export function displayDrafts(draftsTableId) {
         draftsTable.appendChild(draftRow);
     });
 }
+
+export function setupDraftEventHandlers() {
+    document.getElementById("saveDraft").addEventListener("click", function() {
+        document.getElementById("saveDialog").show();
+    });
+
+    document.getElementById("saveDraftButton").addEventListener("click", function() {
+        const draftName = document.getElementById("draftName").value;
+        if (draftName) {
+            saveDraft(draftName);
+            displayDrafts("draftsTable");
+            document.getElementById("draftName").value = "";
+        }
+        document.getElementById("saveDialog").close();
+    });
+
+    document.getElementById("closeDialog").addEventListener("click", function() {
+        document.getElementById("saveDialog").close();
+    });
+
+    document.getElementById("draftName").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("saveDraftButton").click();
+        }
+    });
+}
