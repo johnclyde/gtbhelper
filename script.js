@@ -4,7 +4,7 @@ import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
 import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage, initializeLocalStorage, saveRadioState, saveDropRadioState } from "./localStorageManager.js";
 import { writeTableTitles, addMakushitaTable } from "./tableUtils.js";
 import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
-import { saveDraft, loadDraft, deleteDraft, displayDrafts } from "./drafts.js";
+import { displayDrafts, setupDraftEventHandler } from "./drafts.js";
 
 window.onload = function () {
   var basho = "202401"; // The date of the basho just ended
@@ -59,9 +59,6 @@ window.onload = function () {
     updateInfoCells();
   });
 
-  displayDrafts("draftsTable");
-  var drafts = getFromLocalStorage("drafts");
-
   if (window.localStorage.getItem("colCheck1") === null) {
     var columnCheckbox = document.querySelectorAll(".checkedByDefault");
 
@@ -78,32 +75,8 @@ window.onload = function () {
     }
   }
 
-  var saveDialog = document.getElementById("saveDialog");
-
-  document.getElementById("saveDraft").addEventListener("click", function () {
-    saveDialog.show();
-  });
-
-  document.getElementById("saveDraftButton").addEventListener("click", function () {
-    var draftName = document.getElementById("draftName").value;
-    if (draftName) {
-      saveDraft(draftName);
-      displayDrafts("draftsTable");  // Refresh the drafts table
-      document.getElementById("draftName").value = "";
-    }
-    saveDialog.close();
-  });
-  
-  document.getElementById("closeDialog").addEventListener("click", function () {
-    saveDialog.close();
-  });
-
-  document.getElementById("draftName").addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("saveDraftButton").click();
-    }
-  });
+  displayDrafts("draftsTable");
+  setupDraftEventHandlers();
 };
 
 function (button) {
