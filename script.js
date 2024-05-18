@@ -4,6 +4,7 @@ import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
 import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage, initializeLocalStorage, saveRadioState, saveDropRadioState } from "./localStorageManager.js";
 import { writeTableTitles, addMakushitaTable } from "./tableUtils.js";
 import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
+import { saveDraft, loadDraft, deleteDraft, displayDrafts } from "./drafts.js";
 
 window.onload = function () {
   var basho = "202401"; // The date of the basho just ended
@@ -58,26 +59,9 @@ window.onload = function () {
     updateInfoCells();
   });
 
+  displayDrafts("draftsTable");
   var drafts = getFromLocalStorage("drafts");
 
-  if (drafts !== null) {
-    var draftsTable = document.getElementById("draftsTable");
-    var draftsJSON = JSON.parse(drafts);
-
-    for (var i = 0; i < draftsJSON.length; i++) {
-      var draftRow = document.createElement("tr");
-
-      draftRow.innerHTML =
-        '<td title="' +
-        draftsJSON[i].name +
-        '" class="dname"><b>' +
-        draftsJSON[i].name +
-        "</b></td><td>" +
-        draftsJSON[i].date +
-        '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
-      draftsTable.children[0].appendChild(draftRow);
-    }
-  }
   if (window.localStorage.getItem("colCheck1") === null) {
     var columnCheckbox = document.querySelectorAll(".checkedByDefault");
 
@@ -123,19 +107,19 @@ window.onload = function () {
         else draftsJSON = [];
         draftsJSON.unshift(draft);
         window.localStorage.setItem("drafts", JSON.stringify(draftsJSON));
-        draftRow.innerHTML =
-          '<td title="' +
-          draftName +
-          '" class="dname"><b>' +
-          draftName +
-          "</b></td><td>" +
-          currentDate +
-          '</td><td><button onclick="deleteDraft()">❌</button> <button onclick="loadDraft()">Load</button></td>';
+        draftRow.innerHTML = `
+            <td title="${draft.name}" class="dname"><b>${draft.name}</b></td>
+            <td>${draft.date}</td>
+            <td>
+                <button onclick="handleDeleteDraft('${draft.date}')">❌</button>
+                <button onclick="handleLoadDraft('${draft.date}')">Load</button>
+            </td>`;
         draftsTable.children[0].prepend(draftRow);
         document.getElementById("draftName").value = "";
       }
       saveDialog.close();
     });
+  
   document.getElementById("closeDialog").addEventListener("click", function () {
     saveDialog.close();
   });
@@ -151,82 +135,32 @@ window.onload = function () {
       }
     });
 
-function loadDraft() {
-  var draftDate = event.target.parentNode.previousSibling.innerText;
-
-  if (confirm("Load draft from " + draftDate + "?")) {
-    var draftsTable = document.getElementById("draftsTable");
-    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
-
-    for (var i = 0; i < allDrafts.length; i++) {
-      if (allDrafts[i].date == draftDate)
-        document.getElementById("tableLiner").innerHTML =
-          allDrafts[i].mainContent;
+function handleLoadDraft(draftDate) {
+    if (confirm("Load draft from " + draftDate + "?")) {
+        if (loadDraft(draftDate)) {
+            saveBanzuke();
+            redips.init();
+        }
     }
-    saveBanzuke();
-    redips.init();
-    if (window.localStorage.getItem("colCheck1") === null) {
-      var columnCheckbox = document.querySelectorAll(".checkedByDefault");
-
-      for (var i = 0; i < columnCheckbox.length; i++)
-        columnCheckbox[i].checked = true;
-    } else {
-      for (var i = 1; i < 8; i++) {
-        var columnCheck = document.querySelectorAll(".columnCheckbox")[i - 1];
-        var check = JSON.parse(
-          window.localStorage.getItem("colCheck" + String(i)),
-        );
-
-        columnCheck.checked = check;
-      }
-    }
-    var noteCells = document.querySelectorAll(".nte");
-
-    for (var i = 2; i < noteCells.length; i++) {
-      let time = 0;
-      noteCells[i].children[0].contentEditable = "true";
-      noteCells[i].children[0].addEventListener("input", function () {
-        // Reset the timer
-        clearTimeout(time);
-
-        time = setTimeout(function () {
-          saveBanzuke();
-          showSaving();
-        }, 1000);
-      });
-    }
-  }
 }
 
-function deleteDraft() {
-  var draftDate = event.target.parentNode.previousSibling.innerText;
-
-  if (confirm("Delete draft from " + draftDate + "?")) {
-    var allDrafts = JSON.parse(window.localStorage.getItem("drafts"));
-
-    for (var i = 0; i < allDrafts.length; i++) {
-      if (allDrafts[i].date == draftDate) allDrafts.splice(i, 1);
+function handleDeleteDraft(draftDate) {
+    if (confirm("Delete draft from " + draftDate + "?")) {
+        deleteDraft(draftDate);
+        const draftsTable = document.getElementById("draftsTable");
+        draftsTable.querySelector(`button[onclick="handleDeleteDraft('${draftDate}')"]`).parentElement.parentElement.remove();
     }
-    window.localStorage.setItem("drafts", JSON.stringify(allDrafts));
-    event.target.parentNode.parentNode.remove();
-  }
 }
 
 function saveRadio(radioButton) {
-  window.localStorage.setItem("radioButton", radioButton.value);
+    window.localStorage.setItem("radioButton", radioButton.value);
 }
 
 function saveDropRadio(button) {
-  if (button.value == "disable") rd.dropMode = "single";
-  else rd.dropMode = "multiple";
+    if (button.value == "disable") rd.dropMode = "single";
+    else rd.dropMode = "multiple";
 
-  window.localStorage.setItem("radioDrop", button.value);
-}
-
-function saveBanzuke() {
-  var date = new Date();
-  saveToLocalStorage("savedBanzuke", document.getElementById("tableLiner").innerHTML);
-  saveToLocalStorage("savedBanzukeTime", date.toString());
+    window.localStorage.setItem("radioDrop", button.value);
 }
 
 // *****************************************************************************
@@ -865,14 +799,6 @@ function getChange(thisRank, targetCellRank) {
   return chg;
 }
 
-function showSaving() {
-  var saving = document.getElementById("progressText");
-  saving.innerHTML = "Saved!";
-  setTimeout(function () {
-    saving.innerHTML = "";
-  }, 1000);
-}
-
 if (window.addEventListener)
   window.addEventListener("load", redips.init, false);
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
@@ -955,4 +881,3 @@ function createDividerRow(title) {
     }
     return row;
 }
-
