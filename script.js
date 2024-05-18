@@ -79,13 +79,6 @@ window.onload = function () {
   setupDraftEventHandlers();
 };
 
-function (button) {
-    if (button.value == "disable") rd.dropMode = "single";
-    else rd.dropMode = "multiple";
-
-    window.localStorage.setItem("radioDrop", button.value);
-}
-
 // *****************************************************************************
 
 rd.animation = "off";
