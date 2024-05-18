@@ -1225,17 +1225,16 @@ if (window.addEventListener)
 else if (window.attachEvent) window.attachEvent("onload", redips.init);
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Define the prefixes and numeric ranges for each table, including dividers
     const banzuke1Config = [
         { prefix: 'Y', range: [1] },
         { prefix: 'O', range: [1, 2] },
         { prefix: 'S', range: [1] },
         { prefix: 'K', range: [1] },
-        { prefix: 'M', range: [...Array(17).keys()].map(i => i + 1) },
+        { prefix: 'M', range: Array.from({length: 17}, (_, i) => i + 1) },
         { divider: true },
-        { prefix: 'J', range: [...Array(14).keys()].map(i => i + 1) },
+        { prefix: 'J', range: Array.from({length: 14}, (_, i) => i + 1) },
         { divider: true },
-        { prefix: 'Ms', range: [...Array(60).keys()].map(i => i + 1) }
+        { prefix: 'Ms', range: Array.from({length: 60}, (_, i) => i + 1) }
     ];
 
     const banzuke2Config = [
@@ -1243,11 +1242,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { prefix: 'O', range: [1, 2, 3] },
         { prefix: 'S', range: [1, 2] },
         { prefix: 'K', range: [1, 2] },
-        { prefix: 'M', range: [...Array(18).keys()].map(i => i + 1) },
-        { divider: true },
-        { prefix: 'J', range: [...Array(14).keys()].map(i => i + 1) },
-        { divider: true },
-        { prefix: 'Ms', range: [...Array(60).keys()].map(i => i + 1) }
+        { prefix: 'M', range: Array.from({length: 18}, (_, i) => i + 1) },
+        { divider: 'Juryo Guess - <span id="juRik">0</span>/28' },
+        { prefix: 'J', range: Array.from({length: 14}, (_, i) => i + 1) },
+        { divider: 'Makushita Joi Guess - <span id="msRik">0</span>/30' },
+        { prefix: 'Ms', range: Array.from({length: 60}, (_, i) => i + 1) }
     ];
 
     populateBanzukeTable('banzuke1Body', banzuke1Config, createRowBanzuke1);
@@ -1258,7 +1257,7 @@ function populateBanzukeTable(tableId, config, createRow) {
     const tableBody = document.getElementById(tableId);
     config.forEach(item => {
         if (item.divider) {
-            const dividerRow = createDividerRow();
+            const dividerRow = createDividerRow(item.divider);
             tableBody.appendChild(dividerRow);
         } else {
             item.range.forEach(num => {
@@ -1302,9 +1301,14 @@ function createRowBanzuke2(rank) {
     return row;
 }
 
-function createDividerRow() {
+function createDividerRow(title) {
     const row = document.createElement('tr');
-    row.classList.add('divider');
-    row.innerHTML = '<td colspan="9"></td>';
+    if (title) {
+        row.innerHTML = `<th colspan="9" class="tableTitle">${title}</th>`;
+    } else {
+        row.classList.add('divider');
+        row.innerHTML = '<td colspan="9"></td>';
+    }
     return row;
 }
+
