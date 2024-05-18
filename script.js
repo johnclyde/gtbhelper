@@ -80,6 +80,8 @@ window.onload = function () {
 };
 
 // *****************************************************************************
+let redips = {},
+  rd = REDIPS.drag;
 
 rd.animation = "off";
 
