@@ -3,7 +3,7 @@
 import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
 import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage, initializeLocalStorage, saveRadioState, saveDropRadioState } from "./localStorageManager.js";
 import { writeTableTitles, addMakushitaTable } from "./tableUtils.js";
-import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishiUtils.js";
+import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
 
 window.onload = function () {
   var basho = "202401"; // The date of the basho just ended
@@ -150,79 +150,6 @@ window.onload = function () {
         document.getElementById("saveDraftButton").click();
       }
     });
-
-  function addRikishi() {
-    var table1 = document.getElementById("banzuke1"),
-      cell = table1.querySelectorAll(".redips-only");
-
-    for (var i = 0; i < cell.length; i++) {
-      for (var j = 0; j < theSekitori.length; j++) {
-        if (cell[i].classList.contains(theSekitori[j].split(" ")[0])) {
-          var card = document.createElement("div"),
-            rikiData = theSekitori[j].split(" "),
-            wins = rikiData[2].split("-")[0],
-            record =
-              rikiData.length == 4
-                ? rikiData[2] + " " + rikiData[3]
-                : rikiData[2];
-
-          if (rikiData.length > 3) rikiData[2] += " " + rikiData[3];
-
-          card.id = rikiData[0];
-          card.className = "redips-drag se";
-          if (
-            rikiData[0].startsWith("Ms") ||
-            rikiData[0].startsWith("Sd") ||
-            rikiData[0].startsWith("Jd") ||
-            rikiData[0].startsWith("Jk")
-          )
-            card.setAttribute("data-w", wins * 2);
-          else card.setAttribute("data-w", wins);
-          card.setAttribute("data-re", record);
-
-          rikiData[1] =
-            '<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=' +
-            sekitoriID[j] +
-            '" target="_blank">' +
-            rikiData[1] +
-            "</a>";
-          rikiData[2] =
-            '<a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=' +
-            sekitoriID[j] +
-            "&b=" +
-            basho +
-            '" target="_blank">' +
-            rikiData[2] +
-            "</a>";
-
-          card.innerHTML = rikiData[1];
-
-          if (retiredRikishi.includes(theSekitori[j].split(" ")[1])) {
-            //card.innerHTML = rikiData.join(' ');
-            card.style.backgroundColor = "rgb(203, 203, 203)";
-            card.className = "redips-drag intai";
-            card.setAttribute("title", "Retired");
-            card.removeAttribute("data-ko");
-          }
-
-          //card.setAttribute("onmouseout", "unhighlight()");
-
-          //cell[i].appendChild(holder);
-          cell[i].appendChild(card);
-
-          var resCell, newRankCell;
-
-          if (i % 2 == 0) resCell = cell[i].previousSibling;
-          else resCell = cell[i].nextSibling;
-
-          resCell.innerHTML = rikiData[2];
-
-          //cell[i].style.borderInline = "1px solid #929292";
-        }
-      }
-    }
-  }
-};
 
 function loadDraft() {
   var draftDate = event.target.parentNode.previousSibling.innerText;
