@@ -296,6 +296,11 @@ window.onload = function () {
   });
 
   initializeLocalStorage();
+  if (window.localStorage.getItem("savedBanzuke") === null) {
+    writeTableTitles(basho);
+    addRikishi();
+    addMakushitaTable();
+  }
 
   var noteCells = document.querySelectorAll(".nte");
 
