@@ -83,80 +83,30 @@ window.onload = function () {
   document.getElementById("saveDraft").addEventListener("click", function () {
     saveDialog.show();
   });
-  document
-    .getElementById("saveDraftButton")
-    .addEventListener("click", function () {
-      if (window.localStorage.getItem("savedBanzuke") !== null) {
-        var draftsTable = document.getElementById("draftsTable");
-        var draftName = document.getElementById("draftName").value;
-        var currentDate = new Date().toLocaleString();
-        var draftCount = draftsTable.children[0].children.length + 1;
-        var draft = {
-          name: "",
-          date: "",
-          mainContent: "",
-        };
-        var draftRow = document.createElement("tr");
-        var draftsString = window.localStorage.getItem("drafts");
-        var draftsJSON;
 
-        draft.name = draftName;
-        draft.date = currentDate;
-        draft.mainContent = window.localStorage.getItem("savedBanzuke");
-        if (draftsString !== null) draftsJSON = JSON.parse(draftsString);
-        else draftsJSON = [];
-        draftsJSON.unshift(draft);
-        window.localStorage.setItem("drafts", JSON.stringify(draftsJSON));
-        draftRow.innerHTML = `
-            <td title="${draft.name}" class="dname"><b>${draft.name}</b></td>
-            <td>${draft.date}</td>
-            <td>
-                <button onclick="handleDeleteDraft('${draft.date}')">❌</button>
-                <button onclick="handleLoadDraft('${draft.date}')">Load</button>
-            </td>`;
-        draftsTable.children[0].prepend(draftRow);
-        document.getElementById("draftName").value = "";
-      }
-      saveDialog.close();
-    });
+  document.getElementById("saveDraftButton").addEventListener("click", function () {
+    var draftName = document.getElementById("draftName").value;
+    if (draftName) {
+      saveDraft(draftName);
+      displayDrafts("draftsTable");  // Refresh the drafts table
+      document.getElementById("draftName").value = "";
+    }
+    saveDialog.close();
+  });
   
   document.getElementById("closeDialog").addEventListener("click", function () {
     saveDialog.close();
   });
-  document
-    .getElementById("draftName")
-    .addEventListener("keypress", function () {
-      // If the user presses the "Enter" key on the keyboard
-      if (event.key === "Enter") {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
-        document.getElementById("saveDraftButton").click();
-      }
-    });
 
-function handleLoadDraft(draftDate) {
-    if (confirm("Load draft from " + draftDate + "?")) {
-        if (loadDraft(draftDate)) {
-            saveBanzuke();
-            redips.init();
-        }
+  document.getElementById("draftName").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("saveDraftButton").click();
     }
-}
+  });
+};
 
-function handleDeleteDraft(draftDate) {
-    if (confirm("Delete draft from " + draftDate + "?")) {
-        deleteDraft(draftDate);
-        const draftsTable = document.getElementById("draftsTable");
-        draftsTable.querySelector(`button[onclick="handleDeleteDraft('${draftDate}')"]`).parentElement.parentElement.remove();
-    }
-}
-
-function saveRadio(radioButton) {
-    window.localStorage.setItem("radioButton", radioButton.value);
-}
-
-function saveDropRadio(button) {
+function (button) {
     if (button.value == "disable") rd.dropMode = "single";
     else rd.dropMode = "multiple";
 
