@@ -1226,22 +1226,14 @@ else if (window.attachEvent) window.attachEvent("onload", redips.init);
 
 document.addEventListener('DOMContentLoaded', function() {
     const banzuke1Config = [
-        { prefix: 'Y', range: [1] },
-        { prefix: 'O', range: [1, 2] },
-        { prefix: 'S', range: [1] },
-        { prefix: 'K', range: [1] },
         { prefix: 'M', range: Array.from({length: 17}, (_, i) => i + 1) },
-        { divider: true },
+        { divider: false },
         { prefix: 'J', range: Array.from({length: 14}, (_, i) => i + 1) },
-        { divider: true },
+        { divider: false },
         { prefix: 'Ms', range: Array.from({length: 60}, (_, i) => i + 1) }
     ];
 
     const banzuke2Config = [
-        { prefix: 'Y', range: [1, 2] },
-        { prefix: 'O', range: [1, 2, 3] },
-        { prefix: 'S', range: [1, 2] },
-        { prefix: 'K', range: [1, 2] },
         { prefix: 'M', range: Array.from({length: 18}, (_, i) => i + 1) },
         { divider: 'Juryo Guess - <span id="juRik">0</span>/28' },
         { prefix: 'J', range: Array.from({length: 14}, (_, i) => i + 1) },
