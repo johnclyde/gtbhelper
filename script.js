@@ -4,7 +4,7 @@ import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
 import { saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage, initializeLocalStorage, saveRadioState, saveDropRadioState } from "./localStorageManager.js";
 import { writeTableTitles, addMakushitaTable } from "./tableUtils.js";
 import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
-import { displayDrafts, setupDraftEventHandler } from "./drafts.js";
+import { displayDrafts, setupDraftEventHandlers } from "./drafts.js";
 
 window.onload = function () {
   var basho = "202401"; // The date of the basho just ended
