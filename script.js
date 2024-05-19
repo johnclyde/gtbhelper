@@ -2,15 +2,13 @@
 
 import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
 import { initializeLocalStorage } from "./localStorageManager.js";
-import { writeTableTitles, addMakushitaTable } from "./tableUtils.js";
-import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
+import { initializeTables } from "./tableUtils.js";
 import { displayDrafts, setupDraftEventHandlers } from "./drafts.js";
 import { updateInfoCells } from "./banzukeUtils.js";
 import { redipsInit } from "./redipsUtils.js";
 
-window.addEventListener("load", () => {
-  const basho = "202401";
 
+window.addEventListener("load", () => {
   $("#exportToCsv1").on("click", () => {
     exportTableToCSV($("#banzuke1"), "banzuke1.csv");
   });
@@ -19,12 +17,7 @@ window.addEventListener("load", () => {
   });
 
   initializeLocalStorage();
-
-  if (!window.localStorage.getItem("savedBanzuke")) {
-    writeTableTitles(basho);
-    addRikishi(basho, theSekitori, sekitoriID, retiredRikishi);
-    addMakushitaTable(theSekitori, sekitoriID);
-  }
+  initializeTables();
 
   document.querySelectorAll(".nte").forEach((noteCell, index) => {
     if (index >= 2) {
@@ -62,25 +55,6 @@ window.addEventListener("load", () => {
   setupDraftEventHandlers();
 
   redipsInit(redips);
-
-  const banzuke1Config = [
-    { prefix: 'M', range: Array.from({ length: 17 }, (_, i) => i + 1) },
-    { divider: true },
-    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
-    { divider: true },
-    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
-  ];
-
-  const banzuke2Config = [
-    { prefix: 'M', range: Array.from({ length: 18 }, (_, i) => i + 1) },
-    { divider: 'Juryo Guess - <span id="juRik">0</span>/28' },
-    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
-    { divider: 'Makushita Joi Guess - <span id="msRik">0</span>/30' },
-    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
-  ];
-
-  populateBanzukeTable('banzuke1Body', banzuke1Config, createRowBanzuke1);
-  populateBanzukeTable('banzuke2Body', banzuke2Config, createRowBanzuke2);
 });
 
 function debounce(func, wait) {
