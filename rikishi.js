@@ -251,3 +251,45 @@ export const sekitoriID = [
   12703, 12316, 7143, 9066, 12455, 12656, 12225, 12778, 12834, 12689, 12192,
   12702,
 ];
+
+class Rikishi {
+  constructor(rank, name, winCount, id) {
+    this.rank = rank;
+    this.name = name;
+    this.winCount = winCount;
+    this.id = id;
+  }
+
+  getLink() {
+    return `<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=${this.id}" target="_blank">${this.name}</a>`;
+  }
+
+  getRecordLink(basho) {
+    return `<a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=${this.id}&b=${basho}" target="_blank">${this.winCount}</a>`;
+  }
+
+  createCard(basho) {
+    const card = document.createElement("div");
+    const wins = this.winCount.split("-")[0];
+    card.id = this.rank;
+    card.className = "redips-drag se";
+    card.setAttribute("data-w", this.rank.startsWith("Ms") || this.rank.startsWith("Sd") || this.rank.startsWith("Jd") || this.rank.startsWith("Jk") ? wins * 2 : wins);
+    card.setAttribute("data-re", this.winCount);
+    card.innerHTML = this.getLink(basho);
+    return card;
+  }
+}
+
+class RetiredRikishi extends Rikishi {
+  constructor(rank, name, winCount, id) {
+    super(rank, name, winCount, id);
+  }
+
+  createCard(basho) {
+    const card = super.createCard(basho);
+    card.style.backgroundColor = "rgb(203, 203, 203)";
+    card.className = "redips-drag intai";
+    card.setAttribute("title", "Retired");
+    return card;
+  }
+}
