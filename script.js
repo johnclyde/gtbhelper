@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
   displayDrafts("draftsTable");
   setupDraftEventHandlers();
 
-  redipsInit(redips);
+  redipsInit();
 });
 
 function debounce(func, wait) {

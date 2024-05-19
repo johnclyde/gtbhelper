@@ -2,7 +2,8 @@
 
 import { saveBanzuke } from "./localStorageManager.js";
 
-export function redipsInit(redips) {
+export function redipsInit() {
+  let redips = {};
   const rd = REDIPS.drag;
   rd.animation = "off";
   rd.init();
