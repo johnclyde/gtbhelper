@@ -85,6 +85,64 @@ export function addRikishi(basho) {
   });
 }
 
+function populateBanzukeTable(tableId, config, createRow) {
+    const tableBody = document.getElementById(tableId);
+    config.forEach(item => {
+        if (item.divider) {
+            const dividerRow = createDividerRow(item.divider);
+            tableBody.appendChild(dividerRow);
+        } else {
+            item.range.forEach(num => {
+                const rank = item.prefix + num;
+                const row = createRow(rank);
+                tableBody.appendChild(row);
+            });
+        }
+    });
+}
+
+function createRowBanzuke1(rank) {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td class="rs1"></td>
+        <td class="redips-only ${rank}e"></td>
+        <td class="new hid"></td>
+        <td class="ch1 hid"></td>
+        <th>${rank}</th>
+        <td class="redips-only ${rank}w"></td>
+        <td class="rs1"></td>
+        <td class="new hid"></td>
+        <td class="ch1 hid"></td>`;
+    return row;
+}
+
+function createRowBanzuke2(rank) {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td class="nte hid"><div></div></td>
+        <td class="cur"></td>
+        <td data-r="${rank}e" class="redips-only b2"></td>
+        <td class="rs2"></td>
+        <td class="ch2"></td>
+        <th>${rank}</th>
+        <td class="cur"></td>
+        <td data-r="${rank}w" class="redips-only b2"></td>
+        <td class="rs2"></td>
+        <td class="ch2"></td>
+        <td class="nte hid"><div></div></td>`;
+    return row;
+}
+
+function createDividerRow(title) {
+    const row = document.createElement('tr');
+    if (title !== true) {
+        row.innerHTML = `<th colspan="9" class="tableTitle">${title}</th>`;
+    } else {
+        row.innerHTML = '<th colspan="9" class="divider"></th>';
+    }
+    return row;
+}
+
 export function initializeTables() {
   const basho = "202401";
 
