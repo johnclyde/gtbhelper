@@ -8,7 +8,7 @@ import { displayDrafts, setupDraftEventHandlers } from "./drafts.js";
 import { updateInfoCells } from "./banzukeUtils.js";
 import { redipsInit } from "./redipsUtils.js";
 
-window.onload = () => {
+window.addEventListener("load", () => {
   const basho = "202401";
 
   $("#exportToCsv1").on("click", () => {
@@ -60,11 +60,9 @@ window.onload = () => {
 
   displayDrafts("draftsTable");
   setupDraftEventHandlers();
-};
 
-window.addEventListener("load", () => redipsInit(redips));
+  redipsInit(redips);
 
-document.addEventListener('DOMContentLoaded', () => {
   const banzuke1Config = [
     { prefix: 'M', range: Array.from({ length: 17 }, (_, i) => i + 1) },
     { divider: true },
