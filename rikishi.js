@@ -293,3 +293,12 @@ class RetiredRikishi extends Rikishi {
     return card;
   }
 }
+
+export const allRikishi = theSekitori.map((rikishiString, index) => {
+  const [rank, name, winCount] = rikishiString.split(' ');
+  const id = sekitoriID[index];
+  if (retiredRikishi.includes(name)) {
+    return new RetiredRikishi(rank, name, winCount, id);
+  }
+  return new Rikishi(rank, name, winCount, id);
+});
