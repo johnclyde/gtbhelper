@@ -1,48 +1,7 @@
 "use strict";
 
-import { theSekitori, retiredRikishi, sekitoriID } from "./rikishi.js";
+import { allRikishi } from "./rikishi.js";
 
-class Rikishi {
-  constructor(rank, name, winCount, id) {
-    this.rank = rank;
-    this.name = name;
-    this.winCount = winCount;
-    this.id = id;
-  }
-
-  getLink() {
-    return `<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=${this.id}" target="_blank">${this.name}</a>`;
-  }
-
-  getRecordLink(basho) {
-    return `<a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=${this.id}&b=${basho}" target="_blank">${this.winCount}</a>`;
-  }
-
-  createCard(basho) {
-    const card = document.createElement("div");
-    const wins = this.winCount.split("-")[0];
-    card.id = this.rank;
-    card.className = "redips-drag se";
-    card.setAttribute("data-w", this.rank.startsWith("Ms") || this.rank.startsWith("Sd") || this.rank.startsWith("Jd") || this.rank.startsWith("Jk") ? wins * 2 : wins);
-    card.setAttribute("data-re", this.winCount);
-    card.innerHTML = this.getLink(basho);
-    return card;
-  }
-}
-
-class RetiredRikishi extends Rikishi {
-  constructor(rank, name, winCount, id) {
-    super(rank, name, winCount, id);
-  }
-
-  createCard(basho) {
-    const card = super.createCard(basho);
-    card.style.backgroundColor = "rgb(203, 203, 203)";
-    card.className = "redips-drag intai";
-    card.setAttribute("title", "Retired");
-    return card;
-  }
-}
 
 function writeTableTitles(endedBashoDate) {
   const bashoYear = parseInt(endedBashoDate.substring(0, 4));
@@ -73,11 +32,10 @@ export function addMakushitaTable() {
   tables.forEach(table => table.className = "makushitaTable");
   const groups = [[], [], [], [], [], [], [], []];
 
-  theSekitori.forEach((sekitori, i) => {
-    if (sekitori.startsWith("Ms")) {
-      const [rank, name, winCount] = sekitori.split(" ");
-      const groupIndex = winCount.charAt(0);
-      groups[groupIndex].push({ name, id: sekitoriID[i] });
+  allRikishi.forEach(rikishi => {
+    if (rikishi.rank.startsWith("Ms")) {
+      const groupIndex = rikishi.winCount.charAt(0);
+      groups[groupIndex].push(rikishi);
     }
   });
 
@@ -115,34 +73,13 @@ export function addRikishi(basho) {
   const cells = table1.querySelectorAll(".redips-only");
 
   cells.forEach(cell => {
-    theSekitori.forEach((sekitori, j) => {
-      if (cell.classList.contains(sekitori.split(" ")[0])) {
-        const card = document.createElement("div");
-        const [rank, name, winRecord, additionalInfo] = sekitori.split(" ");
-        const wins = winRecord.split("-")[0];
-        const record = additionalInfo ? `${winRecord} ${additionalInfo}` : winRecord;
-
-        card.id = rank;
-        card.className = "redips-drag se";
-        card.setAttribute("data-w", rank.startsWith("Ms") || rank.startsWith("Sd") || rank.startsWith("Jd") || rank.startsWith("Jk") ? wins * 2 : wins);
-        card.setAttribute("data-re", record);
-
-        const nameLink = `<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=${sekitoriID[j]}" target="_blank">${name}</a>`;
-        const recordLink = `<a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=${sekitoriID[j]}&b=${basho}" target="_blank">${record}</a>`;
-
-        card.innerHTML = nameLink;
-
-        if (retiredRikishi.includes(name)) {
-          card.style.backgroundColor = "rgb(203, 203, 203)";
-          card.className = "redips-drag intai";
-          card.setAttribute("title", "Retired");
-          card.removeAttribute("data-ko");
-        }
-
+    allRikishi.forEach(rikishi => {
+      if (cell.classList.contains(rikishi.rank)) {
+        const card = rikishi.createCard(basho);
         cell.appendChild(card);
 
-        const resCell = i % 2 === 0 ? cell.previousSibling : cell.nextSibling;
-        resCell.innerHTML = recordLink;
+        const resCell = cell.nextElementSibling || cell.previousElementSibling;
+        resCell.innerHTML = rikishi.getRecordLink(basho);
       }
     });
   });
@@ -154,7 +91,7 @@ export function initializeTables() {
   if (!window.localStorage.getItem("savedBanzuke")) {
     writeTableTitles(basho);
     addRikishi(basho);
-    addMakushitaTable(theSekitori, sekitoriID);
+    addMakushitaTable();
   }
 
   const banzuke1Config = [
