@@ -44,33 +44,6 @@ class RetiredRikishi extends Rikishi {
   }
 }
 
-function writeTableTitles(endedBashoDate) {
-  const bashoYear = parseInt(endedBashoDate.substring(0, 4), 10);
-  const bashoMonth = parseInt(endedBashoDate.slice(-2), 10);
-  const tableTitle = document.getElementsByClassName("tableTitle");
-  const bashoMonthLookup = {
-    1: "Hatsu",
-    3: "Haru",
-    5: "Natsu",
-    7: "Nagoya",
-    9: "Aki",
-    11: "Kyushu",
-  };
-
-  const getBashoName = (month) => bashoMonthLookup[month];
-  tableTitle[0].innerHTML = `${getBashoName(bashoMonth)} ${bashoYear} ${tableTitle[0].innerHTML} Result`;
-
-  const nextBashoMonth = (bashoMonth + 2) % 12 || 12;
-  const nextBashoYear = nextBashoMonth < bashoMonth ? bashoYear + 1 : bashoYear;
-  tableTitle[1].innerHTML = `${getBashoName(nextBashoMonth)} ${nextBashoYear} Makuuchi Guess - ${tableTitle[1].innerHTML}`;
-}
-
-function createTable() {
-  const table = document.createElement("table");
-  table.className = "makushitaTable";
-  return table;
-}
-
 function appendRikishiRows(group, tableIndex, tables) {
   if (group.length > 0) {
     const headerRow = document.createElement("tr");
@@ -105,7 +78,7 @@ function addMakushitaTable() {
     if (sekitori.startsWith("Ms")) {
       const [rank, name, winCount] = sekitori.split(" ");
       const groupIndex = parseInt(winCount.charAt(0), 10);
-      groups[groupIndex].push({ name, id: sekitoriID[i] });
+      groups[groupIndex].push(new Rikishi(rank, name, winCount, sekitoriID[i]));
     }
   });
 
@@ -118,19 +91,8 @@ function addMakushitaTable() {
 }
 
 function createCardElement(rank, name, winRecord, additionalInfo, id, basho) {
-  const card = document.createElement("div");
-  const wins = parseInt(winRecord.split("-")[0], 10);
-  const record = additionalInfo ? `${winRecord} ${additionalInfo}` : winRecord;
-
-  card.id = rank;
-  card.className = "redips-drag se";
-  card.setAttribute("data-w", ["Ms", "Sd", "Jd", "Jk"].some(prefix => rank.startsWith(prefix)) ? wins * 2 : wins);
-  card.setAttribute("data-re", record);
-
-  const nameLink = `<a href="https://sumodb.sumogames.de/Rikishi.aspx?r=${id}" target="_blank">${name}</a>`;
-  const recordLink = `<a href="https://sumodb.sumogames.de/Rikishi_basho.aspx?r=${id}&b=${basho}" target="_blank">${record}</a>`;
-
-  card.innerHTML = nameLink;
+  const rikishi = new Rikishi(rank, name, winRecord, id);
+  const card = rikishi.createCard(basho);
 
   if (retiredRikishi.includes(name)) {
     card.style.backgroundColor = "rgb(203, 203, 203)";
@@ -138,7 +100,7 @@ function createCardElement(rank, name, winRecord, additionalInfo, id, basho) {
     card.setAttribute("title", "Retired");
   }
 
-  return { card, recordLink };
+  return { card, recordLink: rikishi.getRecordLink(basho) };
 }
 
 export function addRikishi(basho) {
@@ -157,64 +119,4 @@ export function addRikishi(basho) {
       }
     });
   });
-}
-
-function populateBanzukeTable(tableId, config, createRowFunction) {
-  const tableBody = document.getElementById(tableId);
-  config.forEach(item => {
-    if (item.divider) {
-      const dividerRow = document.createElement("tr");
-      const dividerCell = document.createElement("td");
-      dividerCell.colSpan = 3;
-      dividerCell.innerHTML = typeof item.divider === 'string' ? item.divider : '';
-      dividerRow.appendChild(dividerCell);
-      tableBody.appendChild(dividerRow);
-    } else {
-      item.range.forEach(number => {
-        const row = createRowFunction(item.prefix, number);
-        tableBody.appendChild(row);
-      });
-    }
-  });
-}
-
-function createRowBanzuke1(prefix, number) {
-  const row = document.createElement("tr");
-  row.innerHTML = `<td class="${prefix}${number} redips-only"></td><td></td>`;
-  return row;
-}
-
-function createRowBanzuke2(prefix, number) {
-  const row = document.createElement("tr");
-  row.innerHTML = `<td class="${prefix}${number} redips-only"></td><td class="record"></td>`;
-  return row;
-}
-
-export function initializeTables() {
-  const basho = "202401";
-
-  if (!window.localStorage.getItem("savedBanzuke")) {
-    writeTableTitles(basho);
-    addRikishi(basho);
-    addMakushitaTable();
-  }
-
-  const banzuke1Config = [
-    { prefix: 'M', range: Array.from({ length: 17 }, (_, i) => i + 1) },
-    { divider: true },
-    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
-    { divider: true },
-    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
-  ];
-
-  const banzuke2Config = [
-    { prefix: 'M', range: Array.from({ length: 18 }, (_, i) => i + 1) },
-    { divider: 'Juryo Guess - <span id="juRik">0</span>/28' },
-    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
-    { divider: 'Makushita Joi Guess - <span id="msRik">0</span>/30' },
-    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
-  ];
-
-  populateBanzukeTable('banzuke1Body', banzuke1Config, createRowBanzuke1);
-  populateBanzukeTable('banzuke2Body', banzuke2Config, createRowBanzuke2);
 }
