@@ -21,7 +21,7 @@ window.onload = function () {
   if (window.localStorage.getItem("savedBanzuke") === null) {
     writeTableTitles(basho);
     addRikishi(basho, theSekitori, sekitoriID, retiredRikishi);
-    addMakushitaTable();
+    addMakushitaTable(theSekitori, sekitoriID);
   }
 
   var noteCells = document.querySelectorAll(".nte");
