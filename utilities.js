@@ -103,11 +103,6 @@ function checkDarkMode(checkbox) {
     }
 }
 
-// Local storage management
-function saveToLocalStorage(key, value) {
-    window.localStorage.setItem(key, value);
-}
-
 function getFromLocalStorage(key) {
     return window.localStorage.getItem(key);
 }
@@ -117,4 +112,4 @@ function removeFromLocalStorage(key) {
 }
 
 // Public API
-export { exportTableToCSV, darkmode, nodark, checkDarkMode, saveToLocalStorage, getFromLocalStorage, removeFromLocalStorage };
+export { exportTableToCSV, darkmode, nodark, checkDarkMode, getFromLocalStorage, removeFromLocalStorage };

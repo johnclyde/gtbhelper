@@ -1,5 +1,7 @@
 "use strict";
 
+import { saveBanzuke } from "./localStorageManager.js";
+
 export function redipsInit(redips) {
   const rd = REDIPS.drag;
   rd.animation = "off";

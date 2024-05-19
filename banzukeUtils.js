@@ -1,5 +1,7 @@
 "use strict";
 
+import { saveBanzuke } from "./localStorageManager.js";
+
 export function toggleColumns(button) {
   const column = button.value;
   const colCells = document.getElementsByClassName(column);

@@ -1,7 +1,7 @@
 "use strict";
 
 import { exportTableToCSV, darkmode, nodark } from "./utilities.js";
-import { initializeLocalStorage } from "./localStorageManager.js";
+import { initializeLocalStorage, saveBanzuke } from "./localStorageManager.js";
 import { initializeTables } from "./tableUtils.js";
 import { displayDrafts, setupDraftEventHandlers } from "./drafts.js";
 import { updateInfoCells } from "./banzukeUtils.js";

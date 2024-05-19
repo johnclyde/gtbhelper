@@ -1,6 +1,6 @@
 "use strict";
 
-export function saveToLocalStorage(key, value) {
+function saveToLocalStorage(key, value) {
   window.localStorage.setItem(key, value);
 }
 
@@ -53,4 +53,10 @@ export function saveDropRadioState(button) {
   }
 
   saveToLocalStorage("radioDrop", button.value);
+}
+
+export function saveBanzuke() {
+  var date = new Date();
+  saveToLocalStorage("savedBanzuke", document.getElementById("tableLiner").innerHTML);
+  saveToLocalStorage("savedBanzukeTime", date.toString());
 }
