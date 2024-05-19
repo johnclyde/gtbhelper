@@ -1,6 +1,8 @@
 "use strict";
 
-export function writeTableTitles(endedBashoDate) {
+import { theSekitori, retiredRikishi, sekitoriID, addRikishi } from "./rikishi.js";
+
+function writeTableTitles(endedBashoDate) {
   var bashoYear = parseInt(endedBashoDate.substring(0, 4)),
     bashoMonth = parseInt(endedBashoDate.slice(-2)),
     tableTitle = document.getElementsByClassName("tableTitle");
@@ -87,4 +89,33 @@ export function addMakushitaTable(theSekitori, sekitoriID) {
   container.appendChild(table1);
   container.appendChild(table2);
   container.appendChild(table3);
+}
+
+export function initializeTables() {
+  const basho = "202401";
+
+  if (!window.localStorage.getItem("savedBanzuke")) {
+    writeTableTitles(basho);
+    addRikishi(basho, theSekitori, sekitoriID, retiredRikishi);
+    addMakushitaTable(theSekitori, sekitoriID);
+  }
+
+  const banzuke1Config = [
+    { prefix: 'M', range: Array.from({ length: 17 }, (_, i) => i + 1) },
+    { divider: true },
+    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
+    { divider: true },
+    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
+  ];
+
+  const banzuke2Config = [
+    { prefix: 'M', range: Array.from({ length: 18 }, (_, i) => i + 1) },
+    { divider: 'Juryo Guess - <span id="juRik">0</span>/28' },
+    { prefix: 'J', range: Array.from({ length: 14 }, (_, i) => i + 1) },
+    { divider: 'Makushita Joi Guess - <span id="msRik">0</span>/30' },
+    { prefix: 'Ms', range: Array.from({ length: 60 }, (_, i) => i + 1) }
+  ];
+
+  populateBanzukeTable('banzuke1Body', banzuke1Config, createRowBanzuke1);
+  populateBanzukeTable('banzuke2Body', banzuke2Config, createRowBanzuke2);
 }
